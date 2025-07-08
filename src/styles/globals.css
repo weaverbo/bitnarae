@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  cursor: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+div {
+  @apply tracking-tight leading-none;
+}
+
+.container {
+  @apply mx-auto max-w-[1600px];
+}
