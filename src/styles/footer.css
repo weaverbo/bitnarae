@@ -1,0 +1,3 @@
+.footer-top-layout {
+  @apply flex gap-[24px];
+}

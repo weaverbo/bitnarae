@@ -13,8 +13,8 @@ h4,
 h5,
 h6,
 p,
-span,
 a,
+span,
 div {
   @apply tracking-tight leading-none;
 }
