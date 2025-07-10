@@ -5,6 +5,7 @@ import newsImage3 from "../../public/img/newsImg3-min.png";
 import icon_arrow from "../../public/img/icon_arrow.svg";
 
 export default function NewsSection() {
+  // 데이터베이스 만들기
   const news = [
     {
       src: newsImage1,
