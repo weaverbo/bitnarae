@@ -4,6 +4,7 @@ import programimg_2 from "../../public/img/programImg2-min.png";
 import programimg_3 from "../../public/img/programImg3-min.png";
 import icon_arrow from "../../public/img/icon_arrow.svg";
 import "../styles/activitiessection.css";
+import StyledLink from "next/link";
 
 export default function ActivitiesSection() {
   return (
@@ -48,12 +49,12 @@ export default function ActivitiesSection() {
           </div>
           <div className="relative w-[764px] h-[764px] bg-black rounded-[50px] rounded-br-[300px]">
             <div className=" absolute top-[10px] left-[10px] text-white pt-[329px] pl-[157px]">
-              <p className="text-[64px] font-regular pb-[8px] flex items-center gap-[8px]">
+              <StyledLink className="text-[64px] font-regular pb-[8px] flex items-center gap-[8px]" href="/">
                 자세히 알아보기
                 <span>
                   <Image className="w-[44.25px] h-[44.25px]" src={icon_arrow} alt="icon_arrow" />
                 </span>
-              </p>
+              </StyledLink>
             </div>
           </div>
         </div>

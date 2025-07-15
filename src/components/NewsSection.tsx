@@ -1,28 +1,28 @@
+"use client";
+
 import Image from "next/image";
-import newsImage1 from "../../public/img/newsImg1-min.png";
-import newsImage2 from "../../public/img/newsImg2-min.png";
-import newsImage3 from "../../public/img/newsImg3-min.png";
 import icon_arrow from "../../public/img/icon_arrow.svg";
+import { useEffect, useState } from "react";
+import StyledLink from "next/link";
 
 export default function NewsSection() {
-  // 데이터베이스 만들기
-  const news = [
-    {
-      src: newsImage1,
-      paragraph_1: "빛나래문화재단, 지역 아동센터와 함께",
-      paragraph_2: "예술 교육 프로그램 시작",
-    },
-    {
-      src: newsImage2,
-      paragraph_1: "빛나래문화재단, 지역 문화 축제",
-      paragraph_2: "'빛마루' 성황리 개최",
-    },
-    {
-      src: newsImage3,
-      paragraph_1: "빛나래문화재단",
-      paragraph_2: "모전 개최",
-    },
-  ];
+  type News = {
+    id: number;
+    title: string;
+    news_image: string;
+    subtitle: string;
+  };
+
+  const [newsItems, setNewsItems] = useState<News[]>([]);
+
+  useEffect(() => {
+    const newsList = async (): Promise<void> => {
+      const res = await fetch("/api/news");
+      const data = await res.json();
+      return setNewsItems(data);
+    };
+    newsList();
+  }, []);
 
   return (
     <>
@@ -38,15 +38,17 @@ export default function NewsSection() {
           </div>
         </div>
         <div className="flex my-[80px] gap-[32px]">
-          {news.map((content, i) => (
+          {newsItems.map((newsItem, i) => (
             <div key={i}>
               <div className="w-[780px] h-[520px] position relative">
-                <Image className="w-[780px] h-[520px] rounded-[50px] object-cover z-0" src={content.src} alt="newsImg1" />
+                <Image fill className=" rounded-[50px] object-cover z-0" src={newsItem.news_image} alt="" />
                 <div className="absolute inset-0 bg-black bg-opacity-40 rounded-[50px]"></div>
                 <div className="absolute z-10 inset-0 text-white pt-[362px] pl-[32px] text-xl">
-                  <p className="leading-[38px]">{content.paragraph_1}</p>
-                  <p>{content.paragraph_2}</p>
-                  <Image className="w-[31.5px] h-[31.5px] mt-[13.25px]" src={icon_arrow} alt="icon_arrow" />
+                  <p className="leading-[38px]">{newsItem.title}</p>
+                  <p>{newsItem.subtitle}</p>
+                  <StyledLink href={"/"}>
+                    <Image className="w-[31.5px] h-[31.5px] mt-[13.25px]" src={icon_arrow} alt="icon_arrow" />
+                  </StyledLink>
                 </div>
               </div>
             </div>
