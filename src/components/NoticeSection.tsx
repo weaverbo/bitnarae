@@ -31,7 +31,7 @@ export default function NoticeSection() {
             <h2 className="text-[48px] font-semibold">공지사항</h2>
           </div>
         </div>
-        <div className="border-b-2 border-black">
+        {/* <div className="border-b-2 border-black">
           {notices.map((notice, index) => (
             <StyledLink key={index} className="border-t-2 border-black w-[930px] flex justify-between px-[80px] py-[32px] text-[24px]" href={"/"}>
               <div className="flex gap-[24px]">
@@ -41,7 +41,7 @@ export default function NoticeSection() {
               <p>{notice.created_at.split("T")[0]}</p>
             </StyledLink>
           ))}
-        </div>
+        </div> */}
       </div>
     </>
   );
