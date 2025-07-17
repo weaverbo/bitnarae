@@ -26,18 +26,18 @@ export default function NewsSection() {
 
   return (
     <>
-      <div className="container mt-[160px]">
+      <div className="container mt-[160px] ">
         <div className="flex gap-[24px]">
           <div className="bg-black w-[2px] h-[150px]"></div>
-          <div className="my-[8px]">
+          <motion.div className="my-[8px]">
             <h2 className="text-[48px] font-semibold">재단소식</h2>
             <div className="text-[32px] mt-[16px]">
               <p className="leading-[38px]">빛나래문화재단의 새로운 소식과</p>
               <p>협력과 성장의 활동을 전합니다.</p>
             </div>
-          </div>
+          </motion.div>
         </div>
-        <div className="flex my-[80px] gap-[32px]">
+        <div className="flex my-[80px] gap-[32px] overflow-x-scroll w-screen scrollbar-hide pr-[160px]">
           {newsItems.map((newsItem, i) => (
             <div key={i}>
               <div className="w-[780px] h-[520px] position relative">

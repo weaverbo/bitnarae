@@ -18,3 +18,12 @@ div {
 .container {
   @apply mx-auto max-w-[1600px];
 }
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+  }
+}

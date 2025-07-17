@@ -33,7 +33,7 @@ export default function RootLayout({
     <html lang="en" className="">
       <body className={`${pretendard.className}`}>
         <Header />
-        {children}
+        <div className="overflow-x-hidden">{children}</div>
         <Footer />
       </body>
     </html>
