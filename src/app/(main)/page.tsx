@@ -1,6 +1,6 @@
 import HeroSection from "@/components/HeroSection";
-import InfoSection from "@/components/InfoSection";
-import ActivitiesSection from "@/components/ActivitiesSection";
+import HeroSubText from "@/components/HeroSubText";
+import ActivitiesSection from "@/components/ProgramSection";
 import TransitionSection from "@/components/TransitionSection";
 import NewsSection from "@/components/NewsSection";
 import NoticeSection from "@/components/NoticeSection";
@@ -9,7 +9,7 @@ export default function main() {
   return (
     <>
       <HeroSection />
-      <InfoSection />
+      <HeroSubText />
       <ActivitiesSection />
       <TransitionSection />
       <NewsSection />

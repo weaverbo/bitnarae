@@ -1,5 +1,6 @@
 "use client";
 
+import StyledLink from "next/link";
 import SlideLeftFade from "../components/ui/SlideLeftFade";
 
 export default function Header() {
@@ -17,10 +18,18 @@ export default function Header() {
           </SlideLeftFade>
         </div>
         <ul className="flex gap-[24px] text-lg text-white">
-          <li>재단소개</li>
-          <li>재단활동</li>
-          <li>재단소식</li>
-          <li>공지사항</li>
+          <li>
+            <StyledLink href={"/"}>재단소개</StyledLink>
+          </li>
+          <li>
+            <StyledLink href={"/"}>재단활동</StyledLink>
+          </li>
+          <li>
+            <StyledLink href={"/"}>재단소식</StyledLink>
+          </li>
+          <li>
+            <StyledLink href={"/"}>공지사항</StyledLink>
+          </li>
         </ul>
       </div>
     </div>
