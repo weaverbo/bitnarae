@@ -8,21 +8,26 @@ import icon_arrow from "../../public/img/icon_arrow.svg";
 import "../styles/programsection.css";
 import StyledLink from "next/link";
 import SlideLeftFade from "./ui/SlideLeftFade";
+import { useAnimateOnInView } from "../hook/useAnimateOnInView";
 
 export default function ProgramSection() {
+  const { onInViewRef, animationKey } = useAnimateOnInView();
+
   return (
     <>
-      <div className="container mb-[160px]">
-        <SlideLeftFade className="flex gap-[24px]">
-          <div className="bg-black w-[2px] h-[150px]"></div>
-          <div className="my-[8px]">
-            <h2 className="text-[48px] font-semibold">재단활동</h2>
-            <div className="text-[32px] mt-[16px]">
-              <p className="leading-[38px]">창작과 배움, 향유의 과정을 통해</p>
-              <p>문화가 일상이 되는 사회를 만들어갑니다.</p>
+      <div className="container mt-[160px] mb-[320px]">
+        <div ref={onInViewRef}>
+          <SlideLeftFade className="flex gap-[24px]" animationKey={animationKey}>
+            <div className="bg-black w-[2px] h-[150px]"></div>
+            <div className="my-[8px]">
+              <h2 className="text-[48px] font-semibold">재단활동</h2>
+              <div className="text-[32px] mt-[16px]">
+                <p className="leading-[38px]">창작과 배움, 향유의 과정을 통해</p>
+                <p>문화가 일상이 되는 사회를 만들어갑니다.</p>
+              </div>
             </div>
-          </div>
-        </SlideLeftFade>
+          </SlideLeftFade>
+        </div>
         <div className="flex gap-[32px] mt-[80px]">
           <div className="program-container">
             <Image className="w-full h-full object-cover rounded-[50px]" src={programimg_1} alt="programimg_1" />

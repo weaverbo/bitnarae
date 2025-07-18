@@ -3,6 +3,7 @@
 import StyledLink from "next/link";
 import SlideLeftFade from "../components/ui/SlideLeftFade";
 
+// 여기 애니메이션이 사용자가 화면 맨 끝으로 갔다가 Header가 화면에 보였을 때 애니메이션을 재 실행되게 할것인지?
 export default function Header() {
   return (
     <div className="position absolute z-10 bg-white/10 w-full">
