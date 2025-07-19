@@ -2,30 +2,56 @@
 
 import Image from "next/image";
 import icon_arrow from "../../public/img/icon_arrow.svg";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import StyledLink from "next/link";
 import SlideLeftFade from "../components/ui/SlideLeftFade";
 import { useAnimateOnInView } from "../hook/useAnimateOnInView";
+import newsImg_1 from "../../public/img/newsImg1-min.png";
+import newsImg_2 from "../../public/img/newsImg2-min.png";
+import newsImg_3 from "../../public/img/newsImg3-min.png";
 
 export default function NewsSection() {
-  type News = {
-    id: number;
-    title: string;
-    news_image: string;
-    subtitle: string;
-  };
+  const [hoveredNewsId, setHoveredNewsId] = useState<number | null>(null);
 
-  const [newsItems, setNewsItems] = useState<News[]>([]);
+  // type News = {
+  //   id: number;
+  //   title: string;
+  //   news_image: string;
+  //   subtitle: string;
+  // };
+
+  // const [newsItems, setNewsItems] = useState<News[]>([]);
   const { onInViewRef, animationKey } = useAnimateOnInView();
 
-  useEffect(() => {
-    const newsList = async (): Promise<void> => {
-      const res = await fetch("/api/news");
-      const data = await res.json();
-      return setNewsItems(data);
-    };
-    newsList();
-  }, []);
+  const newsItems = [
+    {
+      id: 1,
+      title: "빛나래문화재단, 지역 아동센터와 함께",
+      subtitle: "예술 고육 프로그램 시작",
+      src: newsImg_1,
+    },
+    {
+      id: 2,
+      title: "빛나래문화재단, 지역 문화 축제",
+      subtitle: "'빛마루' 성황리 개최",
+      src: newsImg_2,
+    },
+    {
+      id: 3,
+      title: "빛나래문화재단, 신진 예술가 참여",
+      subtitle: "'빛그림' 공모전 개최",
+      src: newsImg_3,
+    },
+  ];
+
+  // useEffect(() => {
+  //   const newsList = async (): Promise<void> => {
+  //     const res = await fetch("/api/news");
+  //     const data = await res.json();
+  //     return setNewsItems(data);
+  //   };
+  //   newsList();
+  // }, []);
 
   return (
     <>
@@ -42,11 +68,36 @@ export default function NewsSection() {
             </div>
           </SlideLeftFade>
         </div>
-        <div className="flex my-[80px] gap-[32px] overflow-x-scroll w-screen scrollbar-hide">
+        <div className="flex my-[80px] pr-[200px] gap-[32px] overflow-x-scroll scrollbar-hide w-screen">
           {newsItems.map((newsItem, i) => (
-            <div key={i}>
-              <div className="w-[780px] h-[520px] position relative">
-                <Image fill className=" rounded-[50px] object-cover z-0" src={newsItem.news_image} alt="" />
+            <div key={i} onMouseEnter={() => setHoveredNewsId(newsItem.id)} onMouseLeave={() => setHoveredNewsId(null)}>
+              <div className="w-[780px] h-[520px] relative">
+                <Image fill className="rounded-[50px] object-cover z-0" src={newsItem.src} alt="news_image" />
+                <div className="absolute inset-0 bg-black bg-opacity-40 rounded-[50px]"></div>
+                <div className={`absolute z-10 inset-0 text-white pl-[32px] text-xl transition-all duration-300 ease-in-out ${hoveredNewsId === newsItem.id ? "pt-[362px]" : "pt-[412px]"}`}>
+                  <p className="leading-[38px]">{newsItem.title}</p>
+                  <p>{newsItem.subtitle}</p>
+                  <div className={`transition-all duration-300 ease-in-out delay-100 transform ${hoveredNewsId === newsItem.id ? "opacity-100" : "opacity-0"}`}>
+                    <StyledLink href="/">
+                      <Image className="w-[31.5px] h-[31.5px] mt-[13.25px]" src={icon_arrow} alt="icon_arrow" />
+                    </StyledLink>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="bg-[#d6d6d6] w-screen h-[2px] mt-[80px] mb-[160px]"></div>
+      </div>
+    </>
+  );
+}
+
+{
+  /* {newsItems.map((newsItem, i) => (
+            <div key={i} onClick={() => setSelectedNewsId(newsItem.id)}>
+              <div className="w-[780px] relative">
+                <Image fill className="rounded-[50px] object-cover z-0" src={newsItem.news_image} alt="news_image" />
                 <div className="absolute inset-0 bg-black bg-opacity-40 rounded-[50px]"></div>
                 <div className="absolute z-10 inset-0 text-white pt-[362px] pl-[32px] text-xl">
                   <p className="leading-[38px]">{newsItem.title}</p>
@@ -57,10 +108,5 @@ export default function NewsSection() {
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-        <div className="bg-[#d6d6d6] w-screen h-[2px] mt-[80px] mb-[160px]"></div>
-      </div>
-    </>
-  );
+          ))} */
 }

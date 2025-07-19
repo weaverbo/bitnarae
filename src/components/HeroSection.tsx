@@ -4,7 +4,7 @@ import mainImg from "../../public/img/mainImg-min.jpg";
 export default function HeroSection() {
   return (
     <div className="postion relative">
-      <Image src={mainImg} alt="main-image" />
+      <Image src={mainImg} className="w-full h-full object-cover" alt="main-image" />
       <div className="container absolute inset-0 flex justify-between items-center sp text-white font-regular mt-[171px]">
         <div className="text-[36px]">
           <p className="leading-[50px]">작은 불꽃 하나</p>
