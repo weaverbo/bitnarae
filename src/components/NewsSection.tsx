@@ -2,13 +2,14 @@
 
 import Image from "next/image";
 import icon_arrow from "../../public/img/icon_arrow.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import StyledLink from "next/link";
 import SlideLeftFade from "../components/ui/SlideLeftFade";
 import { useAnimateOnInView } from "../hook/useAnimateOnInView";
 import newsImg_1 from "../../public/img/newsImg1-min.png";
 import newsImg_2 from "../../public/img/newsImg2-min.png";
 import newsImg_3 from "../../public/img/newsImg3-min.png";
+import { div } from "framer-motion/client";
 
 export default function NewsSection() {
   const [hoveredNewsId, setHoveredNewsId] = useState<number | null>(null);
@@ -27,7 +28,7 @@ export default function NewsSection() {
     {
       id: 1,
       title: "빛나래문화재단, 지역 아동센터와 함께",
-      subtitle: "예술 고육 프로그램 시작",
+      subtitle: "예술 교육 프로그램 시작",
       src: newsImg_1,
     },
     {
@@ -68,26 +69,29 @@ export default function NewsSection() {
             </div>
           </SlideLeftFade>
         </div>
-        <div className="flex my-[80px] pr-[200px] gap-[32px] overflow-x-scroll scrollbar-hide w-screen">
+
+        <div className="flex my-[80px] gap-[32px] overflow-x-scroll scrollbar-hide w-screen relative">
           {newsItems.map((newsItem, i) => (
-            <div key={i} onMouseEnter={() => setHoveredNewsId(newsItem.id)} onMouseLeave={() => setHoveredNewsId(null)}>
+            // 왜 아래 div 코드를 빼면 문제가 생기는지
+            <div key={i} onMouseEnter={() => setHoveredNewsId(newsItem.id)} onMouseLeave={() => setHoveredNewsId(null)} className="relative w-[780px]">
               <div className="w-[780px] h-[520px] relative">
                 <Image fill className="rounded-[50px] object-cover z-0" src={newsItem.src} alt="news_image" />
                 <div className="absolute inset-0 bg-black bg-opacity-40 rounded-[50px]"></div>
                 <div className={`absolute z-10 inset-0 text-white pl-[32px] text-xl transition-all duration-300 ease-in-out ${hoveredNewsId === newsItem.id ? "pt-[362px]" : "pt-[412px]"}`}>
                   <p className="leading-[38px]">{newsItem.title}</p>
                   <p>{newsItem.subtitle}</p>
-                  <div className={`transition-all duration-300 ease-in-out delay-100 transform ${hoveredNewsId === newsItem.id ? "opacity-100" : "opacity-0"}`}>
-                    <StyledLink href="/">
-                      <Image className="w-[31.5px] h-[31.5px] mt-[13.25px]" src={icon_arrow} alt="icon_arrow" />
-                    </StyledLink>
-                  </div>
+                </div>
+                <div className={`relative transition-opacity duration-300 ease-in-out delay-100 ${hoveredNewsId === newsItem.id ? "opacity-100" : "opacity-0"}`}>
+                  <StyledLink href="/" className="absolute top-[446px] left-[32px]">
+                    <Image className="w-[31.5px] h-[31.5px]" src={icon_arrow} alt="icon_arrow" />
+                  </StyledLink>
                 </div>
               </div>
+              <div className={`absolute h-[2px] w-full mt-[80px] bg-black transition-all duration-300 ease-in-out ${hoveredNewsId === newsItem.id ? "opacity-100" : "opacity-0"}`} />
+              <div className="bg-[#d6d6d6] min-w-[930px] h-[2px] mt-[80px] z-0"></div>
             </div>
           ))}
         </div>
-        <div className="bg-[#d6d6d6] w-screen h-[2px] mt-[80px] mb-[160px]"></div>
       </div>
     </>
   );
