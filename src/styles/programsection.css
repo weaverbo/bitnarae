@@ -19,11 +19,15 @@
 }
 
 .program-caption-wrapper {
-  @apply absolute top-[10px] left-[10px] text-white text-center pt-[329px] pl-[216px];
+  @apply absolute top-1/2 left-1/2 text-white text-center transform -translate-x-1/2 -translate-y-1/2;
 }
 
 .program-cation-top {
-  @apply text-[64px] font-semibold pb-[8px];
+  @apply text-center text-[64px] font-semibold pb-[8px];
+}
+
+.program-caption-bottom-wrapper {
+  @apply h-[59px];
 }
 
 .program-caption-bottom {

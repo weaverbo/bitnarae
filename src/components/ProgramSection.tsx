@@ -8,14 +8,20 @@ import icon_arrow from "../../public/img/icon_arrow.svg";
 import "../styles/programsection.css";
 import StyledLink from "next/link";
 import SlideLeftFade from "./ui/SlideLeftFade";
+import SlideUpFade from "./ui/SlideUpFade";
 import { motion } from "framer-motion";
 import { useAnimatedInView } from "../hooks/useAnimatedInView";
+import { useState } from "react";
 
 export default function ProgramSection() {
   const { ref: onInViewRef1, inView: inView1 } = useAnimatedInView({ threshold: 0.8 });
   const { ref: onInViewRef2, hasAnimated: hasAnimated2 } = useAnimatedInView();
   const { ref: onInViewRef3, hasAnimated: hasAnimated3 } = useAnimatedInView();
   const { ref: onInViewRef4, hasAnimated: hasAnimated4 } = useAnimatedInView();
+
+  const [hovered, setHovered] = useState(false);
+  const [hovered2, setHovered2] = useState(false);
+  const [hovered3, setHovered3] = useState(false);
 
   return (
     <>
@@ -33,36 +39,36 @@ export default function ProgramSection() {
           </SlideLeftFade>
         </div>
         <div className="flex gap-[32px] mt-[80px]">
-          <div className="program-container" ref={onInViewRef2}>
+          <div className="program-container" ref={onInViewRef2} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
             <motion.div initial={{ scale: 0.2, opacity: 0 }} animate={hasAnimated2 ? { scale: 1, opacity: 1 } : {}} transition={{ duration: 0.8, ease: "easeOut", delay: 0 }} className="w-full h-full">
               <Image className="w-full h-full object-cover rounded-[50px] relative" src={programimg_1} alt="programimg_1" />
               <div className="image-overlay rounded-[50px] absolute"></div>
             </motion.div>
             <div className="program-caption-wrapper">
               <p className="program-cation-top">빛움터</p>
-              <p className="program-caption-bottom">꿈을 싹틔우는 배움터</p>
+              <div className="program-caption-bottom-wrapper">{hovered && <SlideUpFade className="program-caption-bottom">꿈을 싹틔우는 배움터</SlideUpFade>}</div>
             </div>
           </div>
-          <div className="program-container" ref={onInViewRef3}>
+          <div className="program-container" ref={onInViewRef3} onMouseEnter={() => setHovered2(true)} onMouseLeave={() => setHovered2(false)}>
             <motion.div initial={{ scale: 0.2, opacity: 0 }} animate={hasAnimated3 ? { scale: 1, opacity: 1 } : {}} transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }} className="w-full h-full">
               <Image className="w-full h-full object-cover rounded-[50px] rounded-tr-[300px]" src={programimg_2} alt="programimg_1" />
-              <div className="image-overlay rounded-[50px] rounded-tr-[300px]"></div>
+              <div className="image-overlay rounded-[50px] rounded-tr-[300px] absolute"></div>
             </motion.div>
             <div className="program-caption-wrapper">
               <p className="program-cation-top">빛공방</p>
-              <p className="program-caption-bottom">마음껏 창작하는 작업터</p>
+              <div className="program-caption-bottom-wrapper">{hovered2 && <SlideUpFade className="program-caption-bottom">마음껏 창작하는 작업터</SlideUpFade>}</div>
             </div>
           </div>
         </div>
         <div className="flex gap-[32px] mt-[32px]">
-          <div className="program-container" ref={onInViewRef4}>
+          <div className="program-container" ref={onInViewRef4} onMouseEnter={() => setHovered3(true)} onMouseLeave={() => setHovered3(false)}>
             <motion.div initial={{ scale: 0.2, opacity: 0 }} animate={hasAnimated4 ? { scale: 1, opacity: 1 } : {}} transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }} className="w-full h-full">
               <Image className="w-full h-full object-cover rounded-[50px] rounded-bl-[300px]" src={programimg_3} alt="programimg_1" />
-              <div className="image-overlay rounded-[50px] rounded-bl-[300px]"></div>
+              <div className="image-overlay rounded-[50px] rounded-bl-[300px] absolute"></div>
             </motion.div>
             <div className="program-caption-wrapper">
               <p className="program-cation-top">빛마당</p>
-              <p className="program-caption-bottom">우리 동네 문화 놀이터</p>
+              <div className="program-caption-bottom-wrapper">{hovered3 && <SlideUpFade className="program-caption-bottom">우리 동네 문화 놀이터</SlideUpFade>}</div>
             </div>
           </div>
           <div className="program-container bg-black rounded-[50px] rounded-br-[300px]">
