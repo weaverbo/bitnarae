@@ -13,15 +13,15 @@ export default function NoticeSection() {
 
   const [notices, setNotices] = useState<Notice[]>([]);
 
-  useEffect(() => {
-    const noticeList = async (): Promise<void> => {
-      const res = await fetch("/api/notice");
-      const data = await res.json();
+  // useEffect(() => {
+  //   const noticeList = async (): Promise<void> => {
+  //     const res = await fetch("/api/notice");
+  //     const data = await res.json();
 
-      return setNotices(data);
-    };
-    noticeList();
-  }, []);
+  //     return setNotices(data);
+  //   };
+  //   noticeList();
+  // }, []);
 
   return (
     <>
@@ -32,7 +32,7 @@ export default function NoticeSection() {
             <h2 className="notice-section-title">공지사항</h2>
           </div>
         </div>
-        <div className="border-b-2 border-black">
+        {/* <div className="border-b-2 border-black">
           {notices.map((notice, index) => (
             <StyledLink key={index} className="notice-list-wrapper" href={"/"}>
               <div className="flex gap-[24px]">
@@ -42,7 +42,7 @@ export default function NoticeSection() {
               <p>{notice.created_at.split("T")[0]}</p>
             </StyledLink>
           ))}
-        </div>
+        </div> */}
       </div>
     </>
   );

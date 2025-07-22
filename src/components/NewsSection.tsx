@@ -6,81 +6,79 @@ import { useEffect, useState } from "react";
 import StyledLink from "next/link";
 import SlideLeftFade from "../components/ui/SlideLeftFade";
 
-// import newsImg_1 from "../../public/img/newsImg1-min.png";
-// import newsImg_2 from "../../public/img/newsImg2-min.png";
-// import newsImg_3 from "../../public/img/newsImg3-min.png";
+import newsImg_1 from "../../public/img/newsImg1-min.png";
+import newsImg_2 from "../../public/img/newsImg2-min.png";
+import newsImg_3 from "../../public/img/newsImg3-min.png";
 import "../styles/newssection.css";
 import { useInView } from "react-intersection-observer";
 
 export default function NewsSection() {
   const [hoveredNewsId, setHoveredNewsId] = useState<number | null>(null);
 
-  type News = {
-    id: number;
-    title: string;
-    news_image: string;
-    subtitle: string;
-  };
+  // type News = {
+  //   id: number;
+  //   title: string;
+  //   news_image: string;
+  //   subtitle: string;
+  // };
 
-  const [newsItems, setNewsItems] = useState<News[]>([]);
+  // const [newsItems, setNewsItems] = useState<News[]>([]);
 
   const [onInViewRef, inView] = useInView({
-    threshold: 0.8,
-    triggerOnce: false,
+    threshold: 1,
   });
 
-  // const newsItems = [
-  //   {
-  //     id: 1,
-  //     title: "빛나래문화재단, 지역 아동센터와 함께",
-  //     subtitle: "예술 교육 프로그램 시작",
-  //     src: newsImg_1,
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "빛나래문화재단, 지역 문화 축제",
-  //     subtitle: "'빛마루' 성황리 개최",
-  //     src: newsImg_2,
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "빛나래문화재단, 신진 예술가 참여",
-  //     subtitle: "'빛그림' 공모전 개최",
-  //     src: newsImg_3,
-  //   },
-  // ];
+  const newsItems = [
+    {
+      id: 1,
+      title: "빛나래문화재단, 지역 아동센터와 함께",
+      subtitle: "예술 교육 프로그램 시작",
+      src: newsImg_1,
+    },
+    {
+      id: 2,
+      title: "빛나래문화재단, 지역 문화 축제",
+      subtitle: "'빛마루' 성황리 개최",
+      src: newsImg_2,
+    },
+    {
+      id: 3,
+      title: "빛나래문화재단, 신진 예술가 참여",
+      subtitle: "'빛그림' 공모전 개최",
+      src: newsImg_3,
+    },
+  ];
 
-  useEffect(() => {
-    const newsList = async (): Promise<void> => {
-      const res = await fetch("/api/news");
-      const data = await res.json();
-      return setNewsItems(data);
-    };
-    newsList();
-  }, []);
+  // useEffect(() => {
+  //   const newsList = async (): Promise<void> => {
+  //     const res = await fetch("/api/news");
+  //     const data = await res.json();
+  //     return setNewsItems(data);
+  //   };
+  //   newsList();
+  // }, []);
 
   return (
     <>
       <div className="container mt-[320px]">
-        <div ref={onInViewRef}>
-          {inView && (
-            <SlideLeftFade className="flex gap-[24px]">
-              <div className="news-section-title-mark"></div>
-              <div className="my-[8px]">
-                <h2 className="news-section-title">재단소식</h2>
-                <div className="new-section-subtext">
-                  <p className="subtext-line">빛나래문화재단의 새로운 소식과</p>
-                  <p>협력과 성장의 활동을 전합니다.</p>
-                </div>
+        <div ref={onInViewRef} key={inView ? "in" : "out"}>
+          <SlideLeftFade className="flex gap-[24px]">
+            <div className="news-section-title-mark"></div>
+            <div className="my-[8px]">
+              <h2 className="news-section-title">재단소식</h2>
+              <div className="new-section-subtext">
+                <p className="subtext-line">빛나래문화재단의 새로운 소식과</p>
+                <p>협력과 성장의 활동을 전합니다.</p>
               </div>
-            </SlideLeftFade>
-          )}
+            </div>
+          </SlideLeftFade>
         </div>
+
         <div className="flex my-[80px] gap-[32px] overflow-x-scroll scrollbar-hide w-screen">
           {newsItems.map((newsItem, i) => (
             <div key={i} onMouseEnter={() => setHoveredNewsId(newsItem.id)} onMouseLeave={() => setHoveredNewsId(null)} className="news-card-wrapper">
               <div className="news-card-inner">
-                <Image fill className="rounded-[50px] object-cover z-0" src={newsItem.news_image} alt="news_image" />
+                <Image fill className="rounded-[50px] object-cover z-0" src={newsItem.src} alt="news_image" />
                 <div className="absolute inset-0 bg-black bg-opacity-40 rounded-[50px]"></div>
                 <div className={`news-card-title-wrapper ${hoveredNewsId === newsItem.id ? "new-card-title-hovered" : "new-card-title-defalut "}`}>
                   <p className="new-card-title-line">{newsItem.title}</p>

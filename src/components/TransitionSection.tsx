@@ -12,8 +12,7 @@ export default function TransitionSection() {
   const [showText, setShowText] = useState(false);
 
   const [onInViewRef, inView] = useInView({
-    threshold: 0.8,
-    triggerOnce: false,
+    threshold: 0.5,
   });
 
   useEffect(() => {
