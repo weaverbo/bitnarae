@@ -38,7 +38,7 @@ export default function HeroSubText() {
               <div className="flex items-center">
                 <div className="subtext-highlight-box">
                   <motion.span className="highlight-text" initial={{ x: -650, opacity: 1 }} animate={{ x: 0 }} transition={{ delay: 2.4, duration: 0.6, ease: "easeOut" }}>
-                    빛나래 문화재단
+                    빛나래문화재단
                   </motion.span>
                 </div>
                 <span>이 함께합니다.</span>

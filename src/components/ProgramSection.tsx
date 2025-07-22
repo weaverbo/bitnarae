@@ -9,7 +9,7 @@ import "../styles/programsection.css";
 import StyledLink from "next/link";
 import SlideLeftFade from "./ui/SlideLeftFade";
 import SlideUpFade from "./ui/SlideUpFade";
-import { motion } from "framer-motion";
+import { hover, motion } from "framer-motion";
 import { useAnimatedInView } from "../hooks/useAnimatedInView";
 import { useState } from "react";
 
@@ -71,15 +71,15 @@ export default function ProgramSection() {
               <div className="program-caption-bottom-wrapper">{hovered3 && <SlideUpFade className="program-caption-bottom">우리 동네 문화 놀이터</SlideUpFade>}</div>
             </div>
           </div>
-          <div className="program-container bg-black rounded-[50px] rounded-br-[300px]">
-            <div className="absolute top-[10px] left-[10px] text-white pt-[329px] pl-[157px]">
+          <div className="program-container bg-black rounded-[50px] rounded-br-[300px]" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+            <motion.div initial={{ y: 0 }} animate={hovered ? { y: -20 } : { y: 0 }} transition={{ duration: 0.4, ease: "easeOut" }} className="absolute top-[10px] left-[10px] text-white pt-[329px] pl-[157px]">
               <StyledLink className="text-[64px] font-regular pb-[8px] flex items-center gap-[8px]" href="/">
                 자세히 알아보기
                 <span>
                   <Image className="w-[44.25px] h-[44.25px]" src={icon_arrow} alt="icon_arrow" />
                 </span>
               </StyledLink>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
