@@ -1,0 +1,15 @@
+.herosubtext {
+  @apply text-center text-4xl py-[150px];
+}
+
+.subtext-wrapper {
+  @apply overflow-hidden inline-block;
+}
+
+.subtext-highlight-box {
+  @apply w-[388px] h-[76px] bg-black;
+}
+
+.highlight-text {
+  @apply flex justify-center p-[5px] text-white text-[60px];
+}

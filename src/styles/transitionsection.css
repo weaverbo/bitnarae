@@ -1,0 +1,3 @@
+.transitionsection-caption-wrapper {
+  @apply absolute inset-0 text-center text-white text-[64px] mt-[160px];
+}

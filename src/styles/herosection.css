@@ -1,0 +1,15 @@
+.hero-text {
+  @apply text-[64px] font-semibold;
+}
+
+.hero-sidetext-wrapper {
+  @apply absolute inset-0 flex justify-between items-center text-white text-2xl mt-[171px];
+}
+
+.hero-side-text {
+  @apply text-[36px];
+}
+
+.side-text-line {
+  @apply leading-[50px];
+}

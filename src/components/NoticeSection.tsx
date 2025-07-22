@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import StyledLink from "next/link";
+import "../styles/noticesection.css";
 
 export default function NoticeSection() {
   type Notice = {
@@ -28,12 +29,12 @@ export default function NoticeSection() {
         <div className="flex gap-[24px]">
           <div className="bg-black w-[2px] h-[57px]"></div>
           <div className="my-[8px]">
-            <h2 className="text-[48px] font-semibold">공지사항</h2>
+            <h2 className="notice-section-title">공지사항</h2>
           </div>
         </div>
         <div className="border-b-2 border-black">
           {notices.map((notice, index) => (
-            <StyledLink key={index} className="border-t-2 border-black w-[930px] flex justify-between px-[80px] py-[32px] text-[24px]" href={"/"}>
+            <StyledLink key={index} className="notice-list-wrapper" href={"/"}>
               <div className="flex gap-[24px]">
                 <span>{notice.id}</span>
                 <p>{notice.title}</p>

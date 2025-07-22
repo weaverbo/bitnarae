@@ -5,6 +5,7 @@ import transition from "../../public/img/transitionImg-min.png";
 import { useAnimateOnInView } from "../hook/useAnimateOnInView";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import "../styles/transitionsection.css";
 
 export default function TransitionSection() {
   const { onInViewRef, inView, animationKey } = useAnimateOnInView();
@@ -27,7 +28,7 @@ export default function TransitionSection() {
         <Image src={transition} fill className={`object-cover transition-opacity duration-1000 ease-out delay-200 ${inView ? "opacity-100" : "opacity-0"}`} alt="transitionImg-min" />
         <div className={`absolute inset-0 bg-black bg-opacity-35 transition-opacity duration-1000 ease-out delay-200 ${inView ? "opacity-100" : "opacity-0"}`} />
         {showText && (
-          <div key={animationKey} className="absolute inset-0 text-center text-white text-[64px] mt-[160px]">
+          <div key={animationKey} className="transitionsection-caption-wrapper">
             <motion.p
               className="leading-[77px]"
               initial={{

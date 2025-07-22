@@ -1,0 +1,47 @@
+.news-section-title-mark {
+  @apply bg-black w-[2px] h-[150px];
+}
+
+.news-section-title {
+  @apply text-[48px] font-semibold;
+}
+
+.new-section-subtext {
+  @apply text-[32px] mt-[16px];
+}
+
+.subtext-line {
+  @apply leading-[38px];
+}
+
+.news-card-wrapper {
+  @apply relative w-[780px];
+}
+
+.news-card-inner {
+  @apply relative h-[520px];
+}
+
+.news-card-title-wrapper {
+  @apply absolute z-10 inset-0 text-white pl-[32px] text-xl transition-all duration-300 ease-in-out;
+}
+
+.new-card-title-hovered {
+  @apply pt-[362px];
+}
+
+.new-card-title-defalut {
+  @apply pt-[412px];
+}
+
+.new-card-title-line {
+  @apply leading-[38px];
+}
+
+.news-card-link {
+  @apply absolute top-[446px] left-[32px];
+}
+
+.news-card-track {
+  @apply bg-[#d6d6d6] min-w-[930px] h-[2px] mt-[80px] z-0;
+}

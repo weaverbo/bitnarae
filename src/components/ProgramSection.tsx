@@ -18,11 +18,11 @@ export default function ProgramSection() {
       <div className="container mt-[160px] mb-[320px]">
         <div ref={onInViewRef}>
           <SlideLeftFade className="flex gap-[24px]" animationKey={animationKey}>
-            <div className="bg-black w-[2px] h-[150px]"></div>
+            <div className="notice-section-title-mark"></div>
             <div className="my-[8px]">
-              <h2 className="text-[48px] font-semibold">재단활동</h2>
-              <div className="text-[32px] mt-[16px]">
-                <p className="leading-[38px]">창작과 배움, 향유의 과정을 통해</p>
+              <h2 className="notice-section-title">재단활동</h2>
+              <div className="notice-section-subtext">
+                <p className="subtext-line">창작과 배움, 향유의 과정을 통해</p>
                 <p>문화가 일상이 되는 사회를 만들어갑니다.</p>
               </div>
             </div>
@@ -32,17 +32,17 @@ export default function ProgramSection() {
           <div className="program-container">
             <Image className="w-full h-full object-cover rounded-[50px]" src={programimg_1} alt="programimg_1" />
             <div className="image-overlay rounded-[50px]"></div>
-            <div className="absolute top-[10px] left-[10px] text-white text-center pt-[329px] pl-[216px]">
-              <p className="text-[64px] font-semibold pb-[8px]">빛움터</p>
-              <p className="text-[36px]">꿈을 싹틔우는 배움터</p>
+            <div className="program-caption-wrapper">
+              <p className="program-cation-top">빛움터</p>
+              <p className="program-caption-bottom">꿈을 싹틔우는 배움터</p>
             </div>
           </div>
           <div className="program-container">
             <Image className="w-full h-full object-cover rounded-[50px] rounded-tr-[300px]" src={programimg_2} alt="programimg_1" />
             <div className="image-overlay rounded-[50px] rounded-tr-[300px]"></div>
-            <div className="absolute top-[10px] left-[10px] text-white text-center pt-[329px] pl-[216px]">
-              <p className="text-[64px] font-semibold pb-[8px]">빛공방</p>
-              <p className="text-[36px]">마음껏 창작하는 작업터</p>
+            <div className="program-caption-wrapper">
+              <p className="program-cation-top">빛공방</p>
+              <p className="program-caption-bottom">마음껏 창작하는 작업터</p>
             </div>
           </div>
         </div>
@@ -50,13 +50,13 @@ export default function ProgramSection() {
           <div className="program-container">
             <Image className="w-full h-full object-cover rounded-[50px] rounded-bl-[300px]" src={programimg_3} alt="programimg_1" />
             <div className="image-overlay rounded-[50px] rounded-bl-[300px]"></div>
-            <div className="absolute top-[10px] left-[10px] text-white text-center pt-[329px] pl-[216px]">
-              <p className="text-[64px] font-semibold pb-[8px]">빛마당</p>
-              <p className="text-[36px]">우리 동네 문화 놀이터</p>
+            <div className="program-caption-wrapper">
+              <p className="program-cation-top">빛마당</p>
+              <p className="program-caption-bottom">우리 동네 문화 놀이터</p>
             </div>
           </div>
           <div className="program-container bg-black rounded-[50px] rounded-br-[300px]">
-            <div className=" absolute top-[10px] left-[10px] text-white pt-[329px] pl-[157px]">
+            <div className="absolute top-[10px] left-[10px] text-white pt-[329px] pl-[157px]">
               <StyledLink className="text-[64px] font-regular pb-[8px] flex items-center gap-[8px]" href="/">
                 자세히 알아보기
                 <span>

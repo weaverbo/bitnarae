@@ -1,3 +1,7 @@
 .footer-top-layout {
   @apply flex gap-[24px];
 }
+
+.sns-img {
+  @apply w-[62px];
+}

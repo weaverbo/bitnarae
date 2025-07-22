@@ -8,7 +8,7 @@ import icon_youtube from "../../public/img/icon_youtube.svg";
 export default function Footer() {
   return (
     <div className="bg-background text-white">
-      <div className="flex container justify-between border-b border-white pt-[150px] pb-[80px]">
+      <div className="container flex justify-between border-b border-white pt-[150px] pb-[80px]">
         <ul className="footer-top-layout">
           <li>
             <StyleLink href="/">재단소개</StyleLink>
@@ -35,7 +35,7 @@ export default function Footer() {
           </li>
         </ul>
       </div>
-      <div className="flex justify-between py-[150px] items-center container">
+      <div className="container flex justify-between py-[150px] items-center">
         <div className="flex flex-col text-4xl">
           <span>BITNARAE</span>
           <span className="leading-[76px]">FOUNDATION OF</span>
@@ -44,13 +44,13 @@ export default function Footer() {
         <div className="flex flex-col text-lg gap-[12px] text-right text-[#777777]">
           <ul className="flex justify-end gap-[37px] pb-[19px]">
             <StyleLink href="/">
-              <Image className="w-[62px]" src={icon_insta} alt="main-image" />
+              <Image className="sns-img" src={icon_insta} alt="main-image" />
             </StyleLink>
             <StyleLink href="/">
-              <Image className="w-[62px]" src={icon_nblog} alt="main-image" />
+              <Image className="sns-img" src={icon_nblog} alt="main-image" />
             </StyleLink>
             <StyleLink href="/">
-              <Image className="w-[62px]" src={icon_youtube} alt="main-image" />
+              <Image className="sns-img" src={icon_youtube} alt="main-image" />
             </StyleLink>
           </ul>
           <span>주소 서울특별시 은평구 은평로 111</span>

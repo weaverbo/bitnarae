@@ -1,3 +1,15 @@
 .header-menu-link {
   @apply hover:underline underline-offset-8;
 }
+
+.header-title {
+  @apply text-2xl font-semibold;
+}
+
+.header-slogan {
+  @apply text-[16px] font-semibold leading-[19px];
+}
+
+.header-slogan-mark {
+  @apply w-[2px] h-[38px] bg-white;
+}

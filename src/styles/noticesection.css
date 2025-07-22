@@ -1,0 +1,7 @@
+.notice-section-title {
+  @apply text-[48px] font-semibold;
+}
+
+.notice-list-wrapper {
+  @apply border-t-2 border-black w-[930px] flex justify-between px-[80px] py-[32px] text-[24px];
+}
