@@ -43,5 +43,5 @@
 }
 
 .news-card-track {
-  @apply bg-[#d6d6d6] min-w-[930px] h-[2px] mt-[80px] z-0;
+  @apply bg-[#d6d6d6] min-w-[1215px] h-[2px] mt-[80px] z-0;
 }

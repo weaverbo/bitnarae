@@ -2,11 +2,14 @@
 
 import StyledLink from "next/link";
 import SlideLeftFade from "../components/ui/SlideLeftFade";
-import { useAnimateOnInView } from "../hook/useAnimateOnInView";
 import "../styles/header.css";
+import { useInView } from "react-intersection-observer";
 
 export default function Header() {
-  const { onInViewRef, animationKey } = useAnimateOnInView();
+  const [onInViewRef, inView] = useInView({
+    threshold: 0.8,
+    triggerOnce: false,
+  });
 
   return (
     <div className="position absolute z-10 bg-white/10 w-full">
@@ -14,13 +17,15 @@ export default function Header() {
         <div className="flex text-white items-center gap-[8px]">
           <h1 className="header-title">빛나래문화재단</h1>
           <div ref={onInViewRef}>
-            <SlideLeftFade className="flex items-center gap-[8px]" animationKey={animationKey}>
-              <div className="header-slogan-mark"></div>
-              <div className="header-slogan">
-                <p>BITNARAE</p>
-                <p>FOUNDATION OF CULTURE</p>
-              </div>
-            </SlideLeftFade>
+            {inView && (
+              <SlideLeftFade className="flex items-center gap-[8px]">
+                <div className="header-slogan-mark"></div>
+                <div className="header-slogan">
+                  <p>BITNARAE</p>
+                  <p>FOUNDATION OF CULTURE</p>
+                </div>
+              </SlideLeftFade>
+            )}
           </div>
         </div>
         <ul className="flex gap-[24px] text-lg text-white">

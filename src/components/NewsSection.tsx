@@ -5,11 +5,12 @@ import icon_arrow from "../../public/img/icon_arrow.svg";
 import { useEffect, useState } from "react";
 import StyledLink from "next/link";
 import SlideLeftFade from "../components/ui/SlideLeftFade";
-import { useAnimateOnInView } from "../hook/useAnimateOnInView";
+
 // import newsImg_1 from "../../public/img/newsImg1-min.png";
 // import newsImg_2 from "../../public/img/newsImg2-min.png";
 // import newsImg_3 from "../../public/img/newsImg3-min.png";
 import "../styles/newssection.css";
+import { useInView } from "react-intersection-observer";
 
 export default function NewsSection() {
   const [hoveredNewsId, setHoveredNewsId] = useState<number | null>(null);
@@ -22,7 +23,11 @@ export default function NewsSection() {
   };
 
   const [newsItems, setNewsItems] = useState<News[]>([]);
-  const { onInViewRef, animationKey } = useAnimateOnInView();
+
+  const [onInViewRef, inView] = useInView({
+    threshold: 0.8,
+    triggerOnce: false,
+  });
 
   // const newsItems = [
   //   {
@@ -58,16 +63,18 @@ export default function NewsSection() {
     <>
       <div className="container mt-[320px]">
         <div ref={onInViewRef}>
-          <SlideLeftFade className="flex gap-[24px]" animationKey={animationKey}>
-            <div className="news-section-title-mark"></div>
-            <div className="my-[8px]">
-              <h2 className="news-section-title">재단소식</h2>
-              <div className="new-section-subtext">
-                <p className="subtext-line">빛나래문화재단의 새로운 소식과</p>
-                <p>협력과 성장의 활동을 전합니다.</p>
+          {inView && (
+            <SlideLeftFade className="flex gap-[24px]">
+              <div className="news-section-title-mark"></div>
+              <div className="my-[8px]">
+                <h2 className="news-section-title">재단소식</h2>
+                <div className="new-section-subtext">
+                  <p className="subtext-line">빛나래문화재단의 새로운 소식과</p>
+                  <p>협력과 성장의 활동을 전합니다.</p>
+                </div>
               </div>
-            </div>
-          </SlideLeftFade>
+            </SlideLeftFade>
+          )}
         </div>
         <div className="flex my-[80px] gap-[32px] overflow-x-scroll scrollbar-hide w-screen">
           {newsItems.map((newsItem, i) => (
@@ -76,7 +83,7 @@ export default function NewsSection() {
                 <Image fill className="rounded-[50px] object-cover z-0" src={newsItem.news_image} alt="news_image" />
                 <div className="absolute inset-0 bg-black bg-opacity-40 rounded-[50px]"></div>
                 <div className={`news-card-title-wrapper ${hoveredNewsId === newsItem.id ? "new-card-title-hovered" : "new-card-title-defalut "}`}>
-                  <p className="new-card-title-line ">{newsItem.title}</p>
+                  <p className="new-card-title-line">{newsItem.title}</p>
                   <p>{newsItem.subtitle}</p>
                 </div>
                 <div className={`transition-opacity duration-300 ease-in-out delay-100 ${hoveredNewsId === newsItem.id ? "opacity-100" : "opacity-0"}`}>
