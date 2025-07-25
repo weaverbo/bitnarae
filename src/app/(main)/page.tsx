@@ -8,7 +8,9 @@ import NoticeSection from "@/components/NoticeSection";
 export default function main() {
   return (
     <>
-      <HeroSection />
+      <div className="h-[1071px]">
+        <HeroSection />
+      </div>
       <HeroSubText />
       <ActivitiesSection />
       <TransitionSection />

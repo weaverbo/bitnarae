@@ -20,64 +20,48 @@ export default function HeroSection() {
     if (hasAnimated) {
       const timers = [
         setTimeout(() => setStep(1), 1200),
-        setTimeout(() => setStep(2), 2500),
-        setTimeout(() => setStep(3), 2800),
-        setTimeout(() => setStep(4), 4100),
-        setTimeout(() => setStep(5), 4400),
-        setTimeout(() => setStep(6), 6000),
-        setTimeout(() => setStep(7), 9000),
-        setTimeout(() => setStep(8), 10000),
-        setTimeout(() => setStep(9), 11000),
-        setTimeout(() => setStep(10), 12000),
+        setTimeout(() => setStep(2), 2400),
+        setTimeout(() => setStep(3), 3600),
+        setTimeout(() => setStep(4), 4800),
+        setTimeout(() => setStep(5), 6500),
+        setTimeout(() => setStep(6), 7000),
+        setTimeout(() => setStep(7), 10000),
+        setTimeout(() => setStep(8), 12000),
+        setTimeout(() => setStep(9), 14000),
+        setTimeout(() => setStep(10), 16000),
       ];
       return () => timers.forEach(clearTimeout);
     }
   }, [hasAnimated]);
 
-  // 2. 전체적인 애니메이션 좀 더 매끄럽게 다듬기
+  // initial 값이 왜 false인가 어떤 원리인가?
+
   const renderText = () => {
     return (
       <>
         <div className="hero-side-text">
-          <AnimatePresence>
-            {step >= 1 && step < 5 && (
-              // 3. 위치 밀리는 부분 수정하기
-              <motion.p key="text-1" className="side-text-line" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.6 }}>
-                작은 불꽃 하나
-              </motion.p>
-            )}
-          </AnimatePresence>
-          <AnimatePresence>
-            {step >= 2 && step < 5 && (
-              <motion.p key="text-2" className="side-text-line" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.6 }}>
-                세상을 밝히는 시작
-              </motion.p>
-            )}
-          </AnimatePresence>
+          <motion.p className="side-text-line" initial={false} animate={{ opacity: step >= 1 && step < 5 ? 1 : 0 }} transition={{ duration: 0.6 }}>
+            작은 불꽃 하나
+          </motion.p>
+
+          <motion.p className="side-text-line" initial={false} animate={{ opacity: step >= 2 && step < 5 ? 1 : 0 }} transition={{ duration: 0.6, delay: 0.4 }}>
+            세상을 밝히는 시작
+          </motion.p>
         </div>
-
-        {step >= 6 && step < 9 && (
-          <SlideUpFade className="hero-text" key="text-5">
-            빛나래문화재단
-          </SlideUpFade>
-        )}
-
+        <AnimatePresence>
+          {step >= 7 && step < 9 && (
+            <SlideUpFade className="hero-text" withExit>
+              빛나래문화재단
+            </SlideUpFade>
+          )}
+        </AnimatePresence>
         <div className="hero-side-text">
-          <AnimatePresence>
-            {step >= 3 && step < 5 && (
-              <motion.p key="text-3" className="side-text-line" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.6 }}>
-                당신의 일상에
-              </motion.p>
-            )}
-          </AnimatePresence>
-
-          <AnimatePresence>
-            {step >= 4 && step < 5 && (
-              <motion.p key="text-4" className="side-text-line" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.6 }}>
-                문화의 불꽃을
-              </motion.p>
-            )}
-          </AnimatePresence>
+          <motion.p className="side-text-line" initial={false} animate={{ opacity: step >= 3 && step < 5 ? 1 : 0 }} transition={{ duration: 0.6, delay: 0.8 }}>
+            당신의 일상에
+          </motion.p>
+          <motion.p className="side-text-line" initial={false} animate={{ opacity: step >= 4 && step < 5 ? 1 : 0 }} transition={{ duration: 0.6, delay: 1 }}>
+            문화의 불꽃을
+          </motion.p>
         </div>
       </>
     );
@@ -87,7 +71,6 @@ export default function HeroSection() {
     <>
       <div className="relative" ref={onInViewRef}>
         <motion.div
-          // initial 값이 왜 false인가 어떤 원리인가?
           initial={false}
           animate={{
             width: hasAnimated ? "100%" : "905px",
@@ -101,11 +84,23 @@ export default function HeroSection() {
           }}
           className="overflow-hidden mx-auto "
         >
-          <Image src={mainImg} alt="main-image" className="w-full h-full object-cover absolute z-8 relative" />
-          {/* 1. 원 모양으로 opacity 주는 문제랑 */}
-          {step >= 5 && step < 10 && <div className="absolute inset-0 bg-black/50 z-9"></div>}
+          <Image src={mainImg} alt="main-image" className="w-full h-full object-cover absolute relative" />
+          <AnimatePresence>
+            {step >= 7 && step < 10 && (
+              <motion.div
+                className="absolute inset-0 bg-black/50 "
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+                exit={{ opacity: 0 }}
+                style={{
+                  background: `radial-gradient(circle at center,rgba(0, 0, 0, 0.5) 150px,rgba(0, 0, 0, 0.7) 450px)`,
+                  backgroundPosition: "center 66px",
+                }}
+              ></motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
-
         <div className="container hero-sidetext-wrapper">{renderText()}</div>
       </div>
     </>
