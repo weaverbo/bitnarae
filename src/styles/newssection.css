@@ -45,3 +45,13 @@
 .news-card-track {
   @apply bg-[#d6d6d6] min-w-[1215px] h-[2px] mt-[80px] z-0;
 }
+
+.news-card-track {
+  @apply bg-[#d6d6d6] min-w-[1215px] h-[2px] mt-[80px] z-0;
+}
+
+@media (min-width: 1470px) and (max-width: 1918px) {
+  .news-card-track {
+    @apply min-w-[950px];
+  }
+}
