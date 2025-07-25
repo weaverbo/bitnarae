@@ -12,7 +12,7 @@ export default function Header() {
   });
 
   return (
-    <div className="position absolute z-10 bg-white/10 w-full">
+    <div className="absolute z-10 bg-white/10 w-full z-10">
       <div className="container flex items-center justify-between py-[64px]">
         <div className="flex text-white items-center gap-[8px]">
           <h1 className="header-title">빛나래문화재단</h1>

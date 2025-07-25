@@ -9,7 +9,7 @@ import "../styles/programsection.css";
 import StyledLink from "next/link";
 import SlideLeftFade from "./ui/SlideLeftFade";
 import SlideUpFade from "./ui/SlideUpFade";
-import { hover, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useAnimatedInView } from "../hooks/useAnimatedInView";
 import { useState } from "react";
 
@@ -42,7 +42,7 @@ export default function ProgramSection() {
           <div className="program-container" ref={onInViewRef2} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
             <motion.div initial={{ scale: 0.2, opacity: 0 }} animate={hasAnimated2 ? { scale: 1, opacity: 1 } : {}} transition={{ duration: 0.8, ease: "easeOut", delay: 0 }} className="w-full h-full">
               <Image className="w-full h-full object-cover rounded-[50px] relative" src={programimg_1} alt="programimg_1" />
-              <div className="image-overlay rounded-[50px] absolute"></div>
+              <div className="image-overlay rounded-[50px]"></div>
             </motion.div>
             <div className="program-caption-wrapper">
               <p className="program-cation-top">빛움터</p>
@@ -52,7 +52,7 @@ export default function ProgramSection() {
           <div className="program-container" ref={onInViewRef3} onMouseEnter={() => setHovered2(true)} onMouseLeave={() => setHovered2(false)}>
             <motion.div initial={{ scale: 0.2, opacity: 0 }} animate={hasAnimated3 ? { scale: 1, opacity: 1 } : {}} transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }} className="w-full h-full">
               <Image className="w-full h-full object-cover rounded-[50px] rounded-tr-[300px]" src={programimg_2} alt="programimg_1" />
-              <div className="image-overlay rounded-[50px] rounded-tr-[300px] absolute"></div>
+              <div className="image-overlay rounded-[50px] rounded-tr-[300px]"></div>
             </motion.div>
             <div className="program-caption-wrapper">
               <p className="program-cation-top">빛공방</p>
@@ -64,7 +64,7 @@ export default function ProgramSection() {
           <div className="program-container" ref={onInViewRef4} onMouseEnter={() => setHovered3(true)} onMouseLeave={() => setHovered3(false)}>
             <motion.div initial={{ scale: 0.2, opacity: 0 }} animate={hasAnimated4 ? { scale: 1, opacity: 1 } : {}} transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }} className="w-full h-full">
               <Image className="w-full h-full object-cover rounded-[50px] rounded-bl-[300px]" src={programimg_3} alt="programimg_1" />
-              <div className="image-overlay rounded-[50px] rounded-bl-[300px] absolute"></div>
+              <div className="image-overlay rounded-[50px] rounded-bl-[300px]"></div>
             </motion.div>
             <div className="program-caption-wrapper">
               <p className="program-cation-top">빛마당</p>

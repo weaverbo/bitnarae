@@ -8,6 +8,7 @@ interface UseAnimatedInViewOptions {
 export function useAnimatedInView(options: UseAnimatedInViewOptions = {}) {
   const { threshold = 0.6 } = options;
   const [hasAnimated, setHasAnimated] = useState(false);
+
   const [ref, inView] = useInView({ threshold });
 
   useEffect(() => {
