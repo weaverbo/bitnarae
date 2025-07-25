@@ -8,6 +8,7 @@ import { useInView } from "react-intersection-observer";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import SlideUpFade from "./ui/SlideUpFade";
+import { useHeroAnimationStore } from "../store/HeroAnimationStore";
 
 export default function HeroSection() {
   const [step, setStep] = useState(0);
@@ -15,6 +16,8 @@ export default function HeroSection() {
     threshold: 0.8,
     triggerOnce: true,
   });
+
+  const setHeroAnimationDone = useHeroAnimationStore((state) => state.setHeroAnimationDone);
 
   useEffect(() => {
     if (hasAnimated) {
@@ -28,13 +31,14 @@ export default function HeroSection() {
         setTimeout(() => setStep(7), 10000),
         setTimeout(() => setStep(8), 12000),
         setTimeout(() => setStep(9), 14000),
-        setTimeout(() => setStep(10), 16000),
+        setTimeout(() => setStep(10), 15000),
+        setTimeout(() => {
+          setHeroAnimationDone(true);
+        }, 1500),
       ];
       return () => timers.forEach(clearTimeout);
     }
   }, [hasAnimated]);
-
-  // initial 값이 왜 false인가 어떤 원리인가?
 
   const renderText = () => {
     return (

@@ -4,6 +4,7 @@ import StyledLink from "next/link";
 import SlideLeftFade from "../components/ui/SlideLeftFade";
 import "../styles/header.css";
 import { useInView } from "react-intersection-observer";
+import { useHeroAnimationStore } from "../store/HeroAnimationStore";
 
 export default function Header() {
   const [onInViewRef, inView] = useInView({
@@ -11,13 +12,15 @@ export default function Header() {
     triggerOnce: false,
   });
 
+  const isHeroAnimationDone = useHeroAnimationStore((state) => state.isHeroAnimationDone);
+
   return (
     <div className="absolute z-10 bg-white/10 w-full">
       <div className="container flex items-center justify-between py-[64px]">
         <div className="flex text-white items-center gap-[8px]">
           <h1 className="header-title">빛나래문화재단</h1>
           <div ref={onInViewRef}>
-            {inView && (
+            {inView && isHeroAnimationDone && (
               <SlideLeftFade className="flex items-center gap-[8px]">
                 <div className="header-slogan-mark"></div>
                 <div className="header-slogan">
