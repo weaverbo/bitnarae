@@ -5,6 +5,7 @@ import SlideLeftFade from "../components/ui/SlideLeftFade";
 import "../styles/header.css";
 import { useInView } from "react-intersection-observer";
 import { useHeroAnimationStore } from "../store/HeroAnimationStore";
+import { useEffect } from "react";
 
 export default function Header() {
   const [onInViewRef, inView] = useInView({
@@ -13,6 +14,13 @@ export default function Header() {
   });
 
   const isHeroAnimationDone = useHeroAnimationStore((state) => state.isHeroAnimationDone);
+  const setIsHeaderAnimationDone = useHeroAnimationStore((state) => state.setIsHeaderAnimationDone);
+
+  useEffect(() => {
+    if (inView && isHeroAnimationDone) {
+      setIsHeaderAnimationDone(true);
+    }
+  });
 
   return (
     <div className="absolute z-10 bg-white/10 w-full">

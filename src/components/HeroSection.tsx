@@ -17,12 +17,19 @@ export default function HeroSection() {
     triggerOnce: true,
   });
 
-  const setHeroAnimationDone = useHeroAnimationStore((state) => state.setHeroAnimationDone);
+  const setHeroAnimationDone = useHeroAnimationStore((state) => state.setIsHeroAnimationDone);
+  const isHeaderAnimationDone = useHeroAnimationStore((state) => state.isHeaderAnimationDone);
 
   useEffect(() => {
-    if (hasAnimated) {
+    setTimeout(() => {
+      setHeroAnimationDone(true);
+    }, 1500);
+  }, []);
+
+  useEffect(() => {
+    if (hasAnimated && isHeaderAnimationDone) {
       const timers = [
-        setTimeout(() => setStep(1), 1200),
+        setTimeout(() => setStep(1), 1800),
         setTimeout(() => setStep(2), 2400),
         setTimeout(() => setStep(3), 3600),
         setTimeout(() => setStep(4), 4800),
@@ -32,13 +39,10 @@ export default function HeroSection() {
         setTimeout(() => setStep(8), 12000),
         setTimeout(() => setStep(9), 14000),
         setTimeout(() => setStep(10), 15000),
-        setTimeout(() => {
-          setHeroAnimationDone(true);
-        }, 1500),
       ];
       return () => timers.forEach(clearTimeout);
     }
-  }, [hasAnimated]);
+  }, [hasAnimated, isHeaderAnimationDone]);
 
   const renderText = () => {
     return (

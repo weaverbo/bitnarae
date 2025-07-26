@@ -55,3 +55,9 @@
     @apply min-w-[950px];
   }
 }
+
+@media (max-width: 1470px) {
+  .news-card-track {
+    @apply min-w-[860px];
+  }
+}
