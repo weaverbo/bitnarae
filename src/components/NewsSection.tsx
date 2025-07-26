@@ -15,48 +15,48 @@ import { useInView } from "react-intersection-observer";
 export default function NewsSection() {
   const [hoveredNewsId, setHoveredNewsId] = useState<number | null>(null);
 
-  // type News = {
-  //   id: number;
-  //   title: string;
-  //   news_image: string;
-  //   subtitle: string;
-  // };
+  type News = {
+    id: number;
+    title: string;
+    news_image: string;
+    subtitle: string;
+  };
 
-  // const [newsItems, setNewsItems] = useState<News[]>([]);
+  const [newsItems, setNewsItems] = useState<News[]>([]);
 
   const [onInViewRef, inView] = useInView({
     threshold: 1,
   });
 
-  const newsItems = [
-    {
-      id: 1,
-      title: "빛나래문화재단, 지역 아동센터와 함께",
-      subtitle: "예술 교육 프로그램 시작",
-      src: newsImg_1,
-    },
-    {
-      id: 2,
-      title: "빛나래문화재단, 지역 문화 축제",
-      subtitle: "'빛마루' 성황리 개최",
-      src: newsImg_2,
-    },
-    {
-      id: 3,
-      title: "빛나래문화재단, 신진 예술가 참여",
-      subtitle: "'빛그림' 공모전 개최",
-      src: newsImg_3,
-    },
-  ];
+  // const newsItems = [
+  //   {
+  //     id: 1,
+  //     title: "빛나래문화재단, 지역 아동센터와 함께",
+  //     subtitle: "예술 교육 프로그램 시작",
+  //     src: newsImg_1,
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "빛나래문화재단, 지역 문화 축제",
+  //     subtitle: "'빛마루' 성황리 개최",
+  //     src: newsImg_2,
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "빛나래문화재단, 신진 예술가 참여",
+  //     subtitle: "'빛그림' 공모전 개최",
+  //     src: newsImg_3,
+  //   },
+  // ];
 
-  // useEffect(() => {
-  //   const newsList = async (): Promise<void> => {
-  //     const res = await fetch("/api/news");
-  //     const data = await res.json();
-  //     return setNewsItems(data);
-  //   };
-  //   newsList();
-  // }, []);
+  useEffect(() => {
+    const newsList = async (): Promise<void> => {
+      const res = await fetch("/api/news");
+      const data = await res.json();
+      return setNewsItems(data);
+    };
+    newsList();
+  }, []);
 
   return (
     <>
@@ -78,7 +78,7 @@ export default function NewsSection() {
           {newsItems.map((newsItem, i) => (
             <div key={i} onMouseEnter={() => setHoveredNewsId(newsItem.id)} onMouseLeave={() => setHoveredNewsId(null)} className="news-card-wrapper">
               <div className="news-card-inner">
-                <Image fill className="rounded-[50px] object-cover z-0" src={newsItem.src} alt="news_image" />
+                <Image fill className="rounded-[50px] object-cover z-0" src={newsItem.news_image} alt="news_image" />
                 <div className="absolute inset-0 bg-black bg-opacity-40 rounded-[50px]"></div>
                 <div className={`news-card-title-wrapper ${hoveredNewsId === newsItem.id ? "new-card-title-hovered" : "new-card-title-defalut "}`}>
                   <p className="new-card-title-line">{newsItem.title}</p>

@@ -31,14 +31,13 @@ export default function HeroSection() {
       const timers = [
         setTimeout(() => setStep(1), 1800),
         setTimeout(() => setStep(2), 2400),
-        setTimeout(() => setStep(3), 3600),
-        setTimeout(() => setStep(4), 4800),
-        setTimeout(() => setStep(5), 6500),
-        setTimeout(() => setStep(6), 7000),
+        setTimeout(() => setStep(3), 3000),
+        setTimeout(() => setStep(4), 3600),
+        setTimeout(() => setStep(5), 6000),
+        setTimeout(() => setStep(6), 8000),
         setTimeout(() => setStep(7), 10000),
         setTimeout(() => setStep(8), 12000),
         setTimeout(() => setStep(9), 14000),
-        setTimeout(() => setStep(10), 15000),
       ];
       return () => timers.forEach(clearTimeout);
     }
@@ -56,8 +55,9 @@ export default function HeroSection() {
             세상을 밝히는 시작
           </motion.p>
         </div>
+
         <AnimatePresence>
-          {step >= 7 && step < 9 && (
+          {step >= 6 && step < 8 && (
             <SlideUpFade className="hero-text" withExit>
               빛나래문화재단
             </SlideUpFade>
@@ -92,23 +92,23 @@ export default function HeroSection() {
           }}
           className="overflow-hidden mx-auto "
         >
-          <Image src={mainImg} alt="main-image" className="w-full h-full object-cover absolute relative" />
-          <AnimatePresence>
-            {step >= 7 && step < 10 && (
-              <motion.div
-                className="absolute inset-0 bg-black/50 "
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, ease: "easeInOut" }}
-                exit={{ opacity: 0 }}
-                style={{
-                  background: `radial-gradient(circle at center,rgba(0, 0, 0, 0.5) 150px,rgba(0, 0, 0, 0.7) 450px)`,
-                  backgroundPosition: "center 66px",
-                }}
-              ></motion.div>
-            )}
-          </AnimatePresence>
+          <Image src={mainImg} alt="main-image" className="w-full h-full object-cover" />
         </motion.div>
+        <AnimatePresence>
+          {step > 5 && step < 9 && (
+            <motion.div
+              className="absolute inset-0 bg-black/50 "
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+              exit={{ opacity: 0 }}
+              style={{
+                background: `radial-gradient(circle at center,rgba(0, 0, 0, 0.5) 150px,rgba(0, 0, 0, 0.7) 450px)`,
+                backgroundPosition: "center 66px",
+              }}
+            ></motion.div>
+          )}
+        </AnimatePresence>
         <div className="container hero-sidetext-wrapper">{renderText()}</div>
       </div>
     </>

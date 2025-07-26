@@ -7,7 +7,7 @@
 }
 
 .hero-side-text {
-  @apply text-[36px] min-h-[104px];
+  @apply text-[36px];
 }
 
 .side-text-line {
