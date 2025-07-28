@@ -73,7 +73,7 @@ export default function ProgramSection() {
           </div>
           <div className="program-container bg-black rounded-[50px] rounded-br-[300px]" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
             <motion.div initial={{ y: 0 }} animate={hovered ? { y: -20 } : { y: 0 }} transition={{ duration: 0.4, ease: "easeOut" }} className="absolute top-[10px] left-[10px] text-white pt-[329px] pl-[157px]">
-              <StyledLink className="text-[64px] font-regular pb-[8px] flex items-center gap-[8px]" href="/">
+              <StyledLink className="text-[64px] font-regular pb-[8px] flex items-center gap-[8px]" href="/program">
                 자세히 알아보기
                 <span>
                   <Image className="w-[44.25px] h-[44.25px]" src={icon_arrow} alt="icon_arrow" />

@@ -31,6 +31,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="">
+      <head>
+        <link rel="icon" href="/favicon5.svg" />
+        <title>빛나래문화재단</title>
+      </head>
       <body className={`${pretendard.className}`}>
         <Header />
         <div className="overflow-x-hidden">{children}</div>

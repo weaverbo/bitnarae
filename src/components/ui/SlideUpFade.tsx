@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-export default function SlideUpFade({ children, className = "", withExit = false }: { children: React.ReactNode; className?: string; withExit: boolean }) {
+export default function SlideUpFade({ children, className = "", withExit = false }: { children: React.ReactNode; className?: string; withExit?: boolean }) {
   return (
     <>
       <div className="overflow-hidden h-[59px]">

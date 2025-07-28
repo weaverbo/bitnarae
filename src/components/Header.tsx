@@ -6,6 +6,8 @@ import "../styles/header.css";
 import { useInView } from "react-intersection-observer";
 import { useHeroAnimationStore } from "../store/HeroAnimationStore";
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
+import path from "path";
 
 export default function Header() {
   const [onInViewRef, inView] = useInView({
@@ -16,6 +18,8 @@ export default function Header() {
   const isHeroAnimationDone = useHeroAnimationStore((state) => state.isHeroAnimationDone);
   const setIsHeaderAnimationDone = useHeroAnimationStore((state) => state.setIsHeaderAnimationDone);
 
+  const pathName = usePathname();
+
   useEffect(() => {
     if (inView && isHeroAnimationDone) {
       setIsHeaderAnimationDone(true);
@@ -23,14 +27,16 @@ export default function Header() {
   });
 
   return (
-    <div className="absolute z-10 bg-white/10 w-full">
+    <div className={pathName === "/" ? "absolute z-10 bg-white/10 w-full" : "w-full"}>
       <div className="container flex items-center justify-between py-[64px]">
-        <div className="flex text-white items-center gap-[8px]">
-          <h1 className="header-title">빛나래문화재단</h1>
+        <div className={`flex items-center gap-[8px] ${pathName === "/" ? "text-white" : "text-black"}`}>
+          <StyledLink className="header-title" href="/">
+            빛나래문화재단
+          </StyledLink>
           <div ref={onInViewRef}>
-            {inView && isHeroAnimationDone && (
-              <SlideLeftFade className="flex items-center gap-[8px]">
-                <div className="header-slogan-mark"></div>
+            {((pathName === "/" && inView && isHeroAnimationDone) || (pathName !== "/" && inView)) && (
+              <SlideLeftFade key={pathName} className="flex items-center gap-[8px]">
+                <div className={`header-slogan-mark ${pathName === "/" ? "bg-white" : "bg-black"}`}></div>
                 <div className="header-slogan">
                   <p>BITNARAE</p>
                   <p>FOUNDATION OF CULTURE</p>
@@ -39,14 +45,14 @@ export default function Header() {
             )}
           </div>
         </div>
-        <ul className="flex gap-[24px] text-lg text-white">
+        <ul className={`flex gap-[24px] text-lg  ${pathName === "/" ? "text-white" : "text-black"}`}>
           <li>
             <StyledLink className="header-menu-link" href={"/"}>
               재단소개
             </StyledLink>
           </li>
           <li>
-            <StyledLink className="header-menu-link" href={"/"}>
+            <StyledLink className="header-menu-link" href={"/program"}>
               재단활동
             </StyledLink>
           </li>

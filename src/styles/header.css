@@ -11,5 +11,5 @@
 }
 
 .header-slogan-mark {
-  @apply w-[2px] h-[38px] bg-white;
+  @apply w-[2px] h-[38px];
 }
