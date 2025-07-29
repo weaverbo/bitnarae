@@ -1,13 +1,12 @@
 "use client";
 
 import StyledLink from "next/link";
-import SlideLeftFade from "../components/ui/SlideLeftFade";
-import "../styles/header.css";
+import SlideLeftFade from "../ui/SlideLeftFade";
+import "../../styles/header.css";
 import { useInView } from "react-intersection-observer";
-import { useHeroAnimationStore } from "../store/HeroAnimationStore";
+import { useHeroAnimationStore } from "../../store/HeroAnimationStore";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
-import path from "path";
 
 export default function Header() {
   const [onInViewRef, inView] = useInView({
@@ -47,7 +46,7 @@ export default function Header() {
         </div>
         <ul className={`flex gap-[24px] text-lg  ${pathName === "/" ? "text-white" : "text-black"}`}>
           <li>
-            <StyledLink className="header-menu-link" href={"/"}>
+            <StyledLink className="header-menu-link" href={"/about"}>
               재단소개
             </StyledLink>
           </li>

@@ -5,6 +5,7 @@ import programing_2 from "../../public/img/programImg2-min.png";
 import programing_3 from "../../public/img/programImg3-min.png";
 import Image from "next/image";
 import { useState } from "react";
+import "../styles/programdetails.css";
 
 export default function ProgramDetails() {
   const [hoveredDetails, setHoveredDetails] = useState<{ [programId: number]: number }>({
@@ -117,23 +118,23 @@ export default function ProgramDetails() {
   return (
     <>
       <div className="container">
-        <h1 className="border-b border-[#C6C6C6] py-[160px] text-center text-[42px]">재단활동</h1>
+        <h1 className="program_details_title">재단활동</h1>
         {programs.map((program, index) => (
-          <div key={index} className="w-full border-b border-[#C6C6C6] py-[160px] text-center">
-            <h2 className="text-xl">{program.subtitle}</h2>
-            <h3 className="text-4xl mt-[16px] mb-[80px]">{program.title}</h3>
-            <div className="text-xl mt-[80px] mb-[160px]">
+          <div key={index} className="program_details_section">
+            <h2 className="program_details_subtitle">{program.subtitle}</h2>
+            <h3 className="program_detail_section_title">{program.title}</h3>
+            <div className="program_detail_section_description">
               <p>{program.pragraph_1}</p>
               <p className="leading-[45px]">{program.pragraph_2}</p>
               <p>{program.pragraph_3}</p>
             </div>
             <div className="flex justify-center items-center">
-              <Image className="object-cover rounded-[20px]" src={program.image} alt="programimg_1" width={720} height={498} />
+              <Image className="object-cover rounded-[20px] program_detail_section_img" src={program.image} alt="programimg_1" />
               <div>
                 {programs[index].details.map((detail, index) => (
                   <div key={index} className="flex">
-                    <div className="relative bg-[#d6d6d6] w-[4px] h-[166px] ml-[160px] mr-[80px]"> {hoveredDetails[program.id] === detail.id && <div className="absolute bg-black h-full w-[4px] mr-[240px]" />}</div>
-                    <article className="h-[166px] py-[24px] text-left flex flex-col justify-center " onMouseEnter={() => handleMouseEnter(program.id, detail.id)} onMouseLeave={() => handleMouseLeave(program.id)}>
+                    <div className="program_detail_section_article"> {hoveredDetails[program.id] === detail.id && <div className="article_selected_track" />}</div>
+                    <article className="article_container" onMouseEnter={() => handleMouseEnter(program.id, detail.id)} onMouseLeave={() => handleMouseLeave(program.id)}>
                       <h4 className={`underline underline-offset-4 ${hoveredDetails[program.id] === detail.id ? "font-bold" : ""}`}>{detail.title}</h4>
                       <div className={`mt-[16px] ${hoveredDetails[program.id] === detail.id ? "font-bold" : ""}`}>
                         <p>{detail.pragraph_1}</p>
