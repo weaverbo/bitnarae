@@ -46,7 +46,7 @@ export default function Header() {
         </div>
         <ul className={`flex gap-[24px] text-lg  ${pathName === "/" ? "text-white" : "text-black"}`}>
           <li>
-            <StyledLink className="header-menu-link" href={"/about"}>
+            <StyledLink className="header-menu-link" href={"/about/mission"}>
               재단소개
             </StyledLink>
           </li>
