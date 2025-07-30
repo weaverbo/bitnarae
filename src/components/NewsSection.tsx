@@ -61,7 +61,6 @@ export default function NewsSection() {
   return (
     <>
       <div className="container mt-[320px]">
-        {/* 아래 div 태그에 왜 key값을 추가했는지 확인하기 */}
         <div ref={onInViewRef} key={inView ? "in" : "out"}>
           <SlideLeftFade className="flex gap-[24px]">
             <div className="news-section-title-mark"></div>
