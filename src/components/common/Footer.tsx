@@ -1,9 +1,9 @@
 import StyleLink from "next/link";
 import Image from "next/image";
-import "../../styles/footer.css";
 import icon_insta from "../../../public/img/icon_insta.svg";
 import icon_nblog from "../../../public/img/icon_nblog.svg";
 import icon_youtube from "../../../public/img/icon_youtube.svg";
+import "../../styles/utilities/footer.css";
 
 export default function Footer() {
   return (

@@ -1,0 +1,7 @@
+.about-common-title {
+  @apply text-center text-[42px] my-[160px] font-bold;
+}
+
+.about-common-tabmenu {
+  @apply flex justify-center gap-[165px] text-[36px];
+}

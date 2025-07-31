@@ -1,14 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import mainImg from "../../public/img/mainImg-min.jpg";
-import "../styles/herosection.css";
+import mainImg from "../../../public/img/mainImg-min.jpg";
+import "../../styles/main/herosection.css";
 
 import { useInView } from "react-intersection-observer";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import SlideUpFade from "./ui/SlideUpFade";
-import { useHeroAnimationStore } from "../store/HeroAnimationStore";
+import { useHeroAnimationStore } from "../../store/HeroAnimationStore";
+import SlideUpFade from "../ui/SlideUpFade";
 
 export default function HeroSection() {
   const [step, setStep] = useState(0);

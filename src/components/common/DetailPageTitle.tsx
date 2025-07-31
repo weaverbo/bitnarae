@@ -1,6 +1,7 @@
 "use client";
 
 import StyledLink from "next/link";
+import "../../styles/utilities/detailpagetitle.css";
 import { usePathname } from "next/navigation";
 
 type DetailPageTitleProps = {
@@ -14,7 +15,7 @@ export default function DetailPageTitle({ title }: DetailPageTitleProps) {
   const aboutSubMenu = [
     {
       title: "핵심철학",
-      path: "mission",
+      path: "philosophy",
     },
     {
       title: "빛나래문화센터",
@@ -29,8 +30,8 @@ export default function DetailPageTitle({ title }: DetailPageTitleProps) {
   return (
     <>
       <div className="container">
-        <h1 className="text-center text-[42px] my-[160px] font-bold">{title}</h1>
-        <ul className="flex justify-center gap-[165px] text-[36px]">
+        <h1 className="about-common-title">{title}</h1>
+        <ul className="about-common-tabmenu">
           {aboutSubMenu.map((menu, index) => {
             const isActive = currentSubmenu === menu.path;
             return (

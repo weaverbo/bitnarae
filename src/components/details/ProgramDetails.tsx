@@ -1,11 +1,11 @@
 "use client";
 
-import programing_1 from "../../public/img/programImg1-min.png";
-import programing_2 from "../../public/img/programImg2-min.png";
-import programing_3 from "../../public/img/programImg3-min.png";
+import programing_1 from "../../../public/img/programImg1-min.png";
+import programing_2 from "../../../public/img/programImg2-min.png";
+import programing_3 from "../../../public/img/programImg3-min.png";
+import "../../styles/details/programdetails.css";
 import Image from "next/image";
 import { useState } from "react";
-import "../styles/programdetails.css";
 
 export default function ProgramDetails() {
   const [hoveredDetails, setHoveredDetails] = useState<{ [programId: number]: number }>({

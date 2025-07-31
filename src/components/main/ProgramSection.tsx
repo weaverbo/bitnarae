@@ -1,16 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import programimg_1 from "../../public/img/programImg1-min.png";
-import programimg_2 from "../../public/img/programImg2-min.png";
-import programimg_3 from "../../public/img/programImg3-min.png";
-import icon_arrow from "../../public/img/icon_arrow.svg";
-import "../styles/programsection.css";
+import programimg_1 from "../../../public/img/programImg1-min.png";
+import programimg_2 from "../../../public/img/programImg2-min.png";
+import programimg_3 from "../../../public/img/programImg3-min.png";
+import icon_arrow from "../../../public/img/icon_arrow.svg";
+import "../../styles/main/programsection.css";
 import StyledLink from "next/link";
-import SlideLeftFade from "./ui/SlideLeftFade";
-import SlideUpFade from "./ui/SlideUpFade";
+import SlideLeftFade from "../ui/SlideLeftFade";
+import SlideUpFade from "../ui/SlideUpFade";
 import { motion } from "framer-motion";
-import { useAnimatedInView } from "../hooks/useAnimatedInView";
+import { useAnimatedInView } from "../../hooks/useAnimatedInView";
 import { useState } from "react";
 
 export default function ProgramSection() {

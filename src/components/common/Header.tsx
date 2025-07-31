@@ -2,7 +2,7 @@
 
 import StyledLink from "next/link";
 import SlideLeftFade from "../ui/SlideLeftFade";
-import "../../styles/header.css";
+import "../../styles/utilities/header.css";
 import { useInView } from "react-intersection-observer";
 import { useHeroAnimationStore } from "../../store/HeroAnimationStore";
 import { useEffect } from "react";
@@ -46,7 +46,7 @@ export default function Header() {
         </div>
         <ul className={`flex gap-[24px] text-lg  ${pathName === "/" ? "text-white" : "text-black"}`}>
           <li>
-            <StyledLink className="header-menu-link" href={"/about/mission"}>
+            <StyledLink className="header-menu-link" href={"/about/philosophy"}>
               재단소개
             </StyledLink>
           </li>

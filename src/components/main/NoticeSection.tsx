@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import StyledLink from "next/link";
-import "../styles/noticesection.css";
+import "../../styles/main/noticesection.css";
+
+import { useEffect, useState } from "react";
 
 export default function NoticeSection() {
   type Notice = {

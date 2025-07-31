@@ -1,9 +1,9 @@
-import HeroSection from "@/components/HeroSection";
-import HeroSubText from "@/components/HeroSubText";
-import ActivitiesSection from "@/components/ProgramSection";
-import TransitionSection from "@/components/TransitionSection";
-import NewsSection from "@/components/NewsSection";
-import NoticeSection from "@/components/NoticeSection";
+import HeroSection from "@/components/main/HeroSection";
+import HeroSubText from "@/components/main/HeroSubTextSection";
+import ActivitiesSection from "@/components/main/ProgramSection";
+import TransitionSection from "@/components/main/TransitionSection";
+import NewsSection from "@/components/main/NewsSection";
+import NoticeSection from "@/components/main/NoticeSection";
 
 export default function main() {
   return (

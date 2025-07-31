@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import transition from "../../public/img/transitionImg-min.png";
+import transition from "../../../public/img/transitionImg-min.png";
+import "../../styles/main/transitionsection.css";
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import "../styles/transitionsection.css";
 import { useInView } from "react-intersection-observer";
 
 export default function TransitionSection() {

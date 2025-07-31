@@ -1,0 +1,35 @@
+.mission-section-title-mark {
+  @apply w-[4px] h-[43px] bg-[#757575];
+}
+
+.mission-section-subtitle {
+  @apply text-2xl text-[#757575];
+}
+
+.mission-section-title {
+  @apply text-4xl font-bold mt-[16px] mb-[160px];
+}
+
+.mission-thumnail {
+  @apply w-[909px] h-[1085px] object-cover;
+}
+
+.mission-section-contents {
+  @apply text-xl flex flex-col gap-[60px] mt-[160px] mb-[185px];
+}
+
+.vision-section-contents {
+  @apply text-xl w-[318px];
+}
+
+.hover-underline {
+  @apply underline underline-offset-4;
+}
+
+.value-section-contents {
+  @apply text-xl w-[307px];
+}
+
+.value-section-contents-line {
+  @apply w-full h-[1px] bg-black mb-[32px];
+}

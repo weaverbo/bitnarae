@@ -1,22 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import missionImg from "../../../../../public/img/missionImg.png";
-import circleNo1 from "../../../../../public/img/circleNo1.svg";
-import circleNo2 from "../../../../../public/img/circleNo2.svg";
-import circleNo3 from "../../../../../public/img/circleNo3.svg";
-import circleNo4 from "../../../../../public/img/circleNo4.svg";
-import hoveredNo1 from "../../../../../public/img/hoveredNo1.svg";
-import hoveredNo2 from "../../../../../public/img/hoveredNo2.svg";
-import hoveredNo3 from "../../../../../public/img/hoveredNo3.svg";
-import hoveredNo4 from "../../../../../public/img/hoveredNo4.svg";
+import missionImg from "../../../public/img/missionImg.png";
+import circleNo1 from "../../../public/img/circleNo1.svg";
+import circleNo2 from "../../../public/img/circleNo2.svg";
+import circleNo3 from "../../../public/img/circleNo3.svg";
+import circleNo4 from "../../../public/img/circleNo4.svg";
+import hoveredNo1 from "../../../public/img/hoveredNo1.svg";
+import hoveredNo2 from "../../../public/img/hoveredNo2.svg";
+import hoveredNo3 from "../../../public/img/hoveredNo3.svg";
+import hoveredNo4 from "../../../public/img/hoveredNo4.svg";
+import "../../styles/details/philosophydetails.css";
 import { motion } from "framer-motion";
-import { useAnimatedInView } from "../../../../hooks/useAnimatedInView";
-
-import "../../../../styles/mission.css";
+import { useAnimatedInView } from "../../hooks/useAnimatedInView";
 import { useState } from "react";
 
-export default function Mission() {
+export default function PhilosophyDetails() {
   const missionHeader = useAnimatedInView({ threshold: 0.8 });
   const missionBody1 = useAnimatedInView({ threshold: 0.8 });
   const missionBody2 = useAnimatedInView({ threshold: 0.8 });
@@ -28,7 +27,6 @@ export default function Mission() {
   const valueHeader = useAnimatedInView({ threshold: 0.8 });
   const valueBody1 = useAnimatedInView({ threshold: 0.8 });
   const valueBody2 = useAnimatedInView({ threshold: 0.8 });
-
 
   const [hoveredStates, setHoveredStates] = useState(Array(8).fill(false));
 
@@ -65,7 +63,7 @@ export default function Mission() {
                   </motion.div>
                 )}
               </div>
-              <div className="text-xl flex flex-col gap-[60px] mt-[160px] mb-[185px]">
+              <div className="mission-section-contents">
                 <div ref={missionBody1.ref}>
                   {missionBody1.hasAnimated && (
                     <motion.div initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}>
@@ -133,18 +131,18 @@ export default function Mission() {
               <div ref={visionBody1.ref}>
                 {visionBody1.hasAnimated && (
                   <motion.div initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="flex justify-between w-[796px]">
-                    <div className="text-xl w-[318px]" onMouseEnter={() => handleMouseEnter(0)} onMouseLeave={() => handleMouseLeave(0)}>
+                    <div className="vision-section-contents" onMouseEnter={() => handleMouseEnter(0)} onMouseLeave={() => handleMouseLeave(0)}>
                       <Image src={hoveredStates[0] ? hoveredNo1 : circleNo1} alt="1" className="mb-[16px]" />
-                      <div className={`${hoveredStates[0] ? "underline underline-offset-4" : ""}`}>
+                      <div className={`${hoveredStates[0] ? "hover-underline" : ""}`}>
                         <p>제약 없이 평등하게 누리는</p>
-                        <p className="t leading-[48px]">문화예술 조기교육 지원</p>
+                        <p className="leading-[48px]">문화예술 조기교육 지원</p>
                       </div>
                     </div>
-                    <div className="text-xl w-[318px]" onMouseEnter={() => handleMouseEnter(1)} onMouseLeave={() => handleMouseLeave(1)}>
+                    <div className="vision-section-contents" onMouseEnter={() => handleMouseEnter(1)} onMouseLeave={() => handleMouseLeave(1)}>
                       <Image src={hoveredStates[1] ? hoveredNo2 : circleNo2} alt="2" className="mb-[16px]" />
-                      <div className={`${hoveredStates[1] ? "underline underline-offset-4" : ""}`}>
+                      <div className={`${hoveredStates[1] ? "hover-underline" : ""}`}>
                         <p>자유롭게 창작할 수 있도록</p>
-                        <p className="t leading-[48px]">신진 예술가 지원</p>
+                        <p className="leading-[48px]">신진 예술가 지원</p>
                       </div>
                     </div>
                   </motion.div>
@@ -153,16 +151,16 @@ export default function Mission() {
               <div ref={visionBody2.ref}>
                 {visionBody2.hasAnimated && (
                   <motion.div initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="flex justify-between w-[796px]">
-                    <div className="text-xl w-[318px]" onMouseEnter={() => handleMouseEnter(2)} onMouseLeave={() => handleMouseLeave(2)}>
+                    <div className="vision-section-contents" onMouseEnter={() => handleMouseEnter(2)} onMouseLeave={() => handleMouseLeave(2)}>
                       <Image src={hoveredStates[2] ? hoveredNo3 : circleNo3} alt="3" className="mb-[16px]" />
-                      <div className={`${hoveredStates[2] ? "underline underline-offset-4" : ""}`}>
+                      <div className={`${hoveredStates[2] ? "hover-underline" : ""}`}>
                         <p>누구나 창작할 수 있는</p>
                         <p className="t leading-[48px]">시민 예술 생태계 조성</p>
                       </div>
                     </div>
-                    <div className="text-xl w-[318px]" onMouseEnter={() => handleMouseEnter(3)} onMouseLeave={() => handleMouseLeave(3)}>
+                    <div className="vision-section-contents" onMouseEnter={() => handleMouseEnter(3)} onMouseLeave={() => handleMouseLeave(3)}>
                       <Image src={hoveredStates[3] ? hoveredNo4 : circleNo4} alt="4" className="mb-[16px]" />
-                      <div className={`${hoveredStates[3] ? "underline underline-offset-4" : ""}`}>
+                      <div className={`${hoveredStates[3] ? "hover-underline" : ""}`}>
                         <p>예술가와 시민이 함께</p>
                         <p className="t leading-[48px]">성장하는 문화 기반 구축</p>
                       </div>
@@ -190,17 +188,17 @@ export default function Mission() {
               <div ref={valueBody1.ref}>
                 {valueBody1.hasAnimated && (
                   <motion.div initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="flex justify-between w-[774px]">
-                    <div className="text-xl w-[307px]" onMouseEnter={() => handleMouseEnter(4)} onMouseLeave={() => handleMouseLeave(4)}>
-                      <div className="w-full h-[1px] bg-black mb-[32px]" />
-                      <div className={`${hoveredStates[4] ? "underline underline-offset-4 font-bold" : ""}`}>
+                    <div className="value-section-contents" onMouseEnter={() => handleMouseEnter(4)} onMouseLeave={() => handleMouseLeave(4)}>
+                      <div className="value-section-contents-line" />
+                      <div className={`${hoveredStates[4] ? "hover-underline font-bold" : ""}`}>
                         <span>포용</span>
                         <p className="mt-[16px]">세대와 배경을 넘어</p>
-                        <p className="t leading-[44.8px]">누구나 문화의 주체</p>
+                        <p className="leading-[44.8px]">누구나 문화의 주체</p>
                       </div>
                     </div>
-                    <div className="text-xl w-[307px]" onMouseEnter={() => handleMouseEnter(5)} onMouseLeave={() => handleMouseLeave(5)}>
-                      <div className="w-full h-[1px] bg-black mb-[32px]" />
-                      <div className={`${hoveredStates[5] ? "underline underline-offset-4 font-bold" : ""}`}>
+                    <div className="value-section-contents" onMouseEnter={() => handleMouseEnter(5)} onMouseLeave={() => handleMouseLeave(5)}>
+                      <div className="value-section-contents-line" />
+                      <div className={`${hoveredStates[5] ? "hover-underline font-bold" : ""}`}>
                         <span>창의</span>
                         <p className="mt-[16px]">시도와 표현을 존중하고</p>
                         <p className="t leading-[44.8px]">창작의 자유 지지</p>
@@ -212,20 +210,20 @@ export default function Mission() {
               <div ref={valueBody2.ref}>
                 {valueBody2.hasAnimated && (
                   <motion.div initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="flex justify-between w-[774px]">
-                    <div className="text-xl w-[307px]" onMouseEnter={() => handleMouseEnter(6)} onMouseLeave={() => handleMouseLeave(6)}>
-                      <div className="w-full h-[1px] bg-black mb-[32px]" />
-                      <div className={`${hoveredStates[6] ? "underline underline-offset-4 font-bold" : ""}`}>
+                    <div className="value-section-contents" onMouseEnter={() => handleMouseEnter(6)} onMouseLeave={() => handleMouseLeave(6)}>
+                      <div className="value-section-contents-line" />
+                      <div className={`${hoveredStates[6] ? "hover-underline font-bold" : ""}`}>
                         <span>연결</span>
                         <p className="mt-[16px]">예술과 일상 잇는</p>
                         <p className="t leading-[48px]">문화의 다리</p>
                       </div>
                     </div>
-                    <div className="text-xl w-[307px]" onMouseEnter={() => handleMouseEnter(7)} onMouseLeave={() => handleMouseLeave(7)}>
-                      <div className="w-full h-[1px] bg-black mb-[32px]" />
-                      <div className={`${hoveredStates[7] ? "underline underline-offset-4 font-bold" : ""}`}>
+                    <div className="value-section-contents" onMouseEnter={() => handleMouseEnter(7)} onMouseLeave={() => handleMouseLeave(7)}>
+                      <div className="value-section-contents-line" />
+                      <div className={`${hoveredStates[7] ? "hover-underline font-bold" : ""}`}>
                         <span>성장</span>
                         <p className="mt-[16px]">개인과 공동체가 함께</p>
-                        <p className="t leading-[44.8px]">지속적 성장 추구</p>
+                        <p className="leading-[44.8px]">지속적 성장 추구</p>
                       </div>
                     </div>
                   </motion.div>

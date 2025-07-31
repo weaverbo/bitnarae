@@ -1,11 +1,10 @@
 "use client";
+import "../../styles/main/herosubtextsection.css";
 
 import { motion } from "framer-motion";
-
-import "../styles/herosubtext.css";
 import { useInView } from "react-intersection-observer";
 
-export default function HeroSubText() {
+export default function HeroSubTextSection() {
   const [onInViewRef, inView] = useInView({
     threshold: 0.8,
     triggerOnce: false,

@@ -1,15 +1,15 @@
 "use client";
 
-import Image from "next/image";
-import icon_arrow from "../../public/img/icon_arrow.svg";
-import { useEffect, useState } from "react";
 import StyledLink from "next/link";
-import SlideLeftFade from "../components/ui/SlideLeftFade";
+import Image from "next/image";
+import icon_arrow from "../../../public/img/icon_arrow.svg";
+import { useEffect, useState } from "react";
+import SlideLeftFade from "../ui/SlideLeftFade";
 
-import newsImg_1 from "../../public/img/newsImg1-min.png";
-import newsImg_2 from "../../public/img/newsImg2-min.png";
-import newsImg_3 from "../../public/img/newsImg3-min.png";
-import "../styles/newssection.css";
+// import newsImg_1 from "../../../public/img/newsImg1-min.png";
+// import newsImg_2 from "../../../public/img/newsImg2-min.png";
+// import newsImg_3 from "../../../public/img/newsImg3-min.png";
+import "../../styles/main/newssection.css";
 import { useInView } from "react-intersection-observer";
 
 export default function NewsSection() {
