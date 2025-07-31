@@ -1,7 +1,6 @@
 "use client";
 
 import StyledLink from "next/link";
-import { useState } from "react";
 import { usePathname } from "next/navigation";
 
 type DetailPageTitleProps = {
@@ -9,8 +8,6 @@ type DetailPageTitleProps = {
 };
 
 export default function DetailPageTitle({ title }: DetailPageTitleProps) {
-  const [selectedMenu, setSelectedMenu] = useState("");
-
   const pathName = usePathname();
   const currentSubmenu = pathName.split("/").pop();
 
