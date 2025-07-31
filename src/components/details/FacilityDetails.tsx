@@ -13,12 +13,8 @@ import center3_3 from "../../../public/img/center3-3-min.png";
 import center4_1 from "../../../public/img/center4-1-min.png";
 import center4_2 from "../../../public/img/center4-2-min.png";
 import { useState } from "react";
-import { hover } from "framer-motion";
-import { div } from "framer-motion/client";
 
 export default function FacilityDetails() {
-  const [hovered, setHovered] = useState(Array(10).fill(false));
-
   const facilityImg = [
     { id: 1, src: center1_1, name: "빛놀이터" },
     { id: 2, src: center1_2, name: "빛창작터" },
@@ -31,6 +27,8 @@ export default function FacilityDetails() {
     { id: 10, src: center4_1, name: "빛소극장" },
     { id: 11, src: center4_2, name: "빛갤러리" },
   ];
+
+  const [hovered, setHovered] = useState(Array(facilityImg.length).fill(false));
 
   const handleMouseEnter = (index: number) => {
     setHovered((prev) => {
@@ -67,36 +65,39 @@ export default function FacilityDetails() {
           </div>
           <div className="facility_details_block_image-wrapper">
             {facilityImg.slice(0, 3).map((img, index) => (
-              <div key={index} className="facility_details_block_image-inner" onMouseEnter={() => handleMouseEnter(index)} onMouseLeave={() => handleMouseLeave(index)}>
+              <div key={img.id} className="facility_details_block_image-inner" onMouseEnter={() => handleMouseEnter(index)} onMouseLeave={() => handleMouseLeave(index)}>
                 <Image className="facility_details_block_image" src={img.src} alt="facilityImg" />
-                <div className={`facility_details_block_image-overlay ${hovered[index] ? "opacity-50" : "opacity-0"}`} />
-                <div className={`facility_details_block_image-hover ${hovered[index] ? "opacity-100" : "opacity-0"}`}>{facilityImg[index].name}</div>
+                <div className={`facility_details_block_image_overlay ${hovered[index] ? "opacity-50" : "opacity-0"}`} />
+                <div className={`facility_details_block_image_hover ${hovered[index] ? "opacity-100" : "opacity-0"}`}>{facilityImg[index].name}</div>
               </div>
             ))}
           </div>
         </div>
         <div className="facility_details_block_wrapper">
-          <div className="facility_details_blcok_inner">
+          <div className="facility_details_block_inner">
             <div className="facility_details_block_title_line" />
             <h2 className="facility_details_block_title">빛공방 공간</h2>
             <div className="facility_details_block_title_summary">
-              <p>창작자들이</p>
-              <p className="summary-line">온전히 몰입할 수 있는</p>
+              <p>창작자들이 온전히</p>
+              <p className="summary-line">몰입할 수 있는</p>
               <p>예술 작업터</p>
             </div>
           </div>
           <div className="facility_details_block_image-wrapper-other">
-            {facilityImg.slice(3, 5).map((img, index) => (
-              <div key={index} className="facility_details_block_image-inner" onMouseEnter={() => handleMouseEnter(index + 3)} onMouseLeave={() => handleMouseLeave(index + 3)}>
-                <Image className="facility_details_block_image" src={img.src} alt="facilityImg" />
-                <div className={`facility_details_block_image-overlay ${hovered[index + 3] ? "opacity-50" : "opacity-0"}`} />
-                <div className={`facility_details_block_image-hover ${hovered[index + 3] ? "opacity-100" : "opacity-0"}`}>{facilityImg[index + 3].name}</div>
-              </div>
-            ))}
+            {facilityImg.slice(3, 5).map((img, index) => {
+              const trueIndex = index + 3;
+              return (
+                <div key={img.id} className="facility_details_block_image-inner" onMouseEnter={() => handleMouseEnter(trueIndex)} onMouseLeave={() => handleMouseLeave(trueIndex)}>
+                  <Image className="facility_details_block_image" src={img.src} alt="facilityImg" />
+                  <div className={`facility_details_block_image_overlay ${hovered[trueIndex] ? "opacity-50" : "opacity-0"}`} />
+                  <div className={`facility_details_block_image_hover ${hovered[trueIndex] ? "opacity-100" : "opacity-0"}`}>{img.name}</div>
+                </div>
+              );
+            })}
           </div>
         </div>
         <div className="facility_details_block_wrapper">
-          <div className="facility_details_blcok_inner">
+          <div className="facility_details_block_inner">
             <div className="facility_details_block_title_line" />
             <h2 className="facility_details_block_title">빛마당 공간</h2>
             <div className="facility_details_block_title_summary ">
@@ -106,17 +107,20 @@ export default function FacilityDetails() {
             </div>
           </div>
           <div className="facility_details_block_image-wrapper">
-            {facilityImg.slice(5, 8).map((img, index) => (
-              <div key={index} className="facility_details_block_image-inner" onMouseEnter={() => handleMouseEnter(index + 5)} onMouseLeave={() => handleMouseLeave(index + 5)}>
-                <Image className="facility_details_block_image" src={img.src} alt="facilityImg" />
-                <div className={`facility_details_block_image-overlay ${hovered[index + 5] ? "opacity-50" : "opacity-0"}`} />
-                <div className={`facility_details_block_image-hover ${hovered[index + 5] ? "opacity-100" : "opacity-0"}`}>{facilityImg[index + 5].name}</div>
-              </div>
-            ))}
+            {facilityImg.slice(5, 8).map((img, index) => {
+              const trueIndex = index + 5;
+              return (
+                <div key={img.id} className="facility_details_block_image-inner" onMouseEnter={() => handleMouseEnter(trueIndex)} onMouseLeave={() => handleMouseLeave(trueIndex)}>
+                  <Image className="facility_details_block_image" src={img.src} alt="facilityImg" />
+                  <div className={`facility_details_block_image_overlay ${hovered[trueIndex] ? "opacity-50" : "opacity-0"}`} />
+                  <div className={`facility_details_block_image_hover ${hovered[trueIndex] ? "opacity-100" : "opacity-0"}`}>{img.name}</div>
+                </div>
+              );
+            })}
           </div>
         </div>
         <div className="facility_details_block_wrapper">
-          <div className="facility_details_blcok_inner">
+          <div className="facility_details_block_inner">
             <div className="facility_details_block_title_line" />
             <h2 className="facility_details_block_title">빛울림 공간</h2>
             <div className="facility_details_block_title_summary ">
@@ -126,13 +130,16 @@ export default function FacilityDetails() {
             </div>
           </div>
           <div className="facility_details_block_image-wrapper">
-            {facilityImg.slice(8, 10).map((img, index) => (
-              <div key={index} className="facility_details_block_image-inner" onMouseEnter={() => handleMouseEnter(index + 8)} onMouseLeave={() => handleMouseLeave(index + 8)}>
-                <Image className="facility_details_block_image" src={img.src} alt="facilityImg" />
-                <div className={`facility_details_block_image-overlay ${hovered[index + 8] ? "opacity-50" : "opacity-0"}`} />
-                <div className={`facility_details_block_image-hover ${hovered[index + 8] ? "opacity-100" : "opacity-0"}`}>{facilityImg[index + 8].name}</div>
-              </div>
-            ))}
+            {facilityImg.slice(8, 10).map((img, index) => {
+              const trueIndex = index + 8;
+              return (
+                <div key={img.id} className="facility_details_block_image-inner" onMouseEnter={() => handleMouseEnter(trueIndex)} onMouseLeave={() => handleMouseLeave(trueIndex)}>
+                  <Image className="facility_details_block_image" src={img.src} alt="facilityImg" />
+                  <div className={`facility_details_block_image_overlay ${hovered[trueIndex] ? "opacity-50" : "opacity-0"}`} />
+                  <div className={`facility_details_block_image_hover ${hovered[trueIndex] ? "opacity-100" : "opacity-0"}`}>{img.name}</div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
