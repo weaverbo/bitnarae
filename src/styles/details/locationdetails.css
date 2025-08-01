@@ -1,0 +1,51 @@
+.location-details-wrapper {
+  @apply flex gap-[160px] items-center mb-[160px];
+}
+
+.location-details-inner {
+  @apply flex flex-col gap-[64px];
+}
+
+.location-details-title {
+  @apply text-[42px] font-bold mb-[24px];
+}
+
+.location-details-address {
+  @apply text-[20px] font-bold flex items-center gap-[4px];
+}
+
+.location-details-icon {
+  @apply w-[24px] h-[24px];
+}
+
+.location-details-subtitle {
+  @apply text-[28px] font-bold mb-[24px];
+}
+
+.subway-line-info {
+  @apply text-[20px] font-[500];
+}
+
+.subway-info-description {
+  @apply text-[16px];
+}
+
+.bus-info-type-wrapper {
+  @apply mt-[36px];
+}
+
+.bus-info-type-inner {
+  @apply flex items-center gap-[12px];
+}
+
+.bus-info-type {
+  @apply text-[20px] font-[500];
+}
+
+.bus-info-description-wrapper {
+  @apply mt-[16px];
+}
+
+.bus-info-description-highlight {
+  @apply text-sm font-[500];
+}

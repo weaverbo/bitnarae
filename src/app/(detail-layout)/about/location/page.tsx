@@ -1,7 +1,9 @@
+import LocationDetails from "../../../../components/details/LocationDetails";
+
 export default function Location() {
   return (
     <>
-      <div>location</div>
+      <LocationDetails />
     </>
   );
 }
