@@ -51,17 +51,17 @@ export default function Header() {
             </StyledLink>
           </li>
           <li>
-            <StyledLink className="header-menu-link" href={"/program"}>
+            <StyledLink className="header-menu-link" href={"/program-activity"}>
               재단활동
             </StyledLink>
           </li>
           <li>
-            <StyledLink className="header-menu-link" href={"/"}>
+            <StyledLink className="header-menu-link" href={"/news"}>
               재단소식
             </StyledLink>
           </li>
           <li>
-            <StyledLink className="header-menu-link" href={"/"}>
+            <StyledLink className="header-menu-link" href={"/notices"}>
               공지사항
             </StyledLink>
           </li>

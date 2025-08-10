@@ -3,8 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
@@ -12,16 +13,18 @@ model notice {
   id         Int      @default(autoincrement())
   created_at DateTime @default(now()) @db.Timestamptz(6)
   title      String
+  contents   String?
 
   @@id([id, created_at, title])
 }
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model news {
-  id         Int     @default(autoincrement())
+  id         Int       @default(autoincrement())
   title      String
   news_image String
   subtitle   String?
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
 
   @@id([id, title, news_image])
 }

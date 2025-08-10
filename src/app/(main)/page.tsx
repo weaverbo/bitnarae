@@ -1,6 +1,6 @@
 import HeroSection from "@/components/main/HeroSection";
 import HeroSubText from "@/components/main/HeroSubTextSection";
-import ActivitiesSection from "@/components/main/ProgramSection";
+import ActivitiesSection from "@/components/main/ProgramActivitySection";
 import TransitionSection from "@/components/main/TransitionSection";
 import NewsSection from "@/components/main/NewsSection";
 import NoticeSection from "@/components/main/NoticeSection";

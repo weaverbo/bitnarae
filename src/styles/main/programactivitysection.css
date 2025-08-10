@@ -14,23 +14,23 @@
   @apply leading-[38px];
 }
 
-.program-container {
+.program-activity-container {
   @apply relative w-[784px] h-[784px];
 }
 
-.program-caption-wrapper {
+.program-activity-caption-wrapper {
   @apply absolute top-1/2 left-1/2 text-white text-center transform -translate-x-1/2 -translate-y-1/2;
 }
 
-.program-cation-top {
+.program-activity-cation-top {
   @apply text-center text-[64px] font-semibold pb-[8px];
 }
 
-.program-caption-bottom-wrapper {
+.program-activity-caption-bottom-wrapper {
   @apply h-[59px];
 }
 
-.program-caption-bottom {
+.program-activity-caption-bottom {
   @apply text-[36px];
 }
 

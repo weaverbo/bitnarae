@@ -1,10 +1,8 @@
 import { prisma } from "@/lib/prisma";
-import InfoBoardTemplate from "../../../components/common/InfoBoardTemplate";
+import InfoBoardTemplate from "../../../../components/common/InfoBoardTemplate";
 
-export default async function Notice() {
+export default async function Recruit() {
   const data = await prisma.notice.findMany();
-
-  console.log(data);
 
   return (
     <>

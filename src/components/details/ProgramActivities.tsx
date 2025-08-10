@@ -3,11 +3,11 @@
 import programing_1 from "../../../public/img/programImg1-min.png";
 import programing_2 from "../../../public/img/programImg2-min.png";
 import programing_3 from "../../../public/img/programImg3-min.png";
-import "../../styles/details/programdetails.css";
+import "../../styles/details/programactivitiesdetails.css";
 import Image from "next/image";
 import { useState } from "react";
 
-export default function ProgramDetails() {
+export default function ProgramActivities() {
   const [hoveredDetails, setHoveredDetails] = useState<{ [programId: number]: number }>({
     1: 1,
     2: 1,
@@ -19,6 +19,8 @@ export default function ProgramDetails() {
   const handleMouseEnter = (programId: number, detailId: number) => {
     setHoveredDetails((prev) => ({ ...prev, [programId]: detailId }));
   };
+
+  console.log(hoveredDetails);
 
   const handleMouseLeave = (programId: number) => {
     setHoveredDetails((prev) => ({ ...prev, [programId]: 1 }));
@@ -118,23 +120,23 @@ export default function ProgramDetails() {
   return (
     <>
       <div className="container">
-        <h1 className="program_details_title">재단활동</h1>
+        <h1 className="program_activity_details_title">재단활동</h1>
         {programs.map((program, index) => (
-          <div key={index} className="program_details_section">
-            <h2 className="program_details_subtitle">{program.subtitle}</h2>
-            <h3 className="program_detail_section_title">{program.title}</h3>
-            <div className="program_detail_section_description">
+          <div key={index} className="program_activity_details_wrapper">
+            <h2 className="program_activity_details_subtitle">{program.subtitle}</h2>
+            <h3 className="program_activity_detail_section_title">{program.title}</h3>
+            <div className="program_activity_detail_section_description">
               <p>{program.pragraph_1}</p>
               <p className="leading-[45px]">{program.pragraph_2}</p>
               <p>{program.pragraph_3}</p>
             </div>
             <div className="flex justify-center items-center">
-              <Image className="object-cover rounded-[20px] program_detail_section_img" src={program.image} alt="programimg_1" />
+              <Image className="object-cover rounded-[20px] program_activity_detail_section_img" src={program.image} alt="programimg_1" />
               <div>
                 {programs[index].details.map((detail, index) => (
                   <div key={index} className="flex">
-                    <div className="program_detail_section_article"> {hoveredDetails[program.id] === detail.id && <div className="article_selected_track" />}</div>
-                    <article className="article_container" onMouseEnter={() => handleMouseEnter(program.id, detail.id)} onMouseLeave={() => handleMouseLeave(program.id)}>
+                    <div className="program_activity_detail_section"> {hoveredDetails[program.id] === detail.id && <div className="section_selected_track" />}</div>
+                    <article className="section_container" onMouseEnter={() => handleMouseEnter(program.id, detail.id)} onMouseLeave={() => handleMouseLeave(program.id)}>
                       <h4 className={`underline underline-offset-4 ${hoveredDetails[program.id] === detail.id ? "font-bold" : ""}`}>{detail.title}</h4>
                       <div className={`mt-[16px] ${hoveredDetails[program.id] === detail.id ? "font-bold" : ""}`}>
                         <p>{detail.pragraph_1}</p>
