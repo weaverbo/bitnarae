@@ -1,3 +1,32 @@
+.tap-menu-wrapper {
+  @apply flex text-[24px];
+}
+
 .tab-menu-link {
   @apply underline underline-offset-8;
+}
+
+.search-input-wrapper {
+  @apply relative w-[300px] h-[34px];
+}
+
+.board-list-wrapper {
+  @apply flex items-center mx-[32px] py-[32px] gap-[32px];
+}
+
+.board-list-inner-wrapper {
+  @apply flex flex-1 justify-between items-center;
+}
+
+.board-list-title {
+  @apply flex-1;
+}
+
+.board-list-date {
+  @apply w-[100px] text-right shrink-0;
+  font-variant-numeric: tabular-nums;
+}
+
+.pagenation-button {
+  @apply px-2 py-1 text-xl;
 }

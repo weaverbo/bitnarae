@@ -2,6 +2,7 @@
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import StyledLink from "next/link";
+import "../../styles/common/boarddetailtemplate.css";
 
 type BoardDetailItem = {
   id: number;

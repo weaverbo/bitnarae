@@ -36,11 +36,11 @@ export default function NoticeSection() {
         <div className="border-b-2 border-black">
           {notices.map((notice, index) => (
             <StyledLink key={index} className="notice-list-wrapper" href={"/"}>
-              <div className="flex gap-[24px]">
-                <span>{notice.id}</span>
-                <p>{notice.title}</p>
+              <div>{notice.id}</div>
+              <div className="notice-list-inner-wrapper">
+                <p className="notice-title">{notice.title}</p>
+                <p className="notice-date">{notice.created_at.split("T")[0]}</p>
               </div>
-              <p>{notice.created_at.split("T")[0]}</p>
             </StyledLink>
           ))}
         </div>

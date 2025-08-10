@@ -7,7 +7,7 @@ import PageIconNumberRight from "../../../public/img/page_icon_number_right.png"
 import "../../styles/common/infoboardtemplete.css";
 import StyledLink from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 type InfoItem = {
   id: number;
@@ -23,13 +23,32 @@ type Props = {
 
 export default function InfoBoardTemplate({ title, data }: Props) {
   const pathName = usePathname();
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
+
+  const totalPages = useMemo(() => Math.ceil(data.length / itemsPerPage), [data.length]);
+
+  const currentData = useMemo(() => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    return data.slice(startIndex, startIndex + itemsPerPage);
+  }, [data, currentPage]);
+
+  const handlePrevPage = () => {
+    // 페이지가 1보다 작아지지 않게 막음
+    setCurrentPage((prev) => Math.max(prev - 1, 1));
+  };
+
+  const handleNextPage = () => {
+    // 마지막 페이지보다 커지지 않게 막음
+    setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+  };
 
   return (
     <div className="container">
       <h1 className="text-center text-[42px] my-[160px]">{title}</h1>
       <div className={`flex items-center ${pathName.startsWith("/notices") ? "justify-between" : "justify-end"}`}>
         {pathName.startsWith("/notices") && (
-          <ul className="flex text-[24px]">
+          <ul className="tap-menu-wrapper">
             <li className={pathName === "/notices" ? "tab-menu-link" : ""}>
               <StyledLink href="/notices">전체</StyledLink>
             </li>
@@ -41,28 +60,36 @@ export default function InfoBoardTemplate({ title, data }: Props) {
             </li>
           </ul>
         )}
-        <div className="relative w-[300px] h-[34px]">
+        <div className="search-input-wrapper">
           <input type="text" className="border-b border-black w-full h-full placeholder-[#898989]" placeholder=" 검색어를 입력해주세요" />
           <Image src={search} alt="search" width={24} height={24} className="absolute top-1/2 -translate-y-1/2 right-[8px]" />
         </div>
       </div>
       <ul className="mt-[36px] border-t-[4px] border-b-[4px] border-black mb-[80px]">
-        {data.map((item) => (
+        {currentData.map((item) => (
           <li key={item.id} className="border-b-[2px]">
-            <StyledLink href={`${pathName}/${item.id}`}>
-              <div className="mx-[32px] flex gap-[32px] py-[32px]">
-                <p>{item.id}</p>
-                <p className="w-[1334px]">{`${pathName === "/news" ? item.title + item.subtitle : item.title}`}</p>
-                <p>{item.created_at?.toISOString().split("T")[0]}</p>
+            <StyledLink href={`${pathName}/${item.id}`} className="board-list-wrapper">
+              <p>{item.id}</p>
+              <div className="board-list-inner-wrapper">
+                <p className="board-list-title">{`${pathName === "/news" ? item.title + item.subtitle : item.title}`}</p>
+                <p className="board-list-date">{item.created_at?.toISOString().split("T")[0]}</p>
               </div>
             </StyledLink>
           </li>
         ))}
       </ul>
       <div className="flex items-center justify-center gap-[16px] mt-[80px] mb-[160px]">
-        <Image src={PageIconNumberLeft} width={12} height={22} alt="page_icon_number_left" />
-        <p>1</p>
-        <Image src={PageIconNumberRight} width={12} height={22} alt="page_icon_number_right" />
+        <button onClick={handlePrevPage}>
+          <Image src={PageIconNumberLeft} width={12} height={22} alt="page_icon_number_left" />
+        </button>
+        {Array.from({ length: totalPages }, (_, index) => index + 1).map((pageNumber) => (
+          <button key={pageNumber} onClick={() => setCurrentPage(pageNumber)} className={`pagenation-button ${currentPage === pageNumber ? "font-medium text-black" : "text-[#DDDDDD]"}`}>
+            {pageNumber}
+          </button>
+        ))}
+        <button onClick={handleNextPage}>
+          <Image src={PageIconNumberRight} width={12} height={22} alt="page_icon_number_right" />
+        </button>
       </div>
     </div>
   );
