@@ -19,10 +19,14 @@ export default function NoticeSection() {
       const res = await fetch("/api/notice");
       const data = await res.json();
 
-      return setNotices(data);
+      const sortedData = data.sort((a: Notice, b: Notice) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+
+      return setNotices(sortedData.slice(0, 3));
     };
     noticeList();
   }, []);
+
+  console.log(notices.length);
 
   return (
     <>
@@ -35,8 +39,8 @@ export default function NoticeSection() {
         </div>
         <div className="border-b-2 border-black">
           {notices.map((notice, index) => (
-            <StyledLink key={index} className="notice-list-wrapper" href={"/"}>
-              <div>{notice.id}</div>
+            <StyledLink key={index} className="notice-list-wrapper" href={`/notices/${notice.id}`}>
+              <div>{notices.length - index}</div>
               <div className="notice-list-inner-wrapper">
                 <p className="notice-title">{notice.title}</p>
                 <p className="notice-date">{notice.created_at.split("T")[0]}</p>

@@ -23,10 +23,11 @@ type Props = {
 
 export default function InfoBoardTemplate({ title, data }: Props) {
   const pathName = usePathname();
+
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
-  const totalPages = useMemo(() => Math.ceil(data.length / itemsPerPage), [data.length]);
+  const totalPageNumber = useMemo(() => Math.ceil(data.length / itemsPerPage), [data.length]);
 
   const currentData = useMemo(() => {
     const startIndex = (currentPage - 1) * itemsPerPage;
@@ -34,13 +35,11 @@ export default function InfoBoardTemplate({ title, data }: Props) {
   }, [data, currentPage]);
 
   const handlePrevPage = () => {
-    // 페이지가 1보다 작아지지 않게 막음
     setCurrentPage((prev) => Math.max(prev - 1, 1));
   };
 
   const handleNextPage = () => {
-    // 마지막 페이지보다 커지지 않게 막음
-    setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+    setCurrentPage((prev) => Math.min(prev + 1, totalPageNumber));
   };
 
   return (
@@ -82,7 +81,7 @@ export default function InfoBoardTemplate({ title, data }: Props) {
         <button onClick={handlePrevPage}>
           <Image src={PageIconNumberLeft} width={12} height={22} alt="page_icon_number_left" />
         </button>
-        {Array.from({ length: totalPages }, (_, index) => index + 1).map((pageNumber) => (
+        {Array.from({ length: totalPageNumber }, (_, index) => index + 1).map((pageNumber) => (
           <button key={pageNumber} onClick={() => setCurrentPage(pageNumber)} className={`pagenation-button ${currentPage === pageNumber ? "font-medium text-black" : "text-[#DDDDDD]"}`}>
             {pageNumber}
           </button>

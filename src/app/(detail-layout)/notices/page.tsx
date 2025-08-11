@@ -2,9 +2,11 @@ import { prisma } from "@/lib/prisma";
 import InfoBoardTemplate from "../../../components/common/InfoBoardTemplate";
 
 export default async function Notice() {
-  const data = await prisma.notice.findMany();
-
-  console.log(data);
+  const data = await prisma.notice.findMany({
+    orderBy: {
+      created_at: "desc",
+    },
+  });
 
   return (
     <>

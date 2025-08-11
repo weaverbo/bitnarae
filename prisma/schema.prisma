@@ -10,10 +10,12 @@ datasource db {
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
 model notice {
-  id         Int      @default(autoincrement())
-  created_at DateTime @default(now()) @db.Timestamptz(6)
-  title      String
-  contents   String?
+  id              Int      @default(autoincrement())
+  created_at      DateTime @default(now()) @db.Timestamptz(6)
+  title           String
+  contents        String?
+  detail_info     String?
+  additional_info String?
 
   @@id([id, created_at, title])
 }
@@ -25,6 +27,7 @@ model news {
   news_image String
   subtitle   String?
   created_at DateTime? @default(now()) @db.Timestamptz(6)
+  contents   String?
 
   @@id([id, title, news_image])
 }

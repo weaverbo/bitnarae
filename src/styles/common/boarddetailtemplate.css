@@ -1,0 +1,50 @@
+.board-detail-title {
+  @apply my-[160px] text-center text-[42px] font-semibold;
+}
+
+.board-detail-subtitle {
+  @apply text-center text-3xl border-t-4 border-black pt-[36px] pb-[16px];
+}
+
+.board-detail-date {
+  @apply text-center py-[16px] text-lg text-[#7D7D7D];
+}
+
+.board-detail-icon-wrapper {
+  @apply flex justify-center gap-[16px] pb-[36px] border-b-2 border-black;
+}
+
+.board-detail-icon {
+  @apply w-[24px] h-[24px];
+}
+
+.board-detail-contents-wrapper {
+  @apply flex flex-col justify-center items-center gap-[80px] py-[160px];
+}
+
+/* .board-detail-contents {
+  @apply py-[160px] border-b-2 border-black;
+} */
+
+.board-detail-contents {
+  @apply w-[859px] text-lg leading-[33.6px] tracking-wide;
+}
+
+.board-detail-info-marker {
+  @apply relative before:content-['.'] before:absolute before:left-[-12px] before:translate-y-[-20%];
+}
+
+.board-detail-navigation-button {
+  @apply px-[12px] py-[12px] bg-black text-lg text-white mx-auto flex justify-center mb-[160px];
+}
+
+.board-detail-info-item {
+  @apply block relative pl-4;
+}
+
+.board-detail-info-item::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
