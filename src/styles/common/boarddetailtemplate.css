@@ -19,19 +19,31 @@
 }
 
 .board-detail-contents-wrapper {
-  @apply flex flex-col justify-center items-center gap-[80px] py-[160px];
+  @apply flex flex-col justify-center items-center gap-[10px] py-[160px] text-lg border-b-2 border-black;
 }
 
-/* .board-detail-contents {
-  @apply py-[160px] border-b-2 border-black;
-} */
-
 .board-detail-contents {
-  @apply w-[859px] text-lg leading-[33.6px] tracking-wide;
+  @apply w-[859px];
 }
 
 .board-detail-info-marker {
   @apply relative before:content-['.'] before:absolute before:left-[-12px] before:translate-y-[-20%];
+}
+
+.board-fileupload-title {
+  @apply font-semibold text-lg;
+}
+
+.board-fileupload-filename {
+  @apply underline underline-offset-4 text-lg;
+}
+
+.board-fileupload-filesize {
+  @apply text-[#A7A7A7] text-sm;
+}
+
+.file-empty-message {
+  @apply text-lg;
 }
 
 .board-detail-navigation-button {
@@ -40,11 +52,4 @@
 
 .board-detail-info-item {
   @apply block relative pl-4;
-}
-
-.board-detail-info-item::before {
-  content: "·";
-  position: absolute;
-  left: 0;
-  top: 0;
 }

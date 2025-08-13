@@ -27,12 +27,21 @@ export default function InfoBoardTemplate({ title, data }: Props) {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
-  const totalPageNumber = useMemo(() => Math.ceil(data.length / itemsPerPage), [data.length]);
+  const filteredData = useMemo(() => {
+    if (pathName === "/notices/recruit") {
+      return data.slice(0, 3);
+    } else if (pathName === "/notices/info") {
+      return data.slice(3, 6);
+    }
+    return data;
+  }, [data, pathName]);
+
+  const totalPageNumber = useMemo(() => Math.ceil(filteredData.length / itemsPerPage), [filteredData.length]);
 
   const currentData = useMemo(() => {
     const startIndex = (currentPage - 1) * itemsPerPage;
-    return data.slice(startIndex, startIndex + itemsPerPage);
-  }, [data, currentPage]);
+    return filteredData.slice(startIndex, startIndex + itemsPerPage);
+  }, [filteredData, currentPage]);
 
   const handlePrevPage = () => {
     setCurrentPage((prev) => Math.max(prev - 1, 1));
