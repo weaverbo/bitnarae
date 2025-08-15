@@ -8,6 +8,10 @@ import "../../styles/common/infoboardtemplete.css";
 import StyledLink from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useMemo } from "react";
+import { useRouter } from "next/navigation";
+import { getDisplayText } from "../../utils/displayText";
+
+type GetItemHref = (item: InfoItem) => string;
 
 type InfoItem = {
   id: number;
@@ -19,10 +23,16 @@ type InfoItem = {
 type Props = {
   title: string;
   data: InfoItem[];
+  getItemHref?: GetItemHref;
 };
 
-export default function InfoBoardTemplate({ title, data }: Props) {
+export default function InfoBoardTemplate({ title, data, getItemHref }: Props) {
   const pathName = usePathname();
+  const router = useRouter();
+
+  console.log(data);
+
+  const [searchKeyword, setSearchKeyword] = useState<string>("");
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
@@ -51,13 +61,25 @@ export default function InfoBoardTemplate({ title, data }: Props) {
     setCurrentPage((prev) => Math.min(prev + 1, totalPageNumber));
   };
 
+  const handleOnChange = (e: any) => {
+    setSearchKeyword(e.target.value);
+  };
+
+  const handleSearch = (e?: React.FormEvent) => {
+    e?.preventDefault();
+
+    const base = pathName.startsWith("/news") ? "/news" : "/notices";
+
+    router.push(`${base}/search-result/${searchKeyword}`);
+  };
+
   return (
     <div className="container">
       <h1 className="text-center text-[42px] my-[160px]">{title}</h1>
       <div className={`flex items-center ${pathName.startsWith("/notices") ? "justify-between" : "justify-end"}`}>
         {pathName.startsWith("/notices") && (
           <ul className="tap-menu-wrapper">
-            <li className={pathName === "/notices" ? "tab-menu-link" : ""}>
+            <li className={pathName.startsWith("/notices") ? "tab-menu-link" : ""}>
               <StyledLink href="/notices">전체</StyledLink>
             </li>
             <li className={pathName === "/notices/recruit" ? "px-[24px] tab-menu-link" : "px-[24px]"}>
@@ -68,37 +90,45 @@ export default function InfoBoardTemplate({ title, data }: Props) {
             </li>
           </ul>
         )}
-        <div className="search-input-wrapper">
-          <input type="text" className="border-b border-black w-full h-full placeholder-[#898989]" placeholder=" 검색어를 입력해주세요" />
-          <Image src={search} alt="search" width={24} height={24} className="absolute top-1/2 -translate-y-1/2 right-[8px]" />
-        </div>
+        <form className="search-input-wrapper" onSubmit={handleSearch}>
+          <input type="text" className="border-b border-black w-full h-full placeholder-[#898989] focus:outline-none p-[5px]" placeholder=" 검색어를 입력해주세요" value={searchKeyword} onChange={handleOnChange} />
+          <Image src={search} alt="search" width={24} height={24} className="absolute top-1/2 -translate-y-1/2 right-[8px] cursor-pointer" onClick={() => handleSearch()} />
+        </form>
       </div>
-      <ul className="mt-[36px] border-t-[4px] border-b-[4px] border-black mb-[80px]">
-        {currentData.map((item) => (
-          <li key={item.id} className="border-b-[2px]">
-            <StyledLink href={`${pathName}/${item.id}`} className="board-list-wrapper">
-              <p>{item.id}</p>
-              <div className="board-list-inner-wrapper">
-                <p className="board-list-title">{`${pathName === "/news" ? item.title + item.subtitle : item.title}`}</p>
-                <p className="board-list-date">{item.created_at?.toISOString().split("T")[0]}</p>
-              </div>
-            </StyledLink>
-          </li>
-        ))}
-      </ul>
-      <div className="flex items-center justify-center gap-[16px] mt-[80px] mb-[160px]">
-        <button onClick={handlePrevPage}>
-          <Image src={PageIconNumberLeft} width={12} height={22} alt="page_icon_number_left" />
-        </button>
-        {Array.from({ length: totalPageNumber }, (_, index) => index + 1).map((pageNumber) => (
-          <button key={pageNumber} onClick={() => setCurrentPage(pageNumber)} className={`pagenation-button ${currentPage === pageNumber ? "font-medium text-black" : "text-[#DDDDDD]"}`}>
-            {pageNumber}
-          </button>
-        ))}
-        <button onClick={handleNextPage}>
-          <Image src={PageIconNumberRight} width={12} height={22} alt="page_icon_number_right" />
-        </button>
-      </div>
+      {currentData.length === 0 ? (
+        <>
+          <div className="flex justify-center items-center w-full h-[354px] bg-[#F4F4F4] mt-[36px] mb-[220px] text-[#757575] text-lg">검색 결과 없음</div>
+        </>
+      ) : (
+        <>
+          <ul className="mt-[36px] border-t-[4px] border-b-[4px] border-black mb-[80px]">
+            {currentData.map((item) => (
+              <li key={item.id} className="border-b-[2px]">
+                <StyledLink href={getItemHref ? getItemHref(item) : `${pathName}/${item.id}`} className="board-list-wrapper">
+                  <p>{item.id}</p>
+                  <div className="board-list-inner-wrapper">
+                    <p className="board-list-title">{`${pathName.startsWith("/news") ? getDisplayText(item.title, item.subtitle) : item.title}`}</p>
+                    <p className="board-list-date">{item.created_at?.toISOString().split("T")[0]}</p>
+                  </div>
+                </StyledLink>
+              </li>
+            ))}
+          </ul>
+          <div className="flex items-center justify-center gap-[16px] mt-[80px] mb-[160px]">
+            <button onClick={handlePrevPage}>
+              <Image src={PageIconNumberLeft} width={12} height={22} alt="page_icon_number_left" />
+            </button>
+            {Array.from({ length: totalPageNumber }, (_, index) => index + 1).map((pageNumber) => (
+              <button key={pageNumber} onClick={() => setCurrentPage(pageNumber)} className={`pagenation-button ${currentPage === pageNumber ? "font-medium text-black" : "text-[#DDDDDD]"}`}>
+                {pageNumber}
+              </button>
+            ))}
+            <button onClick={handleNextPage}>
+              <Image src={PageIconNumberRight} width={12} height={22} alt="page_icon_number_right" />
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 }

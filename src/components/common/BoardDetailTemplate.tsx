@@ -1,5 +1,6 @@
 "use client";
 import { usePathname } from "next/navigation";
+import { getDisplayText } from "../../utils/displayText";
 import Image from "next/image";
 import StyledLink from "next/link";
 import icon_share from "../../../public/img/icon_share.svg";
@@ -53,10 +54,6 @@ export default function BoardDetailTemplate({ title, data }: Props) {
   const currentIndex = sortedData.findIndex((item) => item.id === selectedItem?.id);
   const previousItem = currentIndex > 0 ? sortedData[currentIndex - 1] : null;
   const nextItem = currentIndex < sortedData.length - 1 ? sortedData[currentIndex + 1] : null;
-
-  const getDisplayText = (title: string, subtitle?: string | null) => {
-    return [title, subtitle].filter(Boolean).join(" ");
-  };
 
   const getAttachmentHref = (path?: string | null) => {
     if (!path) return "";
