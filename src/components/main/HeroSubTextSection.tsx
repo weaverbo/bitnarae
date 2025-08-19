@@ -12,7 +12,7 @@ export default function HeroSubTextSection() {
 
   return (
     <>
-      <div className="herosubtext" ref={onInViewRef}>
+      <div className="hero-subtext" ref={onInViewRef}>
         <div>
           <div className="subtext-wrapper">
             {inView && (

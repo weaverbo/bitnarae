@@ -16,7 +16,7 @@ div {
 }
 
 .container {
-  @apply mx-auto max-w-[1600px];
+  @apply mx-[160px] mx-auto;
 }
 
 @layer utilities {
@@ -25,5 +25,77 @@ div {
   }
   .scrollbar-hide {
     -ms-overflow-style: none;
+  }
+}
+
+@media (max-width: 1440px) {
+  .container {
+    @apply mx-[80px] mx-auto;
+  }
+}
+
+@media (max-width: 1370px) {
+  .container {
+    @apply mx-auto max-w-[1120px];
+  }
+}
+
+@media (max-width: 1180px) {
+  .container {
+    @apply mx-auto max-w-[1100px];
+  }
+}
+
+@media (max-width: 1141px) {
+  .container {
+    @apply mx-auto max-w-[1040px];
+  }
+}
+
+@media (max-width: 1080px) {
+  .container {
+    @apply mx-auto max-w-[1000px];
+  }
+}
+
+@media (max-width: 1030px) {
+  .container {
+    @apply mx-auto max-w-[990px];
+  }
+}
+
+@media (max-width: 1100px) {
+  .container {
+    @apply mx-auto max-w-[1020px];
+  }
+}
+
+@media (max-width: 1050px) {
+  .container {
+    @apply mx-auto max-w-[970px];
+  }
+}
+
+@media (max-width: 1000px) {
+  .container {
+    @apply mx-auto max-w-[920px];
+  }
+}
+
+@media (max-width: 950px) {
+  .container {
+    @apply mx-auto max-w-[870px];
+  }
+}
+
+@media (max-width: 880px) {
+  .container {
+    @apply mx-auto max-w-[800px];
+  }
+}
+
+@media (max-width: 795px) {
+  .container {
+    @apply mx-auto max-w-[670px];
   }
 }

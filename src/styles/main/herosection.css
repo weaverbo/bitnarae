@@ -13,3 +13,9 @@
 .side-text-line {
   @apply leading-[50px];
 }
+
+@media (max-width: 1370px) {
+  .hero-text {
+    @apply text-[56px];
+  }
+}

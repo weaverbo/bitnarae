@@ -1,4 +1,4 @@
-.herosubtext {
+.hero-subtext {
   @apply text-center text-4xl py-[150px];
 }
 
@@ -12,4 +12,21 @@
 
 .highlight-text {
   @apply flex justify-center p-[5px] text-white text-[60px];
+}
+
+@media (max-width: 816px) {
+  .hero-subtext {
+    @apply text-[24px] mt-[150px] py-[0px];
+  }
+
+  .highlight-text {
+    @apply text-[24px];
+  }
+
+  .subtext-highlight-box {
+    @apply w-[160px] h-[34px];
+  }
+}
+
+@media (max-width: 795px) {
 }

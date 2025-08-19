@@ -31,7 +31,7 @@
 }
 
 .board-fileupload-title {
-  @apply font-semibold text-lg;
+  @apply font-semibold text-lg w-[100px];
 }
 
 .board-fileupload-filename {

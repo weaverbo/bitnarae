@@ -104,22 +104,24 @@ export default function BoardDetailTemplate({ title, data }: Props) {
       </div>
       {!isNewsPage ? (
         <>
-          <div className="bg-[#E7E7E7] my-[24px] mx-[16px] py-[24px] px-[32px] flex justify-between items-center">
+          <div className="bg-[#E7E7E7] my-[24px] mx-[16px] py-[24px] px-[32px]">
             <div className="flex items-center gap-[24px]">
-              <span className="board-fileupload-title">첨부파일</span>
+              <div className="board-fileupload-title ">첨부파일</div>
               {selectedItem.attachment_name ? (
-                <div className="flex items-center w-[1399px] justify-between cursor-pointer">
-                  <p className="board-fileupload-filename">
-                    <a href={getAttachmentHref(selectedItem.attachment_path)} className="flex items-center gap-[24px]">
+                <div className="w-full flex items-center justify-between cursor-pointer">
+                  <div>
+                    <a href={getAttachmentHref(selectedItem.attachment_path)} className="board-fileupload-filename">
                       {selectedItem.attachment_name}
                     </a>
-                  </p>
-                  <a href={getAttachmentHref(selectedItem.attachment_path)} className="flex items-center gap-[24px]">
-                    <Image src={icon_download} alt="icon_download" />
-                  </a>
+                  </div>
+                  <div>
+                    <a href={getAttachmentHref(selectedItem.attachment_path)}>
+                      <Image src={icon_download} alt="icon_download" />
+                    </a>
+                  </div>
                 </div>
               ) : (
-                <div className="flex items-center w-[1399px] justify-between cursor-pointer">
+                <div className="w-full flex items-center justify-between cursor-pointer">
                   <div className="file-empty-message">첨부된 파일이 없습니다</div>
                   <Image src={icon_download} alt="icon_download" />
                 </div>

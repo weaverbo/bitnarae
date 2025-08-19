@@ -3,9 +3,8 @@ import InfoBoardTemplate from "@/components/common/InfoBoardTemplate";
 
 type Params = { keyword: string };
 
-export default async function NewsSearchResult({ params }: { params: Promise<Params> }) {
-  const { keyword: raw } = await params;
-  const keyword = decodeURIComponent(raw ?? "").trim();
+export default async function NewsSearchResult({ params }: { params: Params }) {
+  const keyword = decodeURIComponent(params.keyword ?? "").trim();
 
   const data = await prisma.news.findMany({
     where: keyword

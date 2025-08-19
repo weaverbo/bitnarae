@@ -1,5 +1,13 @@
+.header-wrapper {
+  @apply flex items-center justify-between py-[64px];
+}
+
 .header-menu-link {
   @apply hover:underline underline-offset-8;
+}
+
+.sidebar-menu-link {
+  @apply text-[#000000] text-2xl;
 }
 
 .header-title {
@@ -12,4 +20,10 @@
 
 .header-slogan-mark {
   @apply w-[2px] h-[38px];
+}
+
+@media (max-width: 880px) {
+  .header-wrapper {
+    @apply pt-[128px] pb-[64px];
+  }
 }

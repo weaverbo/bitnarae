@@ -1,12 +1,16 @@
-.notice-section-title {
+.program-activity-section-wrapper {
+  @apply mt-[160px] mb-[320px];
+}
+
+.program-activity-section-title {
   @apply text-[48px] font-semibold;
 }
 
-.notice-section-title-mark {
+.program-activity-section-title-mark {
   @apply bg-black w-[2px] h-[150px];
 }
 
-.notice-section-subtext {
+.program-activity-section-subtext {
   @apply text-[32px] mt-[16px];
 }
 
@@ -16,6 +20,14 @@
 
 .program-activity-container {
   @apply relative w-[784px] h-[784px];
+}
+
+.program-activity-group-top {
+  @apply flex gap-[32px] mt-[80px];
+}
+
+.program-activity-group-bottom {
+  @apply flex gap-[32px] mt-[32px];
 }
 
 .program-activity-caption-wrapper {
@@ -36,4 +48,132 @@
 
 .image-overlay {
   @apply absolute inset-0 bg-black bg-opacity-60;
+}
+
+.image-overlay-tr {
+  @apply rounded-[50px] rounded-tr-[300px];
+}
+
+.image-overlay-bl {
+  @apply rounded-[50px] rounded-bl-[300px];
+}
+
+.program-activity-image-tr {
+  @apply rounded-[50px] rounded-tr-[300px];
+}
+
+.program-activity-image-bl {
+  @apply rounded-[50px] rounded-bl-[300px];
+}
+
+.program-activity-image-br {
+  @apply rounded-[50px] rounded-br-[300px];
+}
+
+.program-activity-link-wrapper {
+  @apply absolute top-[10px] left-[10px] pt-[329px] pl-[157px] text-white;
+}
+
+.program-activity-link {
+  @apply text-[64px] font-semibold pb-[8px] flex items-center gap-[8px];
+}
+
+@media (max-width: 1537px) {
+  .program-activity-cation-top {
+    @apply text-[48px];
+  }
+
+  .program-activity-container {
+    @apply relative w-[544px] h-[544px];
+  }
+
+  .program-activity-link {
+    @apply text-[48px];
+  }
+
+  .program-activity-caption-bottom {
+    @apply text-[30px];
+  }
+
+  .program-activity-link-wrapper {
+    @apply pt-[210px] pl-[100px];
+  }
+}
+
+@media (max-width: 1143px) {
+  .program-activity-caption-bottom {
+    @apply text-[24px];
+  }
+
+  .program-activity-link-wrapper {
+    @apply pl-[80px];
+  }
+}
+
+@media (max-width: 956px) {
+  .program-activity-cation-top {
+    @apply text-[32px];
+  }
+
+  .program-activity-caption-bottom {
+    @apply text-[16px];
+  }
+
+  .program-activity-link {
+    @apply text-[32px];
+  }
+
+  .program-activity-section-title {
+    @apply text-[32px] font-semibold;
+  }
+
+  .program-activity-section-subtext {
+    @apply text-[16px];
+  }
+
+  .program-activity-section-title-mark {
+    @apply h-[120px];
+  }
+}
+
+@media (max-width: 795px) {
+  .program-activity-container {
+    @apply relative w-[664px] h-[664px];
+  }
+
+  .program-activity-link-wrapper {
+    @apply pt-[299px] pl-[208px];
+  }
+
+  .program-activity-group-top {
+    @apply flex flex-col gap-[32px];
+  }
+
+  .program-activity-group-bottom {
+    @apply flex flex-col gap-[32px];
+  }
+
+  .image-overlay-tr {
+    @apply rounded-[50px];
+  }
+
+  .image-overlay-bl {
+    @apply rounded-[50px];
+  }
+
+  .program-activity-image-tr {
+    @apply rounded-[50px];
+  }
+
+  .program-activity-image-bl {
+    @apply rounded-[50px];
+  }
+
+  .program-activity-image-br {
+    @apply rounded-[50px];
+  }
+
+  .program-activity-section-wrapper {
+    @apply mb-[160px];
+  }
 }

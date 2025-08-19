@@ -60,7 +60,7 @@ export default function NewsSection() {
 
   return (
     <>
-      <div className="container mt-[320px]">
+      <div className="container new-section-wrapper">
         <div ref={onInViewRef} key={inView ? "in" : "out"}>
           <SlideLeftFade className="flex gap-[24px]">
             <div className="news-section-title-mark"></div>

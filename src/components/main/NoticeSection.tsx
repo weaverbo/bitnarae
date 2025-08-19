@@ -30,14 +30,14 @@ export default function NoticeSection() {
 
   return (
     <>
-      <div className="container flex justify-between mt-[320px] mb-[320px]">
+      <div className="container notice-section-wrapper">
         <div className="flex gap-[24px]">
           <div className="bg-black w-[2px] h-[57px]"></div>
           <div className="my-[8px]">
             <h2 className="notice-section-title">공지사항</h2>
           </div>
         </div>
-        <div className="border-b-2 border-black">
+        <div className="border-b-2 border-black notice-list-container">
           {notices.map((notice, index) => (
             <StyledLink key={index} className="notice-list-wrapper" href={`/notices/${notice.id}`}>
               <div>{notices.length - index}</div>

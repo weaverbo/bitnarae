@@ -7,9 +7,9 @@ import "../../styles/utilities/footer.css";
 
 export default function Footer() {
   return (
-    <div className="bg-background text-white">
-      <div className="container flex justify-between border-b border-white pt-[150px] pb-[80px]">
-        <ul className="footer-top-layout">
+    <div className="bg-background text-white ">
+      <div className="container footer-top-layout-wrapper">
+        <ul className="footer-nav">
           <li>
             <StyleLink href="/">재단소개</StyleLink>
           </li>
@@ -23,7 +23,7 @@ export default function Footer() {
             <StyleLink href="/">공지사항</StyleLink>
           </li>
         </ul>
-        <ul className="footer-top-layout">
+        <ul className="footer-policies">
           <li>
             <StyleLink href="/">SNS 저작물 이용 동의서</StyleLink>
           </li>
@@ -35,14 +35,14 @@ export default function Footer() {
           </li>
         </ul>
       </div>
-      <div className="container flex justify-between py-[150px] items-center">
-        <div className="flex flex-col text-4xl">
+      <div className="container footer-bottom-layout-wrapper">
+        <div className="footer-brand">
           <span>BITNARAE</span>
           <span className="leading-[76px]">FOUNDATION OF</span>
           <span>CULTURE</span>
         </div>
-        <div className="flex flex-col text-lg gap-[12px] text-right text-[#777777]">
-          <ul className="flex justify-end gap-[37px] pb-[19px]">
+        <div className="footer-contact">
+          <ul className="footer-sns-link-wrapper">
             <StyleLink href="/">
               <Image className="sns-img" src={icon_insta} alt="main-image" />
             </StyleLink>
