@@ -10,6 +10,10 @@
   @apply text-[36px];
 }
 
+.hero-side-text-responsive {
+  @apply flex flex-col items-center justify-center;
+}
+
 .side-text-line {
   @apply leading-[50px];
 }
@@ -17,5 +21,23 @@
 @media (max-width: 1370px) {
   .hero-text {
     @apply text-[56px];
+  }
+}
+
+@media (max-width: 1370px) {
+  .hero-text {
+    @apply text-[56px];
+  }
+}
+
+@media (max-width: 880px) {
+  .hero-side-text {
+    @apply text-center text-[36px];
+  }
+}
+
+@media (max-width: 393px) {
+  .hero-text {
+    @apply text-[42px];
   }
 }

@@ -111,6 +111,10 @@
 }
 
 @media (max-width: 956px) {
+  .program-activity-link-wrapper {
+    @apply pt-[210px] pl-[70px];
+  }
+
   .program-activity-cation-top {
     @apply text-[32px];
   }
@@ -175,5 +179,37 @@
 
   .program-activity-section-wrapper {
     @apply mb-[160px];
+  }
+}
+
+@media (max-width: 700px) {
+  .program-activity-container {
+    @apply relative w-[620px] h-[620px];
+  }
+  .program-activity-link-wrapper {
+    @apply pt-[299px] pl-[186px];
+  }
+}
+
+@media (max-width: 660px) {
+  .program-activity-container {
+    @apply relative w-[580px] h-[580px];
+  }
+  .program-activity-link-wrapper {
+    @apply pt-[264px] pl-[166px];
+  }
+}
+
+@media (max-width: 393px) {
+  .program-activity-container {
+    @apply relative w-[313px] h-[313px];
+  }
+
+  .program-activity-link-wrapper {
+    @apply pt-[130px] pl-[32px];
+  }
+
+  .program-activity-caption-wrapper {
+    @apply mt-[24px];
   }
 }

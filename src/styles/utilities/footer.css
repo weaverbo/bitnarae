@@ -4,7 +4,7 @@
 
 .footer-nav,
 .footer-policies {
-  @apply flex gap-[24px];
+  @apply flex flex-wrap gap-[24px];
 }
 
 .footer-top-layout-responsive {
@@ -21,6 +21,10 @@
 
 .footer-brand {
   @apply flex flex-col text-4xl;
+}
+
+.footer-brand-leading {
+  @apply leading-[76px];
 }
 
 .footer-contact {
@@ -50,5 +54,32 @@
 
   .footer-sns-link-wrapper {
     @apply flex justify-start mt-[10px];
+  }
+}
+
+@media (max-width: 393px) {
+  .footer-policies-responsive {
+    @apply pt-[56px];
+  }
+
+  .footer-bottom-layout-wrapper {
+    @apply flex justify-between pt-[80px] pb-[160px] items-center;
+  }
+
+  .footer-brand {
+    @apply flex flex-col text-2xl leading-[43px] pb-[109px];
+  }
+
+  .footer-brand-leading {
+    @apply leading-[43px];
+  }
+
+  /* 넘어가는게 이상해서 3px 추가로 줄임 */
+  .footer-contact {
+    @apply text-[13px];
+  }
+
+  .footer-sns-link-wrapper {
+    @apply pb-[10px];
   }
 }

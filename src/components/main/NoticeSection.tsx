@@ -32,7 +32,7 @@ export default function NoticeSection() {
     <>
       <div className="container notice-section-wrapper">
         <div className="flex gap-[24px]">
-          <div className="bg-black w-[2px] h-[57px]"></div>
+          <div className="notice-section-title-marker"></div>
           <div className="my-[8px]">
             <h2 className="notice-section-title">공지사항</h2>
           </div>
@@ -42,7 +42,7 @@ export default function NoticeSection() {
             <StyledLink key={index} className="notice-list-wrapper" href={`/notices/${notice.id}`}>
               <div>{notices.length - index}</div>
               <div className="notice-list-inner-wrapper">
-                <p className="notice-title">{notice.title}</p>
+                <p className="notice-title truncate">{notice.title}</p>
                 <p className="notice-date">{notice.created_at.split("T")[0]}</p>
               </div>
             </StyledLink>

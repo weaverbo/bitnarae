@@ -34,7 +34,7 @@ export default function TransitionSection() {
         {showText && (
           <div className="transitionsection-caption-wrapper">
             <motion.p
-              className="leading-[77px]"
+              className="transtionsection-caption"
               initial={{
                 clipPath: "inset(100% 0% 0% 0%)",
                 opacity: 0,
@@ -50,7 +50,7 @@ export default function TransitionSection() {
               빛나래문화재단은
             </motion.p>
             <motion.p
-              className="leading-[77px]"
+              className="transtionsection-caption"
               initial={{
                 clipPath: "inset(100% 0% 0% 0%)",
                 opacity: 0,

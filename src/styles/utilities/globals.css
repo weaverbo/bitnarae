@@ -99,3 +99,22 @@ div {
     @apply mx-auto max-w-[670px];
   }
 }
+
+@media (max-width: 700px) {
+  .container {
+    @apply mx-auto max-w-[620px];
+  }
+}
+
+/* 데스크톱 화면을 기준으로, 사용자가 브라우저 폭을 줄일 때의 범위까지만 반응형을 적용한다(설계된 최소 폭까지). */
+@media (max-width: 660px) {
+  .container {
+    @apply mx-auto max-w-[580px];
+  }
+}
+
+@media (max-width: 393px) {
+  .container {
+    @apply mx-auto max-w-[313px];
+  }
+}

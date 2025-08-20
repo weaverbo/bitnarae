@@ -2,8 +2,22 @@
   @apply absolute inset-0 text-center text-white text-[64px] mt-[160px];
 }
 
+.transtionsection-caption {
+  @apply leading-[77px];
+}
+
 @media (max-width: 1000px) {
   .transitionsection-caption-wrapper {
     @apply text-[48px];
+  }
+}
+
+@media (max-width: 393px) {
+  .transitionsection-caption-wrapper {
+    @apply text-[24px] mt-[81px];
+  }
+
+  .transtionsection-caption {
+    @apply leading-[33px];
   }
 }

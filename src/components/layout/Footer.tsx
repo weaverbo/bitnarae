@@ -30,7 +30,7 @@ export default function Footer() {
           <li>
             <StyleLink href="/">개인정보처리방침</StyleLink>
           </li>
-          <li>
+          <li className="footer-policies-responsive">
             <StyleLink href="/">주무관청</StyleLink>
           </li>
         </ul>
@@ -38,7 +38,7 @@ export default function Footer() {
       <div className="container footer-bottom-layout-wrapper">
         <div className="footer-brand">
           <span>BITNARAE</span>
-          <span className="leading-[76px]">FOUNDATION OF</span>
+          <span className="footer-brand-leading">FOUNDATION OF</span>
           <span>CULTURE</span>
         </div>
         <div className="footer-contact">

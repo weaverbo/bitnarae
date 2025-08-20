@@ -32,18 +32,19 @@ function HeaderInner() {
     }
   });
 
-  const isMobile = useMediaQuery({ maxWidth: 880 });
+  const isMax880 = useMediaQuery({ maxWidth: 880 });
+  const isMax393 = useMediaQuery({ maxWidth: 393 });
 
   return (
     <div className={pathName === "/" ? "absolute z-10 bg-white/10 w-full" : "w-full"}>
-      {isMobile ? (
+      {isMax880 ? (
         <div className="container header-wrapper">
           <div className={`flex items-center gap-[8px] ${pathName === "/" ? "text-white" : "text-black"}`}>
             <StyledLink className="header-title" href="/">
               빛나래문화재단
             </StyledLink>
             <div ref={onInViewRef}>
-              {((pathName === "/" && inView && isHeroAnimationDone) || (pathName !== "/" && inView)) && (
+              {!isMax393 && ((pathName === "/" && inView && isHeroAnimationDone) || (pathName !== "/" && inView)) && (
                 <SlideLeftFade key={pathName} className="flex items-center gap-[8px]">
                   <div className={`header-slogan-mark ${pathName === "/" ? "bg-white" : "bg-black"}`}></div>
                   <div className="header-slogan">
@@ -82,7 +83,7 @@ function HeaderInner() {
                 </li>
               </ul>
               <div>
-                <Image src={icon_close} width={24} height={24} alt="icon_close" onClick={() => setIsOpen(false)} />
+                <Image className="mt-[-15px]" src={icon_close} width={43} height={43} alt="icon_close" onClick={() => setIsOpen(false)} />
               </div>
             </div>
           )}
