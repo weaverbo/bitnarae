@@ -51,7 +51,7 @@ export default function PhilosophyDetails() {
       <div className="container">
         <div>
           <div className="border-b border-bg-[#C6C6C6] pb-[25px] mb-[194px] flex justify-between">
-            <div>
+            <div className="mission-section-contents-container">
               <div ref={missionHeader.ref}>
                 {missionHeader.hasAnimated && (
                   <motion.div initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut", delay: 0 }}>
@@ -190,16 +190,16 @@ export default function PhilosophyDetails() {
                   <motion.div initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="flex justify-between w-[774px]">
                     <div className="value-section-contents" onMouseEnter={() => handleMouseEnter(4)} onMouseLeave={() => handleMouseLeave(4)}>
                       <div className="value-section-contents-line" />
-                      <div className={`${hoveredStates[4] ? "hover-underline font-bold" : ""}`}>
-                        <span>포용</span>
+                      <span>포용</span>
+                      <div className={`${hoveredStates[4] ? "value-section-contents-line-hovered" : ""}`}>
                         <p className="mt-[16px]">세대와 배경을 넘어</p>
                         <p className="leading-[44.8px]">누구나 문화의 주체</p>
                       </div>
                     </div>
                     <div className="value-section-contents" onMouseEnter={() => handleMouseEnter(5)} onMouseLeave={() => handleMouseLeave(5)}>
                       <div className="value-section-contents-line" />
-                      <div className={`${hoveredStates[5] ? "hover-underline font-bold" : ""}`}>
-                        <span>창의</span>
+                      <span>창의</span>
+                      <div className={`${hoveredStates[5] ? "value-section-contents-line-hovered" : ""}`}>
                         <p className="mt-[16px]">시도와 표현을 존중하고</p>
                         <p className="t leading-[44.8px]">창작의 자유 지지</p>
                       </div>
@@ -212,16 +212,16 @@ export default function PhilosophyDetails() {
                   <motion.div initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="flex justify-between w-[774px]">
                     <div className="value-section-contents" onMouseEnter={() => handleMouseEnter(6)} onMouseLeave={() => handleMouseLeave(6)}>
                       <div className="value-section-contents-line" />
-                      <div className={`${hoveredStates[6] ? "hover-underline font-bold" : ""}`}>
-                        <span>연결</span>
+                      <span>연결</span>
+                      <div className={`${hoveredStates[6] ? "value-section-contents-line-hovered" : ""}`}>
                         <p className="mt-[16px]">예술과 일상 잇는</p>
                         <p className="t leading-[48px]">문화의 다리</p>
                       </div>
                     </div>
                     <div className="value-section-contents" onMouseEnter={() => handleMouseEnter(7)} onMouseLeave={() => handleMouseLeave(7)}>
                       <div className="value-section-contents-line" />
-                      <div className={`${hoveredStates[7] ? "hover-underline font-bold" : ""}`}>
-                        <span>성장</span>
+                      <span>성장</span>
+                      <div className={`${hoveredStates[7] ? "value-section-contents-line-hovered" : ""}`}>
                         <p className="mt-[16px]">개인과 공동체가 함께</p>
                         <p className="leading-[44.8px]">지속적 성장 추구</p>
                       </div>

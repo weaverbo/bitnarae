@@ -11,7 +11,11 @@
 }
 
 .mission-thumnail {
-  @apply w-[909px] h-[1085px] object-cover;
+  @apply w-[589px] h-[900px] object-cover;
+}
+
+.mission-section-contents-container {
+  @apply w-[531px];
 }
 
 .mission-section-contents {
@@ -32,4 +36,8 @@
 
 .value-section-contents-line {
   @apply w-full h-[1px] bg-black mb-[32px];
+}
+
+.value-section-contents-line-hovered {
+  @apply hover-underline font-bold;
 }

@@ -53,8 +53,8 @@ export default function FacilityDetails() {
           <p className="facility_details_subtitle">예술이 피어나는 공간</p>
           <h1 className="facility_details_title">빛나래 문화센터</h1>
         </div>
-        <div className="facility_details_block_wrapper">
-          <div className="facility_details_blcok_inner">
+        <div className="facility_details_block_wrapper overflow-x-scroll scrollbar-hide w-screen">
+          <div className="facility_details_block_inner">
             <div className="facility_details_block_title_line" />
             <h2 className="facility_details_block_title">빛움터 공간</h2>
             <div className="facility_details_block_title_summary">
@@ -73,7 +73,7 @@ export default function FacilityDetails() {
             ))}
           </div>
         </div>
-        <div className="facility_details_block_wrapper">
+        <div className="facility_details_block_wrapper overflow-x-scroll scrollbar-hide w-screen">
           <div className="facility_details_block_inner">
             <div className="facility_details_block_title_line" />
             <h2 className="facility_details_block_title">빛공방 공간</h2>
@@ -96,7 +96,7 @@ export default function FacilityDetails() {
             })}
           </div>
         </div>
-        <div className="facility_details_block_wrapper">
+        <div className="facility_details_block_wrapper overflow-x-scroll scrollbar-hide w-screen">
           <div className="facility_details_block_inner">
             <div className="facility_details_block_title_line" />
             <h2 className="facility_details_block_title">빛마당 공간</h2>
@@ -119,7 +119,7 @@ export default function FacilityDetails() {
             })}
           </div>
         </div>
-        <div className="facility_details_block_wrapper">
+        <div className="facility_details_block_wrapper overflow-x-scroll scrollbar-hide w-screen">
           <div className="facility_details_block_inner">
             <div className="facility_details_block_title_line" />
             <h2 className="facility_details_block_title">빛울림 공간</h2>

@@ -23,11 +23,11 @@
 }
 
 .program-activity-group-top {
-  @apply flex gap-[32px] mt-[80px];
+  @apply flex justify-center gap-[32px] mt-[80px];
 }
 
 .program-activity-group-bottom {
-  @apply flex gap-[32px] mt-[32px];
+  @apply flex justify-center gap-[32px] mt-[32px];
 }
 
 .program-activity-caption-wrapper {
@@ -84,7 +84,7 @@
   }
 
   .program-activity-container {
-    @apply relative w-[544px] h-[544px];
+    @apply relative w-[600px] h-[600px];
   }
 
   .program-activity-link {
@@ -96,7 +96,7 @@
   }
 
   .program-activity-link-wrapper {
-    @apply pt-[210px] pl-[100px];
+    @apply pt-[235px] pl-[130px];
   }
 }
 

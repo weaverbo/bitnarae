@@ -73,7 +73,7 @@ export default function NewsSection() {
             </div>
           </SlideLeftFade>
         </div>
-        <div className="flex my-[80px] gap-[32px] overflow-x-scroll scrollbar-hide w-screen">
+        <div className="flex my-[80px] pr-[170px] gap-[32px] overflow-x-scroll scrollbar-hide w-screen">
           {newsItems.map((newsItem, i) => (
             <StyledLink href={`/news/${newsItem.id}`} key={i} onMouseEnter={() => setHoveredNewsId(newsItem.id)} onMouseLeave={() => setHoveredNewsId(null)} className="news-card-wrapper">
               <div className="news-card-inner">

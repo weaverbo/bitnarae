@@ -11,11 +11,11 @@
 }
 
 .facility_details_block_wrapper {
-  @apply flex gap-[150px];
+  @apply flex justify-between;
 }
 
 .facility_details_block_inner {
-  @apply w-[187px];
+  @apply w-[192px];
 }
 
 .facility_details_block_title {
@@ -35,7 +35,7 @@
 }
 
 .facility_details_block_image-wrapper {
-  @apply flex gap-[32px] mb-[80px] w-[1264px];
+  @apply flex justify-start gap-[32px] mb-[80px];
 }
 
 .facility_details_block_image-inner {
@@ -51,7 +51,7 @@
 }
 
 .facility_details_block_image-wrapper-other {
-  @apply flex gap-[32px] mb-[80px] w-[1264px];
+  @apply flex gap-[32px] mb-[80px];
 }
 
 .facility_details_block_image {

@@ -16,7 +16,7 @@ div {
 }
 
 .container {
-  @apply mx-[160px] mx-auto;
+  @apply mx-[80px] mx-auto;
 }
 
 @layer utilities {
