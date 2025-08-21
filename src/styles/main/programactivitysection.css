@@ -200,6 +200,34 @@
   }
 }
 
+@media (max-width: 600px) {
+  .program-activity-container {
+    @apply relative w-[520px] h-[520px];
+  }
+
+  .program-activity-link-wrapper {
+    @apply pt-[204px] pl-[135px];
+  }
+
+  .program-activity-caption-wrapper {
+    @apply mt-[24px];
+  }
+}
+
+@media (max-width: 520px) {
+  .program-activity-container {
+    @apply relative w-[460px] h-[460px];
+  }
+
+  .program-activity-link-wrapper {
+    @apply pt-[204px] pl-[110px];
+  }
+
+  .program-activity-caption-wrapper {
+    @apply mt-[24px];
+  }
+}
+
 @media (max-width: 393px) {
   .program-activity-container {
     @apply relative w-[313px] h-[313px];

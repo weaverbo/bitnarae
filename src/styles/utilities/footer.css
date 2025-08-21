@@ -57,21 +57,9 @@
   }
 }
 
-@media (max-width: 393px) {
-  .footer-policies-responsive {
-    @apply pt-[56px];
-  }
-
-  .footer-bottom-layout-wrapper {
-    @apply flex justify-between pt-[80px] pb-[160px] items-center;
-  }
-
+@media (max-width: 600px) {
   .footer-brand {
-    @apply flex flex-col text-2xl leading-[43px] pb-[109px];
-  }
-
-  .footer-brand-leading {
-    @apply leading-[43px];
+    @apply text-2xl;
   }
 
   /* 넘어가는게 이상해서 3px 추가로 줄임 */
@@ -81,5 +69,23 @@
 
   .footer-sns-link-wrapper {
     @apply pb-[10px];
+  }
+}
+
+@media (max-width: 393px) {
+  .footer-policies-responsive {
+    @apply pt-[56px];
+  }
+
+  .footer-brand {
+    @apply leading-[43px] pb-[109px];
+  }
+
+  .footer-bottom-layout-wrapper {
+    @apply pt-[80px] pb-[160px] items-center;
+  }
+
+  .footer-brand-leading {
+    @apply leading-[43px];
   }
 }

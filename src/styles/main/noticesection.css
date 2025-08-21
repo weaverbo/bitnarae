@@ -76,6 +76,22 @@
   }
 }
 
+@media (max-width: 600px) {
+  .notice-title {
+    @apply w-[340px];
+  }
+}
+
+@media (max-width: 520px) {
+  .notice-list-wrapper {
+    @apply text-[16px] px-[12px];
+  }
+
+  .notice-title {
+    @apply w-[320px];
+  }
+}
+
 @media (max-width: 393px) {
   .notice-list-wrapper {
     @apply max-w-[313px] px-[12px] py-[32px] text-[16px] gap-[22px];

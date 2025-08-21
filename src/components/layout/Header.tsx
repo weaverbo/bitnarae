@@ -37,7 +37,7 @@ function HeaderInner() {
   }, [pathName, setIsOpen]);
 
   const isMax880 = useMediaQuery({ maxWidth: 880 });
-  const isMax393 = useMediaQuery({ maxWidth: 393 });
+  const isMax520 = useMediaQuery({ maxWidth: 520 });
 
   return (
     <div className={pathName === "/" ? "absolute z-10 bg-white/10 w-full" : "w-full"}>
@@ -48,7 +48,7 @@ function HeaderInner() {
               빛나래문화재단
             </StyledLink>
             <div ref={onInViewRef}>
-              {!isMax393 && ((pathName === "/" && inView && isHeroAnimationDone) || (pathName !== "/" && inView)) && (
+              {!isMax520 && ((pathName === "/" && inView && isHeroAnimationDone) || (pathName !== "/" && inView)) && (
                 <SlideLeftFade key={pathName} className="flex items-center gap-[8px]">
                   <div className={`header-slogan-mark ${pathName === "/" ? "bg-white" : "bg-black"}`}></div>
                   <div className="header-slogan">

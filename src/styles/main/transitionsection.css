@@ -12,7 +12,7 @@
   }
 }
 
-@media (max-width: 393px) {
+@media (max-width: 520px) {
   .transitionsection-caption-wrapper {
     @apply text-[24px] mt-[81px];
   }

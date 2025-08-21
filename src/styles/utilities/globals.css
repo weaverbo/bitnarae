@@ -113,6 +113,18 @@ div {
   }
 }
 
+@media (max-width: 600px) {
+  .container {
+    @apply mx-auto max-w-[520px];
+  }
+}
+
+@media (max-width: 520px) {
+  .container {
+    @apply mx-auto max-w-[460px];
+  }
+}
+
 @media (max-width: 393px) {
   .container {
     @apply mx-auto max-w-[313px];
