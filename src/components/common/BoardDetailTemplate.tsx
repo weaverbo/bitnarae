@@ -78,7 +78,7 @@ export default function BoardDetailTemplate({ title, data }: Props) {
           <button type="button" className="board-detail-icon cursor-pointer border-0 bg-transparent p-0" onClick={handleMainShare} title="공유">
             <Image src={icon_share} alt="share" />
           </button>
-          {isOpen && <ShareMenu pathName={pathName} isNewsPage={isNewsPage} title={selectedItem.title} subtitle={selectedItem.subtitle ?? undefined} onClose={() => setIsOpen(false)} />}
+          {isOpen && <ShareMenu pathName={pathName} isNewsPage={isNewsPage} title={selectedItem.title} subtitle={selectedItem.subtitle ?? undefined} onClose={handleMainShare} />}
         </div>
         <Image src={icon_print} alt="icon_print" onClick={() => window.print()} />
       </div>
