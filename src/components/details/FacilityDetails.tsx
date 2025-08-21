@@ -86,7 +86,7 @@ export default function FacilityDetails() {
             </div>
           </div>
           <div className="facility_details_block_image-container">
-            <div className="facility_details_block_image-wrapper">
+            <div className="facility_details_block_image-wrapper-other">
               {facilityImg.slice(3, 5).map((img, index) => {
                 const trueIndex = index + 3;
                 return (
@@ -136,7 +136,7 @@ export default function FacilityDetails() {
             </div>
           </div>
           <div className="facility_details_block_image-container">
-            <div className="facility_details_block_image-wrapper">
+            <div className="facility_details_block_image-wrapper-other">
               {facilityImg.slice(8, 10).map((img, index) => {
                 const trueIndex = index + 8;
                 return (

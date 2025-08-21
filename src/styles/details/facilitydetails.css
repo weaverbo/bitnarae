@@ -11,11 +11,11 @@
 }
 
 .facility_details_block_wrapper {
-  @apply flex justify-between;
+  @apply flex;
 }
 
 .facility_details_block_inner {
-  @apply w-[192px] shrink-0 mr-[108px];
+  @apply w-[192px] mr-[108px] shrink-0;
 }
 
 .facility_details_block_title {
@@ -39,7 +39,11 @@
 }
 
 .facility_details_block_image-wrapper {
-  @apply flex justify-start gap-[32px] mb-[80px] w-[1296px] shrink-0;
+  @apply flex gap-[32px] mb-[80px] w-[1296px] shrink-0;
+}
+
+.facility_details_block_image-wrapper-other {
+  @apply flex justify-start gap-[32px] mb-[80px] w-[864px] shrink-0;
 }
 
 .facility_details_block_image-inner {
