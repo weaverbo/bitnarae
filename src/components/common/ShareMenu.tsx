@@ -2,7 +2,13 @@
 import { useMemo, useState } from "react";
 import Script from "next/script";
 
-interface Kakao {
+declare global {
+  interface Window {
+    Kakao: KakaoSDK;
+  }
+}
+
+interface KakaoSDK {
   isInitialized(): boolean;
   init(appKey: string): void;
   Share: {
@@ -24,12 +30,12 @@ type ShareMenuProps = {
   isNewsPage: boolean;
   title: string;
   subtitle?: string | null;
-  kakaoObj?: Kakao | null;
+  kakaoObj?: KakaoSDK | null;
   onClose?: () => void;
 };
 
 export default function ShareMenu({ pathName, isNewsPage, title, subtitle, onClose }: ShareMenuProps) {
-  const [kakaoObj, setKakaoObj] = useState<Kakao | null>(null);
+  const [kakaoObj, setKakaoObj] = useState<KakaoSDK | null>(null);
 
   // 공유 링크에 safeShareText를 추가해서 소개 문구를 넣어 ux 개선
   const shareText = useMemo(() => {
@@ -79,7 +85,7 @@ export default function ShareMenu({ pathName, isNewsPage, title, subtitle, onClo
         src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"
         strategy="afterInteractive"
         onLoad={() => {
-          const kakao = Kakao;
+          const kakao = window.Kakao;
           if (!kakao) {
             console.error("Kakao SDK not found on window");
             return;
