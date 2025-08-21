@@ -2,17 +2,34 @@
 import { useMemo, useState } from "react";
 import Script from "next/script";
 
+interface Kakao {
+  isInitialized(): boolean;
+  init(appKey: string): void;
+  Share: {
+    sendDefault(options: {
+      objectType: "feed";
+      content: {
+        title: string;
+        description: string;
+        imageUrl: string;
+        link: { mobileWebUrl: string; webUrl: string };
+      };
+      buttons: { title: string; link: { mobileWebUrl: string; webUrl: string } }[];
+    }): void;
+  };
+}
+
 type ShareMenuProps = {
   pathName: string;
   isNewsPage: boolean;
   title: string;
   subtitle?: string | null;
-  kakaoObj?: any | null;
+  kakaoObj?: Kakao | null;
   onClose?: () => void;
 };
 
 export default function ShareMenu({ pathName, isNewsPage, title, subtitle, onClose }: ShareMenuProps) {
-  const [kakaoObj, setKakaoObj] = useState<any>(null);
+  const [kakaoObj, setKakaoObj] = useState<Kakao | null>(null);
 
   // 공유 링크에 safeShareText를 추가해서 소개 문구를 넣어 ux 개선
   const shareText = useMemo(() => {

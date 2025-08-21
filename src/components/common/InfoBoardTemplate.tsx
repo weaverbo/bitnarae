@@ -30,8 +30,6 @@ export default function InfoBoardTemplate({ title, data, getItemHref }: Props) {
   const pathName = usePathname();
   const router = useRouter();
 
-  console.log(data);
-
   const [searchKeyword, setSearchKeyword] = useState<string>("");
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -61,7 +59,7 @@ export default function InfoBoardTemplate({ title, data, getItemHref }: Props) {
     setCurrentPage((prev) => Math.min(prev + 1, totalPageNumber));
   };
 
-  const handleOnChange = (e: any) => {
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchKeyword(e.target.value);
   };
 
