@@ -26,8 +26,6 @@ export default function NoticeSection() {
     noticeList();
   }, []);
 
-  console.log(notices.length);
-
   return (
     <>
       <div className="container notice-section-wrapper">

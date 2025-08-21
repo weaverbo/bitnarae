@@ -32,6 +32,10 @@ function HeaderInner() {
     }
   });
 
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathName, setIsOpen]);
+
   const isMax880 = useMediaQuery({ maxWidth: 880 });
   const isMax393 = useMediaQuery({ maxWidth: 393 });
 

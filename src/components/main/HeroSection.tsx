@@ -28,7 +28,8 @@ function HeroSectionInner() {
     }, 1500);
   }, []);
 
-  const isMobile = useMediaQuery({ maxWidth: 880 });
+  const isMax880 = useMediaQuery({ maxWidth: 880 });
+  const isMax393 = useMediaQuery({ maxWidth: 393 });
 
   useEffect(() => {
     if (!(hasAnimated && isHeaderAnimationDone)) return;
@@ -48,12 +49,12 @@ function HeroSectionInner() {
     ];
 
     return () => timers.forEach(clearTimeout);
-  }, [hasAnimated, isHeaderAnimationDone, isMobile]);
+  }, [hasAnimated, isHeaderAnimationDone, isMax880, isMax393]);
 
   const renderText = () => {
     return (
       <>
-        {isMobile ? (
+        {isMax880 ? (
           <>
             <div className="relative w-full hero-side-text-responsive">
               <div className="hero-side-text absolute inset-0 hero-side-text-responsive">
@@ -118,7 +119,7 @@ function HeroSectionInner() {
         <motion.div
           initial={false}
           animate={{
-            width: hasAnimated ? "100%" : "905px",
+            width: hasAnimated ? "100%" : isMax393 ? "393px" : "905px",
             height: hasAnimated ? "1071px" : "905px",
             borderRadius: hasAnimated ? "0px" : "9999px",
             y: hasAnimated ? 0 : 166,
@@ -129,7 +130,7 @@ function HeroSectionInner() {
           }}
           className="overflow-hidden mx-auto "
         >
-          {isMobile && <div className="absolute inset-0 bg-black bg-opacity-20"></div>}
+          {isMax880 && <div className="absolute inset-0 bg-black bg-opacity-20"></div>}
           <Image src={mainImg} alt="main-image" className="w-full h-full object-cover" />
         </motion.div>
         <AnimatePresence>
