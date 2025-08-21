@@ -79,7 +79,7 @@ export default function ShareMenu({ pathName, isNewsPage, title, subtitle, onClo
         src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"
         strategy="afterInteractive"
         onLoad={() => {
-          const kakao = (window as any).Kakao;
+          const kakao = Kakao;
           if (!kakao) {
             console.error("Kakao SDK not found on window");
             return;
