@@ -48,13 +48,13 @@ export default function FacilityDetails() {
 
   return (
     <>
-      <div className="container mb-[74px]">
+      <div className="container mb-[74px] ">
         <div className="facility_details_title_wrapper">
           <p className="facility_details_subtitle">예술이 피어나는 공간</p>
           <h1 className="facility_details_title">빛나래 문화센터</h1>
         </div>
-        <div className="facility_details_block_wrapper overflow-x-scroll scrollbar-hide w-screen">
-          <div className="facility_details_block_inner">
+        <div className="facility_details_block_wrapper">
+          <div className="facility_details_block_inner ">
             <div className="facility_details_block_title_line" />
             <h2 className="facility_details_block_title">빛움터 공간</h2>
             <div className="facility_details_block_title_summary">
@@ -63,17 +63,19 @@ export default function FacilityDetails() {
               <p>예술 놀이터</p>
             </div>
           </div>
-          <div className="facility_details_block_image-wrapper">
-            {facilityImg.slice(0, 3).map((img, index) => (
-              <div key={img.id} className="facility_details_block_image-inner" onMouseEnter={() => handleMouseEnter(index)} onMouseLeave={() => handleMouseLeave(index)}>
-                <Image className="facility_details_block_image" src={img.src} alt="facilityImg" />
-                <div className={`facility_details_block_image_overlay ${hovered[index] ? "opacity-50" : "opacity-0"}`} />
-                <div className={`facility_details_block_image_hover ${hovered[index] ? "opacity-100" : "opacity-0"}`}>{facilityImg[index].name}</div>
-              </div>
-            ))}
+          <div className="facility_details_block_image-container">
+            <div className="facility_details_block_image-wrapper">
+              {facilityImg.slice(0, 3).map((img, index) => (
+                <div key={img.id} className="facility_details_block_image-inner" onMouseEnter={() => handleMouseEnter(index)} onMouseLeave={() => handleMouseLeave(index)}>
+                  <Image className="facility_details_block_image" src={img.src} alt="facilityImg" />
+                  <div className={`facility_details_block_image_overlay ${hovered[index] ? "opacity-50" : "opacity-0"}`} />
+                  <div className={`facility_details_block_image_hover ${hovered[index] ? "opacity-100" : "opacity-0"}`}>{facilityImg[index].name}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-        <div className="facility_details_block_wrapper overflow-x-scroll scrollbar-hide w-screen">
+        <div className="facility_details_block_wrapper">
           <div className="facility_details_block_inner">
             <div className="facility_details_block_title_line" />
             <h2 className="facility_details_block_title">빛공방 공간</h2>
@@ -83,20 +85,22 @@ export default function FacilityDetails() {
               <p>예술 작업터</p>
             </div>
           </div>
-          <div className="facility_details_block_image-wrapper-other">
-            {facilityImg.slice(3, 5).map((img, index) => {
-              const trueIndex = index + 3;
-              return (
-                <div key={img.id} className="facility_details_block_image-inner" onMouseEnter={() => handleMouseEnter(trueIndex)} onMouseLeave={() => handleMouseLeave(trueIndex)}>
-                  <Image className="facility_details_block_image" src={img.src} alt="facilityImg" />
-                  <div className={`facility_details_block_image_overlay ${hovered[trueIndex] ? "opacity-50" : "opacity-0"}`} />
-                  <div className={`facility_details_block_image_hover ${hovered[trueIndex] ? "opacity-100" : "opacity-0"}`}>{img.name}</div>
-                </div>
-              );
-            })}
+          <div className="facility_details_block_image-container">
+            <div className="facility_details_block_image-wrapper">
+              {facilityImg.slice(3, 5).map((img, index) => {
+                const trueIndex = index + 3;
+                return (
+                  <div key={img.id} className="facility_details_block_image-inner" onMouseEnter={() => handleMouseEnter(trueIndex)} onMouseLeave={() => handleMouseLeave(trueIndex)}>
+                    <Image className="facility_details_block_image" src={img.src} alt="facilityImg" />
+                    <div className={`facility_details_block_image_overlay ${hovered[trueIndex] ? "opacity-50" : "opacity-0"}`} />
+                    <div className={`facility_details_block_image_hover ${hovered[trueIndex] ? "opacity-100" : "opacity-0"}`}>{img.name}</div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
-        <div className="facility_details_block_wrapper overflow-x-scroll scrollbar-hide w-screen">
+        <div className="facility_details_block_wrapper">
           <div className="facility_details_block_inner">
             <div className="facility_details_block_title_line" />
             <h2 className="facility_details_block_title">빛마당 공간</h2>
@@ -106,20 +110,22 @@ export default function FacilityDetails() {
               <p>문화의 뜰</p>
             </div>
           </div>
-          <div className="facility_details_block_image-wrapper">
-            {facilityImg.slice(5, 8).map((img, index) => {
-              const trueIndex = index + 5;
-              return (
-                <div key={img.id} className="facility_details_block_image-inner" onMouseEnter={() => handleMouseEnter(trueIndex)} onMouseLeave={() => handleMouseLeave(trueIndex)}>
-                  <Image className="facility_details_block_image" src={img.src} alt="facilityImg" />
-                  <div className={`facility_details_block_image_overlay ${hovered[trueIndex] ? "opacity-50" : "opacity-0"}`} />
-                  <div className={`facility_details_block_image_hover ${hovered[trueIndex] ? "opacity-100" : "opacity-0"}`}>{img.name}</div>
-                </div>
-              );
-            })}
+          <div className="facility_details_block_image-container">
+            <div className="facility_details_block_image-wrapper">
+              {facilityImg.slice(5, 8).map((img, index) => {
+                const trueIndex = index + 5;
+                return (
+                  <div key={img.id} className="facility_details_block_image-inner" onMouseEnter={() => handleMouseEnter(trueIndex)} onMouseLeave={() => handleMouseLeave(trueIndex)}>
+                    <Image className="facility_details_block_image" src={img.src} alt="facilityImg" />
+                    <div className={`facility_details_block_image_overlay ${hovered[trueIndex] ? "opacity-50" : "opacity-0"}`} />
+                    <div className={`facility_details_block_image_hover ${hovered[trueIndex] ? "opacity-100" : "opacity-0"}`}>{img.name}</div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
-        <div className="facility_details_block_wrapper overflow-x-scroll scrollbar-hide w-screen">
+        <div className="facility_details_block_wrapper">
           <div className="facility_details_block_inner">
             <div className="facility_details_block_title_line" />
             <h2 className="facility_details_block_title">빛울림 공간</h2>
@@ -129,17 +135,19 @@ export default function FacilityDetails() {
               <p>닿는 문화의 장</p>
             </div>
           </div>
-          <div className="facility_details_block_image-wrapper">
-            {facilityImg.slice(8, 10).map((img, index) => {
-              const trueIndex = index + 8;
-              return (
-                <div key={img.id} className="facility_details_block_image-inner" onMouseEnter={() => handleMouseEnter(trueIndex)} onMouseLeave={() => handleMouseLeave(trueIndex)}>
-                  <Image className="facility_details_block_image" src={img.src} alt="facilityImg" />
-                  <div className={`facility_details_block_image_overlay ${hovered[trueIndex] ? "opacity-50" : "opacity-0"}`} />
-                  <div className={`facility_details_block_image_hover ${hovered[trueIndex] ? "opacity-100" : "opacity-0"}`}>{img.name}</div>
-                </div>
-              );
-            })}
+          <div className="facility_details_block_image-container">
+            <div className="facility_details_block_image-wrapper">
+              {facilityImg.slice(8, 10).map((img, index) => {
+                const trueIndex = index + 8;
+                return (
+                  <div key={img.id} className="facility_details_block_image-inner" onMouseEnter={() => handleMouseEnter(trueIndex)} onMouseLeave={() => handleMouseLeave(trueIndex)}>
+                    <Image className="facility_details_block_image" src={img.src} alt="facilityImg" />
+                    <div className={`facility_details_block_image_overlay ${hovered[trueIndex] ? "opacity-50" : "opacity-0"}`} />
+                    <div className={`facility_details_block_image_hover ${hovered[trueIndex] ? "opacity-100" : "opacity-0"}`}>{img.name}</div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

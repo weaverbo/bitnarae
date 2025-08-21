@@ -15,7 +15,7 @@
 }
 
 .facility_details_block_inner {
-  @apply w-[192px];
+  @apply w-[192px] shrink-0 mr-[108px];
 }
 
 .facility_details_block_title {
@@ -34,8 +34,12 @@
   @apply leading-[29px];
 }
 
+.facility_details_block_image-container {
+  @apply overflow-x-scroll scrollbar-hide mr-[calc(50%-50vw)];
+}
+
 .facility_details_block_image-wrapper {
-  @apply flex justify-start gap-[32px] mb-[80px];
+  @apply flex justify-start gap-[32px] mb-[80px] w-[1296px] shrink-0;
 }
 
 .facility_details_block_image-inner {
@@ -48,10 +52,6 @@
 
 .facility_details_block_image_overlay {
   @apply absolute inset-0 bg-black rounded-[20px] transition-opacity duration-300 ease-in-out;
-}
-
-.facility_details_block_image-wrapper-other {
-  @apply flex gap-[32px] mb-[80px];
 }
 
 .facility_details_block_image {
