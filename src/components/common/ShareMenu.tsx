@@ -12,15 +12,18 @@ interface KakaoSDK {
   isInitialized(): boolean;
   init(appKey: string): void;
   Share: {
-    sendDefault(options: {
+    sendDefault(opts: {
       objectType: "feed";
       content: {
         title: string;
-        description: string;
-        imageUrl: string;
+        description?: string;
+        imageUrl?: string;
         link: { mobileWebUrl: string; webUrl: string };
       };
-      buttons: { title: string; link: { mobileWebUrl: string; webUrl: string } }[];
+      buttons?: Array<{
+        title: string;
+        link: { mobileWebUrl: string; webUrl: string };
+      }>;
     }): void;
   };
 }
@@ -61,25 +64,23 @@ export default function ShareMenu({ pathName, isNewsPage, title, subtitle, onClo
   const naverUrl = `https://share.naver.com/web/shareView?url=${encodeURIComponent(shareUrl)}&title=${encodeURIComponent(shareText)}`;
 
   const handleKakaoShare = () => {
-    const kakao = typeof window !== "undefined" ? (window as any).Kakao : null;
-
-    if (!kakao) {
+    if (!kakaoObj) {
       alert("카카오 SDK가 아직 로드되지 않았습니다. 잠시 후 다시 시도해주세요.");
       return;
     }
 
     try {
-      if (!kakao.isInitialized()) {
+      if (!kakaoObj.isInitialized()) {
         const appKey = process.env.NEXT_PUBLIC_KAKAO_JS_KEY;
         if (!appKey) {
           console.error("Missing env: NEXT_PUBLIC_KAKAO_JS_KEY");
           alert("Kakao App Key 설정을 확인해주세요.");
           return;
         }
-        kakao.init(appKey);
+        kakaoObj.init(appKey);
       }
 
-      kakao.Share.sendDefault({
+      kakaoObj.Share.sendDefault({
         objectType: "feed",
         content: {
           title: shareText || "공유",
@@ -87,7 +88,12 @@ export default function ShareMenu({ pathName, isNewsPage, title, subtitle, onClo
           imageUrl: "https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png",
           link: { mobileWebUrl: shareUrl, webUrl: shareUrl },
         },
-        buttons: [{ title: "바로가기", link: { mobileWebUrl: shareUrl, webUrl: shareUrl } }],
+        buttons: [
+          {
+            title: "바로가기",
+            link: { mobileWebUrl: shareUrl, webUrl: shareUrl },
+          },
+        ],
       });
     } catch (e) {
       console.error("Kakao share error:", e);
@@ -101,7 +107,7 @@ export default function ShareMenu({ pathName, isNewsPage, title, subtitle, onClo
         src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"
         strategy="afterInteractive"
         onLoad={() => {
-          const kakao = window.Kakao;
+          const kakao = typeof window !== "undefined" ? window.Kakao : null;
           if (!kakao) {
             console.error("Kakao SDK not found on window");
             return;

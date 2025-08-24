@@ -1,4 +1,3 @@
-// app/(detail-layout)/news/search-result/[keyword]/page.tsx
 import { prisma } from "@/lib/prisma";
 import InfoBoardTemplate from "@/components/common/InfoBoardTemplate";
 

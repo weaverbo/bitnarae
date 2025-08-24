@@ -1,5 +1,5 @@
 .hero-text {
-  @apply text-[64px] font-semibold;
+  @apply text-[64px] font-semibold flex items-center justify-center;
 }
 
 .hero-sidetext-wrapper {
@@ -34,6 +34,9 @@
   .hero-side-text {
     @apply text-center text-[36px];
   }
+}
+
+@media (max-width: 600px) {
 }
 
 @media (max-width: 393px) {

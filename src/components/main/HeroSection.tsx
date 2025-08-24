@@ -56,7 +56,7 @@ function HeroSectionInner() {
       <>
         {isMax880 ? (
           <>
-            <div className="relative w-full hero-side-text-responsive">
+            <div className="relative w-full">
               <div className="hero-side-text absolute inset-0 hero-side-text-responsive">
                 <motion.p className="side-text-line" initial={false} animate={{ opacity: step >= 1 && step < 3 ? 1 : 0 }} transition={{ duration: 0.6 }}>
                   작은 불꽃 하나
