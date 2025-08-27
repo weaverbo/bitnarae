@@ -1,0 +1,29 @@
+.about-common-title {
+  @apply text-center text-[42px] my-[160px] font-bold;
+}
+
+.about-common-tabmenu {
+  @apply flex justify-center gap-[165px] text-[36px];
+}
+
+@media (max-width: 900px) {
+  .about-common-tabmenu {
+    @apply text-lg;
+  }
+}
+
+@media (max-width: 788px) {
+  .about-common-tabmenu {
+    @apply gap-[80px];
+  }
+}
+
+@media (max-width: 393px) {
+  .about-common-tabmenu {
+    @apply gap-[30px];
+  }
+
+  .about-common-tabmenu {
+    @apply text-sm;
+  }
+}

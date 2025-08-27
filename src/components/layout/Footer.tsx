@@ -3,7 +3,7 @@ import Image from "next/image";
 import icon_insta from "../../../public/img/icon_insta.svg";
 import icon_nblog from "../../../public/img/icon_nblog.svg";
 import icon_youtube from "../../../public/img/icon_youtube.svg";
-import "../../styles/utilities/footer.css";
+import "../../styles/layout/footer.css";
 
 export default function Footer() {
   return (

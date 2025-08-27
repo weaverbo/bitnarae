@@ -1,7 +1,7 @@
 "use client";
 
 import StyledLink from "next/link";
-import "../../styles/utilities/detailpagetitle.css";
+import "../../styles/common/detailpagetitle.css";
 import { usePathname } from "next/navigation";
 
 type DetailPageTitleProps = {

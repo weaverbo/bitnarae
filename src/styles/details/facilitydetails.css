@@ -61,3 +61,6 @@
 .facility_details_block_image {
   @apply w-[400px] h-[500px] object-cover rounded-[20px];
 }
+
+@media (max-width: 1370px) {
+}

@@ -14,8 +14,10 @@ import "../../styles/details/philosophydetails.css";
 import { motion } from "framer-motion";
 import { useAnimatedInView } from "../../hooks/useAnimatedInView";
 import { useState } from "react";
+import { useMediaQuery } from "react-responsive";
+import dynamic from "next/dynamic";
 
-export default function PhilosophyDetails() {
+function PhilosophyDetailsInner() {
   const missionHeader = useAnimatedInView({ threshold: 0.8 });
   const missionBody1 = useAnimatedInView({ threshold: 0.8 });
   const missionBody2 = useAnimatedInView({ threshold: 0.8 });
@@ -46,20 +48,26 @@ export default function PhilosophyDetails() {
     });
   };
 
+  const isMax1370 = useMediaQuery({ maxWidth: 1370 });
   return (
     <>
       <div className="container">
         <div>
-          <div className="border-b border-bg-[#C6C6C6] pb-[25px] mb-[194px] flex justify-between">
-            <div className="mission-section-contents-container">
+          <div className="section-wrapper border-b border-bg-[#C6C6C6] pb-[25px]">
+            {isMax1370 && (
+              <motion.div initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
+                <Image src={missionImg} alt="mission_thumnail" className="mission-thumnail" />
+              </motion.div>
+            )}
+            <div className="mission-section-contents-wrapper">
               <div ref={missionHeader.ref}>
                 {missionHeader.hasAnimated && (
                   <motion.div initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut", delay: 0 }}>
                     <div className="flex items-center gap-[16px]">
-                      <div className="mission-section-title-mark " />
-                      <span className="mission-section-subtitle">MISSION</span>
+                      <div className="section-title-mark " />
+                      <span className="section-subtitle">MISSION</span>
                     </div>
-                    <h1 className="mission-section-title">우리가 지키는 사명</h1>
+                    <h1 className="section-title">우리가 지키는 사명</h1>
                   </motion.div>
                 )}
               </div>
@@ -109,37 +117,39 @@ export default function PhilosophyDetails() {
                 </div>
               </div>
             </div>
-            <motion.div initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
-              <Image src={missionImg} alt="mission_thumnail" className="mission-thumnail" />
-            </motion.div>
+            {isMax1370 ? null : (
+              <motion.div initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
+                <Image src={missionImg} alt="mission_thumnail" className="mission-thumnail" />
+              </motion.div>
+            )}
           </div>
         </div>
         <div>
-          <div className="w-full flex justify-between border-b border-bg-[#C6C6C6] pb-[160px] mb-[194px]">
-            <div ref={visionHeader.ref}>
+          <div className="section-wrapper border-b border-bg-[#C6C6C6] section-wrapper-responsive">
+            <div className="section-title-wrapper" ref={visionHeader.ref}>
               {visionHeader.hasAnimated && (
                 <motion.div initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
                   <div className="flex items-center gap-[16px]">
-                    <div className="mission-section-title-mark " />
-                    <span className="mission-section-subtitle">VISION</span>
+                    <div className="section-title-mark " />
+                    <span className="section-subtitle">VISION</span>
                   </div>
-                  <h1 className="mission-section-title">우리가 꿈꾸는 미래</h1>
+                  <h1 className="section-title">우리가 꿈꾸는 미래</h1>
                 </motion.div>
               )}
             </div>
-            <div className="flex flex-col gap-[160px] mt-[236px]">
+            <div className="section-contents-wrapper">
               <div ref={visionBody1.ref}>
                 {visionBody1.hasAnimated && (
-                  <motion.div initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="flex justify-between w-[796px]">
+                  <motion.div initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="vision-section-contents-wrapper">
                     <div className="vision-section-contents" onMouseEnter={() => handleMouseEnter(0)} onMouseLeave={() => handleMouseLeave(0)}>
-                      <Image src={hoveredStates[0] ? hoveredNo1 : circleNo1} alt="1" className="mb-[16px]" />
+                      <Image src={hoveredStates[0] ? hoveredNo1 : circleNo1} alt="1" className="mb-[16px] vision-number-icon" />
                       <div className={`${hoveredStates[0] ? "hover-underline" : ""}`}>
                         <p>제약 없이 평등하게 누리는</p>
                         <p className="leading-[48px]">문화예술 조기교육 지원</p>
                       </div>
                     </div>
                     <div className="vision-section-contents" onMouseEnter={() => handleMouseEnter(1)} onMouseLeave={() => handleMouseLeave(1)}>
-                      <Image src={hoveredStates[1] ? hoveredNo2 : circleNo2} alt="2" className="mb-[16px]" />
+                      <Image src={hoveredStates[1] ? hoveredNo2 : circleNo2} alt="2" className="mb-[16px] vision-number-icon" />
                       <div className={`${hoveredStates[1] ? "hover-underline" : ""}`}>
                         <p>자유롭게 창작할 수 있도록</p>
                         <p className="leading-[48px]">신진 예술가 지원</p>
@@ -150,16 +160,16 @@ export default function PhilosophyDetails() {
               </div>
               <div ref={visionBody2.ref}>
                 {visionBody2.hasAnimated && (
-                  <motion.div initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="flex justify-between w-[796px]">
+                  <motion.div initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="vision-section-contents-wrapper">
                     <div className="vision-section-contents" onMouseEnter={() => handleMouseEnter(2)} onMouseLeave={() => handleMouseLeave(2)}>
-                      <Image src={hoveredStates[2] ? hoveredNo3 : circleNo3} alt="3" className="mb-[16px]" />
+                      <Image src={hoveredStates[2] ? hoveredNo3 : circleNo3} alt="3" className="mb-[16px] vision-number-icon" />
                       <div className={`${hoveredStates[2] ? "hover-underline" : ""}`}>
                         <p>누구나 창작할 수 있는</p>
-                        <p className="t leading-[48px]">시민 예술 생태계 조성</p>
+                        <p className="leading-[48px]">시민 예술 생태계 조성</p>
                       </div>
                     </div>
                     <div className="vision-section-contents" onMouseEnter={() => handleMouseEnter(3)} onMouseLeave={() => handleMouseLeave(3)}>
-                      <Image src={hoveredStates[3] ? hoveredNo4 : circleNo4} alt="4" className="mb-[16px]" />
+                      <Image src={hoveredStates[3] ? hoveredNo4 : circleNo4} alt="4" className="mb-[16px] vision-number-icon" />
                       <div className={`${hoveredStates[3] ? "hover-underline" : ""}`}>
                         <p>예술가와 시민이 함께</p>
                         <p className="t leading-[48px]">성장하는 문화 기반 구축</p>
@@ -172,22 +182,24 @@ export default function PhilosophyDetails() {
           </div>
         </div>
         <div>
-          <div className="w-full flex justify-between border-b border-bg-[#C6C6C6] pb-[160px] mb-[194px]">
-            <div ref={valueHeader.ref}>
-              {valueHeader.hasAnimated && (
-                <motion.div initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
-                  <div className="flex items-center gap-[16px]">
-                    <div className="mission-section-title-mark " />
-                    <span className="mission-section-subtitle">VALUE</span>
-                  </div>
-                  <h1 className="mission-section-title">우리가 따르는 가치</h1>
-                </motion.div>
-              )}
+          <div className="section-wrapper border-b border-bg-[#C6C6C6] section-wrapper-responsive">
+            <div className="section-title-wrapper">
+              <div ref={valueHeader.ref}>
+                {valueHeader.hasAnimated && (
+                  <motion.div initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
+                    <div className="flex items-center gap-[16px]">
+                      <div className="section-title-mark" />
+                      <span className="section-subtitle">VALUE</span>
+                    </div>
+                    <h1 className="section-title">우리가 따르는 가치</h1>
+                  </motion.div>
+                )}
+              </div>
             </div>
-            <div className="flex flex-col gap-[160px] mt-[236px]">
+            <div className="section-contents-wrapper">
               <div ref={valueBody1.ref}>
                 {valueBody1.hasAnimated && (
-                  <motion.div initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="flex justify-between w-[774px]">
+                  <motion.div initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="value-section-contents-wrapper">
                     <div className="value-section-contents" onMouseEnter={() => handleMouseEnter(4)} onMouseLeave={() => handleMouseLeave(4)}>
                       <div className="value-section-contents-line" />
                       <span>포용</span>
@@ -209,7 +221,7 @@ export default function PhilosophyDetails() {
               </div>
               <div ref={valueBody2.ref}>
                 {valueBody2.hasAnimated && (
-                  <motion.div initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="flex justify-between w-[774px]">
+                  <motion.div initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="value-section-contents-wrapper">
                     <div className="value-section-contents" onMouseEnter={() => handleMouseEnter(6)} onMouseLeave={() => handleMouseLeave(6)}>
                       <div className="value-section-contents-line" />
                       <span>연결</span>
@@ -236,3 +248,9 @@ export default function PhilosophyDetails() {
     </>
   );
 }
+
+const PhilosophyDetails = dynamic(() => Promise.resolve(PhilosophyDetailsInner), {
+  ssr: false,
+});
+
+export default PhilosophyDetails;

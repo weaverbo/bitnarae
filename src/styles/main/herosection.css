@@ -1,7 +1,6 @@
 .hero-text {
-  @apply text-[64px] font-semibold flex items-center justify-center;
+  @apply text-[64px] font-semibold;
 }
-
 .hero-sidetext-wrapper {
   @apply absolute inset-0 flex justify-between items-center text-white text-2xl mt-[171px];
 }
@@ -37,6 +36,9 @@
 }
 
 @media (max-width: 600px) {
+  .hero-text {
+    @apply flex items-center justify-center;
+  }
 }
 
 @media (max-width: 393px) {

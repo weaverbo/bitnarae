@@ -88,6 +88,12 @@ div {
   }
 }
 
+@media (max-width: 900px) {
+  .container {
+    @apply mx-auto max-w-[820px];
+  }
+}
+
 @media (max-width: 880px) {
   .container {
     @apply mx-auto max-w-[800px];

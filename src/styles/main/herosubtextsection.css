@@ -16,7 +16,7 @@
 
 @media (max-width: 816px) {
   .hero-subtext {
-    @apply text-[24px] mt-[150px] py-[0px];
+    @apply text-[24px] mt-[150px] py-0;
   }
 
   .highlight-text {

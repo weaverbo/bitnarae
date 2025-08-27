@@ -2,7 +2,7 @@
 
 import StyledLink from "next/link";
 import SlideLeftFade from "../ui/SlideLeftFade";
-import "../../styles/utilities/header.css";
+import "../../styles/layout/header.css";
 import { useInView } from "react-intersection-observer";
 import { useHeroAnimationStore } from "../../store/HeroAnimationStore";
 import { useEffect, useState } from "react";
@@ -10,6 +10,7 @@ import { usePathname } from "next/navigation";
 import { useMediaQuery } from "react-responsive";
 import Image from "next/image";
 import icon_hambuger from "../../../public/img/icon_hamburger.svg";
+import icon_hambuger_black from "../../../public/img/icon_hamburger_black.svg";
 import icon_close from "../../../public/img/icon_close.png";
 import dynamic from "next/dynamic";
 
@@ -60,7 +61,7 @@ function HeaderInner() {
             </div>
           </div>
           <div>
-            <Image src={icon_hambuger} width={43} height={43} alt="icon_hambuger" onClick={() => setIsOpen(true)} />
+            <Image src={pathName === "/" ? icon_hambuger : icon_hambuger_black} width={43} height={43} alt="icon_hambuger" onClick={() => setIsOpen(true)} />
           </div>
           {isOpen && (
             <div className="fixed bg-white top-0 left-0 z-50 w-full h-full flex justify-between px-[80px] pt-[128px]">
