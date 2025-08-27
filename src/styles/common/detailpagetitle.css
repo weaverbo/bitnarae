@@ -1,6 +1,9 @@
 .about-common-title {
   @apply text-center text-[42px] my-[160px] font-bold;
 }
+.about-common-title-border {
+  @apply w-full h-[1px] bg-[#C6C6C6] mb-[160px] mt-[24px];
+}
 
 .about-common-tabmenu {
   @apply flex justify-center gap-[165px] text-[36px];
@@ -18,9 +21,15 @@
   }
 }
 
-@media (max-width: 393px) {
+@media (max-width: 520px) {
   .about-common-tabmenu {
     @apply gap-[30px];
+  }
+}
+
+@media (max-width: 393px) {
+  .about-common-title-border {
+    @apply mb-[80px];
   }
 
   .about-common-tabmenu {

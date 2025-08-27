@@ -62,5 +62,96 @@
   @apply w-[400px] h-[500px] object-cover rounded-[20px];
 }
 
-@media (max-width: 1370px) {
+@media (max-width: 744px) {
+  .facility_details_block_inner {
+    @apply mr-[40px];
+  }
+}
+
+@media (max-width: 670px) {
+  .facility_details_block_image-wrapper {
+    @apply w-[1200px];
+  }
+
+  .facility_details_block_image-inner {
+    @apply w-[350px] h-[450px];
+  }
+
+  .facility_details_block_image {
+    @apply w-[350px] h-[450px];
+  }
+}
+
+@media (max-width: 600px) {
+  .facility_details_block_image-wrapper {
+    @apply w-[1000px];
+  }
+
+  .facility_details_block_image-inner {
+    @apply w-[300px] h-[400px];
+  }
+
+  .facility_details_block_image {
+    @apply w-[300px] h-[400px];
+  }
+}
+
+@media (max-width: 560px) {
+  .facility_details_block_image-wrapper {
+    @apply w-[850px];
+  }
+
+  .facility_details_block_image-inner {
+    @apply w-[250px] h-[350px];
+  }
+
+  .facility_details_block_image {
+    @apply w-[250px] h-[350px];
+  }
+}
+
+@media (max-width: 393px) {
+  .facility_details_block_image-wrapper {
+    @apply w-[800px];
+  }
+
+  .facility_details_title_wrapper {
+    @apply mb-[80px];
+  }
+
+  .facility_details_block_inner {
+    @apply mr-0;
+  }
+
+  .facility_details_block_title_summary {
+    @apply text-sm;
+  }
+
+  .facility_details_block_title {
+    @apply text-lg;
+  }
+
+  .facility_details_block_image-wrapper {
+    @apply flex w-[546px];
+  }
+
+  .facility_details_block_image-inner {
+    @apply w-[151px] h-[188px];
+  }
+
+  .facility_details_block_image {
+    @apply w-[151px] h-[188px];
+  }
+
+  .facility_details_block_image_hover {
+    @apply text-sm;
+  }
+
+  .facility_details_title {
+    @apply text-[42px];
+  }
+
+  .facility_details_subtitle {
+    @apply text-lg;
+  }
 }

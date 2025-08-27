@@ -44,7 +44,7 @@ export default function DetailPageTitle({ title }: DetailPageTitleProps) {
             );
           })}
         </ul>
-        <div className="w-full h-[1px] bg-[#C6C6C6] mb-[160px] mt-[24px]"></div>
+        <div className="about-common-title-border"></div>
       </div>
     </>
   );

@@ -2,6 +2,10 @@
   @apply flex gap-[160px] items-center mb-[160px];
 }
 
+.location-details-map {
+  @apply w-[872px] h-[872px];
+}
+
 .location-details-inner {
   @apply flex flex-col gap-[64px];
 }
@@ -48,4 +52,102 @@
 
 .bus-info-description-highlight {
   @apply text-sm font-[500];
+}
+
+.location-details-alert {
+  @apply flex items-center gap-[12px];
+}
+
+.location-details-alert-message {
+  @apply text-[20px];
+}
+
+@media (max-width: 1280px) {
+  .location-details-wrapper {
+    @apply flex flex-col;
+  }
+
+  .location-details-inner {
+    @apply ml-[-360px];
+  }
+}
+
+@media (max-width: 900px) {
+  .location-details-wrapper {
+    @apply flex flex-col;
+  }
+
+  .location-details-inner {
+    @apply ml-[-160px];
+  }
+
+  .location-details-map {
+    @apply w-[664px] h-[664px];
+  }
+}
+
+@media (max-width: 670px) {
+  .location-details-wrapper {
+    @apply flex flex-col;
+  }
+
+  .location-details-inner {
+    @apply ml-[-40px];
+  }
+
+  .location-details-map {
+    @apply w-[554px] h-[554px];
+  }
+}
+
+@media (max-width: 560px) {
+  .location-details-wrapper {
+    @apply flex flex-col;
+  }
+
+  .location-details-inner {
+    @apply ml-[35px];
+  }
+
+  .location-details-map {
+    @apply w-[454px] h-[454px];
+  }
+
+  .location-details-alert {
+    @apply flex items-start gap-[12px];
+  }
+
+  .location-details-icon {
+    @apply mt-[3px];
+  }
+
+  .location-details-alert-message {
+    @apply leading-[24px];
+  }
+}
+
+@media (max-width: 393px) {
+  .location-details-wrapper {
+    @apply flex flex-col mb-[80px];
+  }
+
+  .location-details-inner {
+    @apply ml-[35px];
+  }
+
+  .location-details-map {
+    @apply w-[345px] h-[345px];
+  }
+
+  .location-details-title {
+    @apply text-lg;
+  }
+
+  .location-details-address {
+    @apply text-sm;
+  }
+
+  .location-details-icon {
+    @apply w-[16px] h-[16px];
+  }
 }

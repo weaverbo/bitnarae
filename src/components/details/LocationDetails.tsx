@@ -15,8 +15,7 @@ export default function LocationDetails() {
         <div className="location-details-wrapper">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25287.00915864727!2d126.89152440395982!3d37.60507385980577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c98334382af81%3A0xb3a402dedfa0ff09!2z7ISc7Jq47Yq567OE7IucIOydgO2Pieq1rCDsl63stIzrj5k!5e0!3m2!1sko!2skr!4v1754012112632!5m2!1sko!2skr"
-            width="872"
-            height="872"
+            className="location-details-map"
             style={{ border: 0, borderRadius: 20 }}
             allowFullScreen
             loading="lazy"
@@ -65,9 +64,9 @@ export default function LocationDetails() {
               </div>
             </div>
             <div className="flex flex-col gap-[16px]">
-              <div className="flex items-center gap-[12px]">
+              <div className=" location-details-alert">
                 <Image className="location-details-icon" src={IconCautionMarker} alt="cautionMarker" />
-                <p className="text-[20px]">문의사항은 아래 대표메일 또는 대표전화를 이용 부탁드립니다.</p>
+                <p className="location-details-alert-message">문의사항은 아래 대표메일 또는 대표전화를 이용 부탁드립니다.</p>
               </div>
               <div className="flex flex-col gap-[8px] ml-[36px] font-[500]">
                 <p className="text-[20px]">
