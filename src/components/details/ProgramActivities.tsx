@@ -130,21 +130,25 @@ export default function ProgramActivities() {
               <p className="leading-[45px]">{program.pragraph_2}</p>
               <p>{program.pragraph_3}</p>
             </div>
-            <div className="flex justify-center items-center">
-              <Image className="object-cover rounded-[20px] program_activity_detail_section_img" src={program.image} alt="programimg_1" />
+            <div className="program_activity_detail_section_container">
+              <div className="program_activity_detail_image_wrapper">
+                <Image className="program_activity_detail_section_img" src={program.image} alt="programimg_1" />
+              </div>
               <div>
-                {programs[index].details.map((detail, index) => (
-                  <div key={index} className="flex">
-                    <div className="program_activity_detail_section"> {hoveredDetails[program.id] === detail.id && <div className="section_selected_track" />}</div>
-                    <article className="section_container" onMouseEnter={() => handleMouseEnter(program.id, detail.id)} onMouseLeave={() => handleMouseLeave(program.id)}>
-                      <h4 className={`underline underline-offset-4 ${hoveredDetails[program.id] === detail.id ? "font-bold" : ""}`}>{detail.title}</h4>
-                      <div className={`mt-[16px] ${hoveredDetails[program.id] === detail.id ? "font-bold" : ""}`}>
-                        <p>{detail.pragraph_1}</p>
-                        <p className="leading-[34px]">{detail.pragraph_2}</p>
-                      </div>
-                    </article>
-                  </div>
-                ))}
+                <div className="program_activity_detail_section_wrapper">
+                  {programs[index].details.map((detail, index) => (
+                    <div key={index} className="flex">
+                      <div className="program_activity_detail_section"> {hoveredDetails[program.id] === detail.id && <div className="section_selected_track" />}</div>
+                      <article className="section_container" onMouseEnter={() => handleMouseEnter(program.id, detail.id)} onMouseLeave={() => handleMouseLeave(program.id)}>
+                        <h4 className={`underline underline-offset-4 ${hoveredDetails[program.id] === detail.id ? "font-bold" : ""}`}>{detail.title}</h4>
+                        <div className={`mt-[16px] ${hoveredDetails[program.id] === detail.id ? "font-bold" : ""}`}>
+                          <p>{detail.pragraph_1}</p>
+                          <p className="leading-[34px]">{detail.pragraph_2}</p>
+                        </div>
+                      </article>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
