@@ -3,7 +3,7 @@
 }
 
 .board-detail-subtitle {
-  @apply text-center text-3xl border-t-4 border-black pt-[36px] pb-[16px];
+  @apply text-center text-3xl border-t-4 border-black pt-[36px] pb-[16px] truncate;
 }
 
 .board-detail-date {
@@ -30,8 +30,24 @@
   @apply relative before:content-['.'] before:absolute before:left-[-12px] before:translate-y-[-20%];
 }
 
+.board-fileupload-container {
+  @apply bg-[#E7E7E7] my-[24px] mx-[16px] py-[24px] px-[32px];
+}
+
+.board-fileupload-wrapper {
+  @apply flex items-center gap-[24px];
+}
+
 .board-fileupload-title {
   @apply font-semibold text-lg w-[100px];
+}
+
+.board-fileupload-title-wrapper {
+  @apply w-full flex items-center justify-between cursor-pointer truncate;
+}
+
+.board-fileupload-filename-wrapper {
+  @apply flex items-center;
 }
 
 .board-fileupload-filename {
@@ -46,10 +62,140 @@
   @apply text-lg;
 }
 
+.board-detail-navigation-wrapper {
+  @apply flex flex-col gap-[24px] border-t-4 border-black pl-[42px] py-[24px];
+}
+
+.board-detail-navigation-inner {
+  @apply flex items-center gap-[16px];
+}
+
 .board-detail-navigation-button {
   @apply px-[12px] py-[12px] bg-black text-lg text-white mx-auto flex justify-center mb-[160px];
 }
 
 .board-detail-info-item {
   @apply block relative pl-4;
+}
+
+@media (max-width: 901px) {
+  .board-detail-contents {
+    @apply w-[764px] text-sm;
+  }
+
+  .board-detail-info-marker {
+    @apply text-sm;
+  }
+}
+
+@media (max-width: 796px) {
+  .board-detail-contents {
+    @apply w-[664px];
+  }
+}
+
+@media (max-width: 744px) {
+  .board-list-wrapper {
+    @apply text-sm mx-[8px];
+  }
+
+  .board-detail-subtitle {
+    @apply text-lg;
+  }
+
+  .board-detail-date {
+    @apply text-sm;
+  }
+
+  .file-empty-message {
+    @apply text-lg;
+  }
+}
+
+@media (max-width: 701px) {
+  .board-detail-contents {
+    @apply w-[554px];
+  }
+
+  .board-fileupload-title {
+    @apply text-base;
+  }
+
+  .board-fileupload-filename {
+    @apply text-base;
+  }
+
+  .download_icon {
+    @apply w-[34px] h-[34px];
+  }
+}
+
+@media (max-width: 600px) {
+  .board-detail-contents {
+    @apply w-[454px];
+  }
+
+  .board-detail-navigation-wrapper {
+    @apply pl-0;
+  }
+
+  .board-detail-navigation-line {
+    @apply w-[326.5px];
+  }
+
+  .board-detail-info-marker {
+    @apply leading-[22.5px];
+  }
+
+  .file-empty-message {
+    @apply text-sm;
+  }
+}
+
+@media (max-width: 520px) {
+  .board-fileupload-filename-inner {
+    @apply w-[178px] truncate;
+  }
+
+  .board-fileupload-wrapper {
+    @apply gap-0;
+  }
+
+  .board-fileupload-title {
+    @apply w-[85px];
+  }
+}
+
+@media (max-width: 393px) {
+  .board-fileupload-filename-inner {
+    @apply w-[115px] truncate;
+  }
+
+  .board-fileupload-container {
+    @apply px-[4px];
+  }
+
+  .board-fileupload-title-wrapper {
+    @apply w-[266px];
+  }
+
+  .board-detail-navigation-line {
+    @apply w-[190px];
+  }
+
+  .board-fileupload-title {
+    @apply w-[85px] text-sm;
+  }
+
+  .board-fileupload-filename {
+    @apply text-sm;
+  }
+
+  .board-detail-icon {
+    @apply w-[16px] h-[16px];
+  }
+
+  .board-detail-contents {
+    @apply w-[350px];
+  }
 }

@@ -24,6 +24,7 @@ type BoardDetailItem = {
   additional_info?: string | null;
   attachment_path?: string | null;
   attachment_name?: string | null;
+  attachment_size?: number | null;
 };
 
 type Props = {
@@ -68,6 +69,8 @@ export default function BoardDetailTemplate({ title, data }: Props) {
     setIsOpen((v) => !v);
   };
 
+  const formatFileSize = (size: number) => size + " KB";
+
   return (
     <div className="container">
       <h1 className="board-detail-title">{title}</h1>
@@ -90,11 +93,11 @@ export default function BoardDetailTemplate({ title, data }: Props) {
         ) : (
           <>
             <div className="board-detail-contents">
-              <p className={`${isNewsPage ? "leading-[33.6px] tracking-wide" : "pb-[10px] text-center"}`}>{selectedItem.contents}</p>
+              <p className={`${isNewsPage ? "leading-[33.6px] tracking-wide" : "pb-[10px] text-center leading-[22.4px]"}`}>{selectedItem.contents}</p>
             </div>
             {!isNewsPage ? (
               <div>
-                <p className={`${selectedItem.detail_info ? "board-detail-info-marker" : "leading-[33.6px]"}`}>{selectedItem.detail_info}</p>
+                <p className={`${selectedItem.detail_info ? "board-detail-info-marker " : "leading-[33.6px]"}`}>{selectedItem.detail_info}</p>
                 <p className={`${selectedItem.additional_info ? "board-detail-info-marker leading-[33.6px]" : "leading-[33.6px]"}`}>{selectedItem.additional_info}</p>
               </div>
             ) : null}
@@ -104,19 +107,23 @@ export default function BoardDetailTemplate({ title, data }: Props) {
       </div>
       {!isNewsPage ? (
         <>
-          <div className="bg-[#E7E7E7] my-[24px] mx-[16px] py-[24px] px-[32px]">
-            <div className="flex items-center gap-[24px]">
-              <div className="board-fileupload-title ">첨부파일</div>
+          <div className="board-fileupload-container">
+            <div className="board-fileupload-wrapper">
+              <div className="board-fileupload-title">첨부파일</div>
               {selectedItem.attachment_name ? (
-                <div className="w-full flex items-center justify-between cursor-pointer">
-                  <div>
-                    <a href={getAttachmentHref(selectedItem.attachment_path)} className="board-fileupload-filename">
-                      {selectedItem.attachment_name}
-                    </a>
+                <div className="board-fileupload-title-wrapper">
+                  <div className="board-fileupload-filename-wrapper">
+                    <div className="board-fileupload-filename-inner">
+                      <a href={getAttachmentHref(selectedItem.attachment_path)} className="board-fileupload-filename">
+                        {selectedItem.attachment_name}
+                      </a>
+                    </div>
+                    {selectedItem.attachment_size && <span className="pl-[24px] text-sm text-[#A7A7A7]">{formatFileSize(selectedItem.attachment_size)}</span>}
                   </div>
+
                   <div>
                     <a href={getAttachmentHref(selectedItem.attachment_path)}>
-                      <Image src={icon_download} alt="icon_download" />
+                      <Image className="download_icon" src={icon_download} alt="icon_download" />
                     </a>
                   </div>
                 </div>
@@ -130,21 +137,21 @@ export default function BoardDetailTemplate({ title, data }: Props) {
           </div>
         </>
       ) : null}
-      <div className="flex flex-col gap-[24px] border-t-4 border-black pl-[42px] py-[24px]">
+      <div className="board-detail-navigation-wrapper">
         {previousItem && (
-          <div className="flex items-center gap-[16px]">
+          <div className="board-detail-navigation-inner">
             <Image src={icon_arrowup} alt="icon_arrowup" />
             <span>이전글</span>
-            <StyledLink className="text-[#999999]" href={`${isNewsPage ? `/news/${previousItem.id}` : `/notices/${previousItem.id}`}`}>
+            <StyledLink className="text-[#999999] truncate board-detail-navigation-line" href={`${isNewsPage ? `/news/${previousItem.id}` : `/notices/${previousItem.id}`}`}>
               {getDisplayText(previousItem.title, previousItem.subtitle)}
             </StyledLink>
           </div>
         )}
         {nextItem && (
-          <div className="flex items-center gap-[16px]">
+          <div className="board-detail-navigation-inner">
             <Image src={icon_arrowdown} alt="icon_arrowdown" />
             <span>다음글</span>
-            <StyledLink className="text-[#999999]" href={`${isNewsPage ? `/news/${nextItem.id}` : `/notices/${nextItem.id}`}`}>
+            <StyledLink className="text-[#999999] truncate board-detail-navigation-line" href={`${isNewsPage ? `/news/${nextItem.id}` : `/notices/${nextItem.id}`}`}>
               {getDisplayText(nextItem.title, nextItem.subtitle)}
             </StyledLink>
           </div>

@@ -73,14 +73,14 @@ export default function InfoBoardTemplate({ title, data, getItemHref }: Props) {
 
   return (
     <div className="container">
-      <h1 className="text-center text-[42px] my-[160px]">{title}</h1>
+      <h1 className="board-title">{title}</h1>
       <div className={`flex items-center ${pathName.startsWith("/notices") ? "justify-between" : "justify-end"}`}>
         {pathName.startsWith("/notices") && (
           <ul className="tap-menu-wrapper">
             <li className={pathName === "/notices" ? "tab-menu-link" : ""}>
               <StyledLink href="/notices">전체</StyledLink>
             </li>
-            <li className={pathName === "/notices/recruit" ? "px-[24px] tab-menu-link" : "px-[24px]"}>
+            <li className={pathName === "/notices/recruit" ? "tab-menu-line tab-menu-link" : "tab-menu-line"}>
               <StyledLink href="/notices/recruit">모집</StyledLink>
             </li>
             <li className={pathName === "/notices/info" ? "tab-menu-link" : ""}>
@@ -90,8 +90,8 @@ export default function InfoBoardTemplate({ title, data, getItemHref }: Props) {
         )}
 
         <form className="search-input-wrapper" onSubmit={handleSearch}>
-          <input type="text" className="border-b border-black w-full h-full placeholder-[#898989] focus:outline-none p-[5px]" placeholder=" 검색어를 입력해주세요" value={searchKeyword} onChange={handleOnChange} />
-          <Image src={search} alt="search" width={24} height={24} className="absolute top-1/2 -translate-y-1/2 right-[8px] cursor-pointer" onClick={() => handleSearch()} />
+          <input type="text" className="search-input" placeholder=" 검색어를 입력해주세요" value={searchKeyword} onChange={handleOnChange} />
+          <Image src={search} alt="search" className="absolute top-1/2 -translate-y-1/2 right-[8px] cursor-pointer search-icon" onClick={() => handleSearch()} />
         </form>
       </div>
       {currentData.length === 0 ? (
