@@ -53,6 +53,7 @@ export default function NewsSection() {
     const newsList = async (): Promise<void> => {
       const res = await fetch("/api/news");
       const data = await res.json();
+
       return setNewsItems(data);
     };
     newsList();

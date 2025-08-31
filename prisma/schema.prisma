@@ -18,7 +18,7 @@ model notice {
   additional_info String?
   attachment_path String?
   attachment_name String?
-  attachment_size BigInt?
+  attachment_size Int?
   attachment_type String?
 
   @@id([id, created_at, title])
