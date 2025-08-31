@@ -18,6 +18,10 @@
   @apply leading-[38px];
 }
 
+.news-card-container {
+  @apply flex my-[80px] pr-[170px] gap-[32px] overflow-x-scroll w-screen;
+}
+
 .news-card-wrapper {
   @apply relative w-[780px];
 }
@@ -44,6 +48,14 @@
 
 .news-card-link {
   @apply absolute top-[446px] left-[32px];
+}
+
+.news-card-link-icon {
+  @apply w-[31.5px] h-[31.5px];
+}
+
+.new-card-selected-track {
+  @apply absolute h-[2px] w-full mt-[80px] bg-black transition-all duration-300 ease-in-out;
 }
 
 .news-card-track {
@@ -79,5 +91,101 @@
 @media (max-width: 795px) {
   .new-section-wrapper {
     @apply mt-[160px];
+  }
+}
+
+@media (max-width: 744px) {
+  .new-card-selected-track {
+    @apply mt-0 h-0;
+  }
+
+  .news-card-track {
+    @apply min-w-0 h-0;
+  }
+
+  .news-card-container {
+    @apply flex flex-col;
+  }
+
+  .news-card-container {
+    @apply overflow-x-visible;
+  }
+
+  .news-card-wrapper {
+    @apply relative w-[664px] h-[433px];
+  }
+
+  .news-card-inner {
+    @apply relative h-[433px];
+  }
+
+  .new-card-title-defalut {
+    @apply pt-[325px];
+  }
+
+  .new-card-title-hovered {
+    @apply pt-[275px];
+  }
+
+  .news-card-link {
+    @apply top-[369px];
+  }
+}
+
+@media (max-width: 700px) {
+  .news-card-wrapper {
+    @apply relative w-[620px] h-[433px];
+  }
+}
+
+@media (max-width: 660px) {
+  .news-card-wrapper {
+    @apply relative w-[580px] h-[433px];
+  }
+}
+
+@media (max-width: 600px) {
+  .news-card-wrapper {
+    @apply relative w-[520px] h-[433px];
+  }
+}
+
+@media (max-width: 520px) {
+  .news-card-wrapper {
+    @apply relative w-[440px] h-[433px];
+  }
+
+  .news-card-title-wrapper {
+    @apply text-lg;
+  }
+}
+
+@media (max-width: 393px) {
+  .news-card-wrapper {
+    @apply relative w-[313px] h-[313px];
+  }
+
+  .news-card-title-wrapper {
+    @apply text-sm;
+  }
+
+  .news-card-inner {
+    @apply relative h-[313px];
+  }
+
+  .new-card-title-defalut {
+    @apply pt-[205px];
+  }
+
+  .new-card-title-hovered {
+    @apply pt-[200px];
+  }
+
+  .news-card-link {
+    @apply top-[265px];
+  }
+
+  .news-card-link-icon {
+    @apply w-[25px] h-[25px];
   }
 }

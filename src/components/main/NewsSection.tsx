@@ -73,7 +73,7 @@ export default function NewsSection() {
             </div>
           </SlideLeftFade>
         </div>
-        <div className="flex my-[80px] pr-[170px] gap-[32px] overflow-x-scroll scrollbar-hide w-screen">
+        <div className="news-card-container scrollbar-hide">
           {newsItems.map((newsItem, i) => (
             <StyledLink href={`/news/${newsItem.id}`} key={i} onMouseEnter={() => setHoveredNewsId(newsItem.id)} onMouseLeave={() => setHoveredNewsId(null)} className="news-card-wrapper">
               <div className="news-card-inner">
@@ -85,11 +85,11 @@ export default function NewsSection() {
                 </div>
                 <div className={`transition-opacity duration-300 ease-in-out delay-100 ${hoveredNewsId === newsItem.id ? "opacity-100" : "opacity-0"}`}>
                   <div className="news-card-link">
-                    <Image className="w-[31.5px] h-[31.5px]" src={icon_arrow} alt="icon_arrow" />
+                    <Image className="news-card-link-icon" src={icon_arrow} alt="icon_arrow" />
                   </div>
                 </div>
               </div>
-              <div className={`absolute h-[2px] w-full mt-[80px] bg-black transition-all duration-300 ease-in-out ${hoveredNewsId === newsItem.id ? "opacity-100" : "opacity-0"}`} />
+              <div className={`new-card-selected-track ${hoveredNewsId === newsItem.id ? "opacity-100" : "opacity-0"}`} />
               <div className="news-card-track"></div>
             </StyledLink>
           ))}

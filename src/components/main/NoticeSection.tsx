@@ -19,7 +19,7 @@ export default function NoticeSection() {
       const res = await fetch("/api/notice");
       const data = await res.json();
 
-      const sortedData = data.sort((a: Notice, b: Notice) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+      const sortedData = data?.sort((a: Notice, b: Notice) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
 
       return setNotices(sortedData.slice(0, 3));
     };

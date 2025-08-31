@@ -70,6 +70,12 @@
   }
 }
 
+@media (max-width: 744px) {
+  .notice-section-wrapper {
+    @apply mt-[236px];
+  }
+}
+
 @media (max-width: 660px) {
   .notice-list-wrapper {
     @apply text-[16px] gap-[22px];
