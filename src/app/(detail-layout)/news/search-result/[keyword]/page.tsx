@@ -1,9 +1,9 @@
 import { prisma } from "@/lib/prisma";
 import InfoBoardTemplate from "@/components/common/InfoBoardTemplate";
 
-type Params = { keyword: string };
+type Props = { params: { keyword: string } };
 
-export default async function NewsSearchResult({ params }: { params: Promise<Params> }) {
+export default async function NewsSearchResult({ params }: Props) {
   const resolved = await params;
   const keyword = decodeURIComponent(resolved.keyword ?? "").trim();
 
