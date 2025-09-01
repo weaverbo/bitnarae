@@ -63,7 +63,7 @@ export default function FacilityDetails() {
               <p>예술 놀이터</p>
             </div>
           </div>
-          <div className="facility_details_block_image-container">
+          <div className="facility_details_block_image-container scrollbar-hide">
             <div className="facility_details_block_image-wrapper">
               {facilityImg.slice(0, 3).map((img, index) => (
                 <div key={img.id} className="facility_details_block_image-inner" onMouseEnter={() => handleMouseEnter(index)} onMouseLeave={() => handleMouseLeave(index)}>
@@ -85,7 +85,7 @@ export default function FacilityDetails() {
               <p>예술 작업터</p>
             </div>
           </div>
-          <div className="facility_details_block_image-container">
+          <div className="facility_details_block_image-container scrollbar-hide">
             <div className="facility_details_block_image-wrapper-other">
               {facilityImg.slice(3, 5).map((img, index) => {
                 const trueIndex = index + 3;
@@ -110,7 +110,7 @@ export default function FacilityDetails() {
               <p>문화의 뜰</p>
             </div>
           </div>
-          <div className="facility_details_block_image-container">
+          <div className="facility_details_block_image-container scrollbar-hide">
             <div className="facility_details_block_image-wrapper">
               {facilityImg.slice(5, 8).map((img, index) => {
                 const trueIndex = index + 5;
@@ -135,7 +135,7 @@ export default function FacilityDetails() {
               <p>닿는 문화의 장</p>
             </div>
           </div>
-          <div className="facility_details_block_image-container">
+          <div className="facility_details_block_image-container scrollbar-hide">
             <div className="facility_details_block_image-wrapper-other">
               {facilityImg.slice(8, 10).map((img, index) => {
                 const trueIndex = index + 8;

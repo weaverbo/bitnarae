@@ -35,7 +35,7 @@
 }
 
 .facility_details_block_image-container {
-  @apply overflow-x-scroll scrollbar-hide mr-[calc(50%-50vw)];
+  @apply overflow-x-scroll mr-[calc(50%-50vw)];
 }
 
 .facility_details_block_image-wrapper {
